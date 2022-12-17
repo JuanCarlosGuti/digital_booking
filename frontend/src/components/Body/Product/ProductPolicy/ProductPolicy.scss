@@ -1,0 +1,53 @@
+@import "./../../../../sass/general.scss";
+
+.prodPolicy{
+ padding: 10px $navbar-padding-h;
+ font-weight: 700;
+ margin-bottom: $footer-h;
+
+ width: 100%;
+ display: flex;
+ justify-content: center;
+
+ &__container {
+   width: 100%;
+   max-width: $mx-w;
+ }
+
+
+ .policies{
+ @include breakpoint-up(small) {
+ 
+    display: flex;
+    
+    flex-wrap: wrap;
+ }
+
+}
+
+ h5{
+font-size: 1.2rem;
+margin-bottom: 0.8rem;
+margin-top: 1.8rem;
+@include breakpoint-up(small) {
+    margin-top: 1rem;
+}
+@include breakpoint-up(medium) {
+    margin-top: 0.5rem;
+}
+ }
+ul{
+    @include breakpoint-up(small) {
+        width: 45vw;
+    }
+    @include breakpoint-up(medium) {
+        width: 32vw;
+    }
+    padding-left: 0px;
+    li{
+        list-style: none;
+        margin-bottom: 0.3rem;
+     }
+}
+ 
+}

@@ -1,0 +1,51 @@
+@import "../../../sass/general.scss";
+
+.SelectContainer {
+  background-color: $light;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  p {
+    font-size: 14px;
+    font-style: normal;
+    color: #7f7f7f;
+    font-weight: 700;
+    line-height: 16px;
+  }
+  &__iconContainer {
+    height: fit-content;
+    width: 25px;
+    margin-left: 5px;
+    font-size: 30px;
+
+    &-icon {
+      font-size: 100px;
+      height: 100%;
+      width: 100%;
+      opacity: 0.5;
+    }
+  }
+}
+
+/* Efecto para aparacer y desaparecer enlaces */
+.enlace {
+  height: 0;
+  overflow: hidden;
+}
+.animation {
+  height: fit-content;
+  z-index: 2;
+  margin-top: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px #f3f1ed;
+  width: 85%;
+  position: absolute;
+  background-color: $light;
+  @include breakpoint-up(small) {
+    width: 33%;
+  }
+}

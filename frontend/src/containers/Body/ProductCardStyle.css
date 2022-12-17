@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+html {
+  font-family: "Poppins", sans-serif;
+  font-size: 100%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+html a {
+  text-decoration: none;
+}
+html .hidden {
+  display: none;
+}
+html body {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+html div {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.buttonEffect {
+  letter-spacing: 0;
+  overflow: hidden;
+  position: relative;
+}
+.buttonEffect:after {
+  background: #fff;
+  content: "";
+  height: 155px;
+  left: -75px;
+  opacity: 0.2;
+  position: absolute;
+  top: -50px;
+  transform: rotate(35deg);
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  width: 50px;
+  z-index: -10;
+}
+
+.buttonEffect:hover {
+  letter-spacing: 1px;
+  transform: scale(1.05);
+  transition: all 380ms ease-in-out;
+}
+.buttonEffect:hover:after {
+  left: 120%;
+  transition: all 4050ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.buttonEffect2 {
+  letter-spacing: 0;
+}
+
+.buttonEffect2:hover {
+  letter-spacing: 1px;
+  transform: scale(1.2);
+  transition: all 250ms ease-in-out;
+}
+
+.productCardMainContainer {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 560px;
+}
+@media (min-width: 30em) {
+  .productCardMainContainer {
+    display: flex;
+    flex-direction: row;
+    height: 250px;
+    width: 100%;
+    padding-bottom: 0px;
+    height: 290px;
+  }
+}
+@media (min-width: 80em) {
+  .productCardMainContainer {
+    height: 290px;
+  }
+}
+.productCardMainContainer__imageContainer {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 50%;
+}
+@media (min-width: 30em) {
+  .productCardMainContainer__imageContainer {
+    height: 100%;
+    width: 90%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+}
+.productCardMainContainer__imageContainer img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+@media (min-width: 30em) {
+  .productCardMainContainer__imageContainer img {
+    border-top-right-radius: 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+}
+.productCardMainContainer__contentContainer {
+  width: 90%;
+  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (min-width: 80em) {
+  .productCardMainContainer__contentContainer {
+    margin: 0px 3%;
+  }
+}
+@media (min-width: 30em) {
+  .productCardMainContainer__contentContainer {
+    justify-content: space-evenly;
+    width: 98%;
+    margin: 1% 2%;
+    margin-bottom: 1rem;
+  }
+}
+.productCardMainContainer__contentContainer__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+@media (min-width: 30em) {
+  .productCardMainContainer__contentContainer__header {
+    width: 98%;
+    margin: 1% 2%;
+  }
+}
+.productCardMainContainer__contentContainer__header__endContainer {
+  text-align: right;
+  height: 70px;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+.productCardMainContainer__contentContainer__header__endContainer--calification {
+  margin: 0;
+  font-size: 14px;
+  color: rgb(38, 50, 56);
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+.productCardMainContainer__contentContainer__header__endContainer--numberContainer {
+  font-size: 20px;
+  margin: 0;
+  background-color: #383b58;
+  color: rgb(255, 255, 255);
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  text-align: center;
+}
+.productCardMainContainer__contentContainer__header__startContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.productCardMainContainer__contentContainer__header__startContainer--star {
+  color: rgb(251, 192, 45);
+}
+.productCardMainContainer__contentContainer__header__startContainer span {
+  font-size: 12px;
+  opacity: 60%;
+  color: rgb(38, 50, 56);
+}
+.productCardMainContainer__contentContainer__header__startContainer p {
+  height: 60px;
+  overflow: hidden;
+  margin: 0;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  font-size: 22px;
+  padding-top: 0.7rem;
+}
+.productCardMainContainer__contentContainer__ubicationContainer {
+  width: 90%;
+}
+.productCardMainContainer__contentContainer__ubicationContainer p {
+  margin: 0;
+  margin-bottom: 10px;
+  color: rgb(38, 50, 56);
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+}
+.productCardMainContainer__contentContainer__ubicationContainer p span {
+  text-transform: uppercase;
+  color: rgb(251, 192, 45);
+}
+@media (min-width: 80em) {
+  .productCardMainContainer__contentContainer__ubicationContainer p {
+    padding-bottom: 0.7rem;
+  }
+}
+@media (min-width: 48rem) {
+  .productCardMainContainer__contentContainer__footer {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.productCardMainContainer__contentContainer__footer p {
+  margin: 0;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  line-height: 16px;
+  font-weight: 500;
+  color: rgb(38, 50, 56);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+@media (min-width: 30em) {
+  .productCardMainContainer__contentContainer__footer p {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+.productCardMainContainer__contentContainer__footer a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 8px 12px;
+  border: 1px solid rgb(251, 192, 45);
+  border-radius: 5px;
+  background-color: rgb(251, 192, 45);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  font-family: "Poppins", sans-serif;
+  width: 100px;
+  text-align: center;
+  margin: 0 auto;
+}
+.productCardMainContainer__contentContainer__footer a:hover {
+  color: rgb(38, 50, 56);
+}
+
+.productCardMainContainer:hover {
+  box-shadow: 0px 0px 30px 10px #cccccc;
+}/*# sourceMappingURL=ProductCardStyle.css.map */

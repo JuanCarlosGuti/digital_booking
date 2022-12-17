@@ -1,0 +1,305 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+html {
+  font-family: "Poppins", sans-serif;
+  font-size: 100%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+html a {
+  text-decoration: none;
+}
+html .hidden {
+  display: none;
+}
+html body {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+html div {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.buttonEffect {
+  letter-spacing: 0;
+  overflow: hidden;
+  position: relative;
+}
+.buttonEffect:after {
+  background: #fff;
+  content: "";
+  height: 155px;
+  left: -75px;
+  opacity: 0.2;
+  position: absolute;
+  top: -50px;
+  transform: rotate(35deg);
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  width: 50px;
+  z-index: -10;
+}
+
+.buttonEffect:hover {
+  letter-spacing: 1px;
+  transform: scale(1.05);
+  transition: all 380ms ease-in-out;
+}
+.buttonEffect:hover:after {
+  left: 120%;
+  transition: all 4050ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.buttonEffect2 {
+  letter-spacing: 0;
+}
+
+.buttonEffect2:hover {
+  letter-spacing: 1px;
+  transform: scale(1.2);
+  transition: all 380ms ease-in-out;
+}
+
+.prodCalendar {
+  background-color: #ececef;
+  padding: 10px 15px;
+  font-weight: 700;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.prodCalendar__container {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+}
+.prodCalendar h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0px;
+}
+.prodCalendar__mainContainer {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 80em) {
+  .prodCalendar__mainContainer {
+    flex-direction: row;
+    width: 83rem;
+  }
+}
+.prodCalendar__mainContainer__calendarBoxContainer {
+  width: 100%;
+}
+@media (min-width: 30em) {
+  .prodCalendar__mainContainer__calendarBoxContainer {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+}
+@media (min-width: 48rem) {
+  .prodCalendar__mainContainer__calendarBoxContainer {
+    width: 60rem;
+    margin-left: 20px;
+  }
+}
+.prodCalendar__mainContainer__calendarBoxContainer-Box {
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  width: 98%;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+}
+@media (min-width: 30em) {
+  .prodCalendar__mainContainer__calendarBoxContainer-Box {
+    width: 95%;
+  }
+}
+@media (min-width: 48rem) {
+  .prodCalendar__mainContainer__calendarBoxContainer-Box {
+    margin-top: 30px;
+    width: 100%;
+  }
+}
+.prodCalendar__mainContainer__calendarBoxContainer-Box .rdrMonthName {
+  text-align: center;
+  text-transform: capitalize;
+  color: #1c1c1c;
+}
+.prodCalendar__mainContainer__calendarBoxContainer-Box .rdrMonthAndYearPickers {
+  visibility: hidden;
+}
+.prodCalendar__mainContainer__calendarBoxContainer-Box .rdrMonths {
+  width: 100%;
+}
+.prodCalendar__mainContainer__calendarBoxContainer-Box .rdrMonth {
+  width: 100%;
+}
+@media (min-width: 48rem) {
+  .prodCalendar__mainContainer__calendarBoxContainer-Box .rdrMonth:first-child {
+    margin-left: 40px;
+  }
+}
+@media (min-width: 48rem) {
+  .prodCalendar__mainContainer__calendarBoxContainer-Box .rdrMonth:last-child {
+    margin-right: 40px;
+  }
+}
+.prodCalendar__mainContainer__calendarBoxContainer-Box .rdrWeekDays {
+  width: 100%;
+}
+.prodCalendar__mainContainer__calendarBoxContainer-Box .rdrMonthsHorizontal {
+  width: 100%;
+}
+.prodCalendar__mainContainer__calendarBoxContainer-Box .rdrCalendarWrapper {
+  width: 17rem;
+}
+@media (min-width: 30em) {
+  .prodCalendar__mainContainer__calendarBoxContainer-Box .rdrCalendarWrapper {
+    margin-bottom: 20px;
+    width: 33rem;
+  }
+}
+@media (min-width: 48rem) {
+  .prodCalendar__mainContainer__calendarBoxContainer-Box .rdrCalendarWrapper {
+    width: 55rem;
+    margin-bottom: 20px;
+  }
+}
+.prodCalendar__mainContainer__calendarBoxContainer-Box .rdrCalendarWrapper .rdrNextPrevButton {
+  background-color: rgb(251, 192, 45);
+  border-radius: 100px;
+  margin: 0;
+}
+@media (min-width: 48rem) {
+  .prodCalendar__mainContainer__calendarBoxContainer-Box .rdrDays {
+    row-gap: 20px;
+  }
+}
+.prodCalendar__mainContainer__calendarBoxContainer-Box .rdrMonthAndYearWrapper {
+  justify-content: center;
+  position: absolute;
+  align-items: flex-start;
+  margin-left: 10px;
+  padding-right: 10px;
+}
+@media (min-width: 30em) {
+  .prodCalendar__mainContainer__calendarBoxContainer-Box .rdrMonthAndYearWrapper {
+    width: 33rem;
+  }
+}
+@media (min-width: 48rem) {
+  .prodCalendar__mainContainer__calendarBoxContainer-Box .rdrMonthAndYearWrapper {
+    width: 55rem;
+    margin-top: 10rem;
+  }
+}
+@media (min-width: 80em) {
+  .prodCalendar__mainContainer__calendarBoxContainer-Box .rdrMonthAndYearWrapper {
+    width: 53rem;
+    margin-left: 20px;
+  }
+}
+.prodCalendar__mainContainer__calendarBoxContainer-Box .rdrDefinedRangesWrapper {
+  display: none;
+}
+.prodCalendar__mainContainer__assignButtonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+@media (min-width: 30em) {
+  .prodCalendar__mainContainer__assignButtonContainer {
+    width: 90%;
+    margin: auto;
+  }
+}
+@media (min-width: 48rem) {
+  .prodCalendar__mainContainer__assignButtonContainer {
+    width: 40rem;
+  }
+}
+@media (min-width: 80em) {
+  .prodCalendar__mainContainer__assignButtonContainer {
+    background-color: rgb(255, 255, 255);
+    margin-left: 30px;
+    border-radius: 10px;
+    padding-top: 20px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  }
+}
+.prodCalendar__mainContainer__assignButtonContainer-Box {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 98%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+@media (min-width: 30em) {
+  .prodCalendar__mainContainer__assignButtonContainer-Box {
+    width: 90%;
+    background-color: transparent;
+    flex-direction: row;
+    width: 85%;
+  }
+}
+@media (min-width: 48rem) {
+  .prodCalendar__mainContainer__assignButtonContainer-Box {
+    width: 90%;
+    flex-direction: column;
+    padding-top: 3%;
+  }
+}
+.prodCalendar__mainContainer__assignButtonContainer-Box p {
+  width: 97%;
+  font-size: 12px;
+  margin: auto;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+@media (min-width: 30em) {
+  .prodCalendar__mainContainer__assignButtonContainer-Box p {
+    width: 60%;
+    font-size: 13px;
+  }
+}
+@media (min-width: 48rem) {
+  .prodCalendar__mainContainer__assignButtonContainer-Box p {
+    width: 100%;
+    font-size: 17px;
+  }
+}
+.prodCalendar__mainContainer__assignButtonContainer-Box a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 10px 30px;
+  border: 1px solid rgb(251, 192, 45);
+  border-radius: 5px;
+  background-color: rgb(251, 192, 45);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  padding: 0;
+}
+.prodCalendar__mainContainer__assignButtonContainer-Box a:hover {
+  cursor: pointer;
+  color: black;
+}/*# sourceMappingURL=ProductCalendar.css.map */

@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+html {
+  font-family: "Poppins", sans-serif;
+  font-size: 100%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+html a {
+  text-decoration: none;
+}
+html .hidden {
+  display: none;
+}
+html body {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+html div {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.buttonEffect {
+  letter-spacing: 0;
+  overflow: hidden;
+  position: relative;
+}
+.buttonEffect:after {
+  background: #fff;
+  content: "";
+  height: 155px;
+  left: -75px;
+  opacity: 0.2;
+  position: absolute;
+  top: -50px;
+  transform: rotate(35deg);
+  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  width: 50px;
+  z-index: -10;
+}
+
+.buttonEffect:hover {
+  letter-spacing: 1px;
+  transform: scale(1.05);
+  transition: all 380ms ease-in-out;
+}
+.buttonEffect:hover:after {
+  left: 120%;
+  transition: all 4050ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.buttonEffect2 {
+  letter-spacing: 0;
+}
+
+.buttonEffect2:hover {
+  letter-spacing: 1px;
+  transform: scale(1.2);
+  transition: all 380ms ease-in-out;
+}
+
+.backdrop {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100vw;
+  height: 81vh;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 10;
+}
+
+.backgroundContainer {
+  position: absolute;
+  top: 80px;
+  margin-left: 20vh;
+  width: 80%;
+  height: 78%;
+  z-index: 15;
+}
+.backgroundContainer_GaleryContainer {
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+  margin-top: 6%;
+  width: 50%;
+  height: 90%;
+  border-radius: 10px;
+}
+.backgroundContainer_GaleryContainer button {
+  position: absolute;
+  margin-left: 45%;
+  font-size: 2.5rem;
+  background-color: transparent;
+  color: rgb(251, 192, 45);
+  border: none;
+}
+.backgroundContainer_GaleryContainer button:hover {
+  cursor: pointer;
+  color: antiquewhite;
+}
+.backgroundContainer_GaleryContainer button:first-child {
+  margin-top: 20px;
+}
+.backgroundContainer_GaleryContainer button:nth-child(2) {
+  margin-top: 150px;
+}
+.backgroundContainer_GaleryContainer_currentImageContainer {
+  border-radius: 10px;
+  height: 60%;
+}
+.backgroundContainer_GaleryContainer_currentImageContainer img {
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.backgroundContainer_GaleryContainer_imagesContainer_slidesContainer {
+  display: flex;
+}
+.backgroundContainer_GaleryContainer_imagesContainer_slidesContainer .imageBox {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  width: 180px;
+  height: 120px;
+}
+.backgroundContainer_GaleryContainer_imagesContainer_slidesContainer .imageBox img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+}
+.backgroundContainer_GaleryContainer_imagesContainer p {
+  text-align: center;
+}/*# sourceMappingURL=Backdrop.css.map */

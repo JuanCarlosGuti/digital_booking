@@ -1,0 +1,29 @@
+@import "./../../../../sass/general.scss";
+
+.productLocation {
+  position: fixed;
+  top: calc($navbar-h + 80px);
+  width: 100%;
+  z-index: 20;
+  background-color: $lightGray;
+  padding: 10px $navbar-padding-h;
+  font-weight: 700;
+  color: $colorOscuro;
+  display: flex;
+  justify-content: center;
+
+  &__container {
+
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: $mx-w;
+
+  }
+
+
+  svg {
+    font-size: 1.3rem;
+    margin-right: 1rem;
+  }
+}

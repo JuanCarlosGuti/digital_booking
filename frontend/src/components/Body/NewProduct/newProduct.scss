@@ -1,0 +1,287 @@
+@import "../../../sass/general.scss";
+
+.NewProductMainContainer {
+  margin-top: $navbar-h;
+  margin-bottom: 10px;
+  background-color: #eeeef1;
+  h3 {
+    font-size: 20px;
+    background-color: #eeeef1;
+    padding: 10px 0 10px 40px;
+    width: 100%;
+    margin: auto;
+    margin-top: 0;
+    max-width: 1200px;
+  }
+
+  .NewProductHeaderContainer {
+    width: 100vw;
+    background-color: $colorPpal;
+    &_box {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px 0 10px;
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 35px;
+        &:hover {
+          cursor: pointer;
+          color: white;
+        }
+      }
+    }
+  }
+  &_box {
+    background-color: $light;
+    border-radius: 10px;
+    @include breakpoint-up(small) {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      margin-bottom: 0;
+      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+      padding-left: 20px;
+    }
+    h3 {
+      background-color: $light;
+      padding: 10px 0 10px 10px;
+    }
+    label {
+      font-size: 15px;
+    }
+    .NewProductFormContainer {
+      border-radius: 10px;
+      form {
+        padding-top: 10px;
+        display: flex;
+        flex-direction: column;
+        input,
+        select,
+        textarea {
+          background: #ffffff;
+          padding: 10px;
+          margin: 5px 0 10px 0;
+          font-family: "Roboto";
+          border: none;
+          box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+          border-radius: 5px;
+          height: 40px;
+        }
+        textarea {
+          height: 130px;
+        }
+      }
+      background-color: $light;
+      flex-direction: column;
+      &_firstGroup {
+        @include breakpoint-up(small) {
+          display: flex;
+          flex-direction: row;
+        }
+
+        &_formGroupContainer {
+          display: flex;
+          flex-direction: column;
+          width: 85%;
+          margin: auto;
+          margin-bottom: 10px;
+          margin-left: 15px;
+          @include breakpoint-up(small) {
+            width: 40%;
+            margin-top: 0;
+          }
+        }
+      }
+      &_formGroupContainer {
+        display: flex;
+        flex-direction: column;
+        width: 85%;
+        margin: auto;
+        margin-left: 15px;
+        margin-bottom: 10px;
+
+        @include breakpoint-up(small) {
+          width: 90%;
+        }
+      }
+    }
+    .NewProductAttributesContainer {
+      background-color: $light;
+      &_attributesContainer {
+        padding: 10px 0 10px 0;
+        width: 85%;
+        margin: auto;
+        &-box {
+          margin-top: 20px;
+          display: flex;
+          justify-content: space-between;
+          .item {
+            background-color: blueviolet;
+          }
+        }
+        &-box:first-child {
+          margin-top: 0;
+        }
+        &_component:last-child {
+          margin-top: 20px;
+          @include breakpoint-up(medium) {
+            margin-top: 0;
+            margin-left: 20px;
+          }
+        }
+        &_component {
+          @include breakpoint-up(medium) {
+            width: 100%;
+          }
+        }
+
+        @include breakpoint-up(medium) {
+          display: flex;
+          width: 60%;
+        }
+      }
+    }
+    .NewProductPolicyContainer {
+      &_policyContainer {
+        background-color: $light;
+        @include breakpoint-up(small) {
+          width: 93%;
+          padding-bottom: 20px;
+          box-shadow: 2px 1px 2px 2px rgba(0, 0, 0, 0.1);
+          border-radius: 10px;
+        }
+        @include breakpoint-up(medium) {
+          display: flex;
+          width: 98%;
+          margin-bottom: 20px;
+        }
+        &-box {
+          width: 85%;
+          margin: auto;
+          margin-left: 15px;
+          display: flex;
+          flex-direction: column;
+          h4 {
+            margin-top: 10px;
+            margin-bottom: 0;
+          }
+          label {
+            margin-top: 5px;
+            font-size: 14px;
+          }
+          textarea {
+            background: #ffffff;
+            padding: 10px;
+            height: 130px;
+            margin-top: 5px;
+            font-family: "Roboto";
+            border: none;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+            border-radius: 5px;
+            @include breakpoint-up(medium) {
+              width: 90%;
+              height: 220px;
+            }
+          }
+        }
+      }
+    }
+    .NewProductUploadMediaContainer {
+      h3 {
+        background-color: $light;
+      }
+      &_imageContainer {
+        width: 95%;
+        margin: auto;
+        background-color: #eeeef1;
+        margin-top: 10px;
+        @include breakpoint-up(medium) {
+          width: 98%;
+        }
+        &_imagesBox {
+          width: 95%;
+          padding: 5px 5px 10px 5px;
+          margin: auto;
+          display: flex;
+          align-items: center;
+          @include breakpoint-up(medium) {
+            padding: 10px 5px 30px 5px;
+          }
+
+          input {
+            width: 80%;
+            font-family: "Roboto";
+            border: none;
+            background: #ffffff;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+            border-radius: 5px;
+            height: 30px;
+            padding: 10px;
+            @include breakpoint-up(medium) {
+              height: 50px;
+              width: 95%;
+            }
+          }
+          &-button {
+            width: 15%;
+            height: 30px;
+            padding: 2px;
+            background-color: $colorPpal;
+            color: $light;
+            display: flex;
+            margin-left: 5px;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+            border-radius: 10px;
+            @include breakpoint-up(medium) {
+              width: 5%;
+              height: 50px;
+            }
+            &:hover {
+              cursor: pointer;
+              color: black;
+              background-color: white;
+            }
+          }
+        }
+      }
+    }
+    &_ButtonContainer {
+      display: flex;
+      margin-top: 30px;
+      button {
+        width: 90%;
+        height: 40px;
+        margin: auto;
+        border: 1px solid $colorPpal;
+        border-radius: 5px;
+        background-color: $colorPpal;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+        font-family: "Poppins", sans-serif;
+        color: $buttonsText;
+        text-decoration: none;
+        font-weight: 700;
+        @include breakpoint-up(small) {
+          width: 60%;
+          height: 50px;
+          margin-bottom: 50px;
+        }
+        @include breakpoint-up(medium) {
+          width: 30%;
+          font-size: 15px;
+        }
+        &:hover {
+          cursor: pointer;
+          color: black;
+          background-color: white;
+        }
+      }
+    }
+  }
+}

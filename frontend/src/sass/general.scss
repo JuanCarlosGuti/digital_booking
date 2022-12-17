@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+
+//variables
+$colorPpal: rgba(251, 192, 45, 1);
+$Dark: rgb(20, 31, 37);
+$colorOscuro: rgba(38, 50, 56, 1);
+$colorClaro: rgba(96, 125, 139, 1);
+$colorFondo: rgba(255, 251, 226, 1);
+$light: rgb(255, 255, 255);
+$lightGray: rgb(235, 235, 235);
+$backBody: #e3e3e3;
+$buttonsText: rgb(255, 255, 255);
+
+html {
+  font-family: "Poppins", sans-serif;
+  font-size: 100%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  a {
+    text-decoration: none;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+  }
+
+  div {
+    box-sizing: border-box;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+// 480px, 768px, 1280px
+$breakpoints-up: (
+  "small": "30em",
+  "medium": "48rem",
+  "large": "80em",
+);
+
+$breakpoints-down: (
+  "small": "29.9375em",
+  "medium": "47.8125rem",
+  "large": "79.9375em",
+);
+
+@mixin breakpoint-up($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
+
+@mixin links() {
+  color: $buttonsText;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 8px 12px;
+  border: 1px solid $colorPpal;
+  border-radius: 5px;
+  // margin: 15px;
+  background-color: $colorPpal;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  font-family: "Poppins", sans-serif;
+}
+
+//container general
+$mx-w: 1200px;
+
+//navbar and footer height
+$navbar-h: 80px;
+$navbar-padding-h: 15px;
+$footer-h: 55px;
+
+//efecto de botones
+
+.buttonEffect {
+  letter-spacing: 0;
+  overflow: hidden;
+  position: relative;
+
+  &:after {
+    background: #fff;
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: 0.2;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+    z-index: -10;
+  }
+}
+
+.buttonEffect:hover {
+  letter-spacing: 1px;
+  transform: scale(1.05);
+  transition: all 380ms ease-in-out;
+
+  &:after {
+    left: 120%;
+    transition: all 4050ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+}
+
+
+
+.buttonEffect2 {
+  letter-spacing: 0;
+  // overflow: hidden;
+  // position: relative;
+
+}
+
+.buttonEffect2:hover {
+  letter-spacing: 1px;
+  transform: scale(1.2);
+  transition: all 250ms ease-in-out;
+
+}

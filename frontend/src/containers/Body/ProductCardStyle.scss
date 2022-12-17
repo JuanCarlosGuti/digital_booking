@@ -1,0 +1,173 @@
+@import "../sass/../../sass/general.scss";
+.productCardMainContainer {
+  background-color: $light;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 300px;
+  max-height: 650px;
+  padding-bottom: 15px;
+  @include breakpoint-up(small) {
+    display: flex;
+    flex-direction: row;
+    height: 250px;
+    width: 100%;
+    padding-bottom: 0px;
+    height: 290px;
+  }
+  @include breakpoint-up(large) {
+    height: 290px;
+  }
+  &__imageContainer {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 50%;
+    @include breakpoint-up(small) {
+      height: 100%;
+      width: 90%;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      @include breakpoint-up(small) {
+        border-top-right-radius: 0;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+    }
+  }
+  &__contentContainer {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include breakpoint-up(large) {
+      margin: 0px 3%;
+    }
+    @include breakpoint-up(small) {
+      justify-content: space-evenly;
+      width: 98%;
+      margin: 1% 2%;
+      margin-bottom: 1rem;
+    }
+    &__header {
+      @include breakpoint-up(small) {
+        width: 98%;
+        margin: 1% 2%;
+      }
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      &__endContainer {
+        text-align: right;
+        height: 70px;
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-around;
+        &--calification {
+          margin: 0;
+          font-size: 14px;
+          color: $colorOscuro;
+          font-family: "Roboto", sans-serif;
+          font-weight: 700;
+        }
+        &--numberContainer {
+          font-size: 20px;
+          margin: 0;
+          background-color: #383b58;
+          color: $light;
+          width: 30px;
+          height: 30px;
+          border-radius: 10px;
+          text-align: center;
+        }
+      }
+
+      &__startContainer {
+        &--star {
+          color: $colorPpal;
+        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        span {
+          font-size: 12px;
+          opacity: 60%;
+          color: $colorOscuro;
+        }
+        p {
+          height: fit-content;
+          overflow: hidden;
+          margin: 0;
+          color: $colorOscuro;
+          font-weight: 700;
+          font-family: "Roboto", sans-serif;
+          font-size: 17px;
+          padding-top: 0.7rem;
+        }
+      }
+    }
+    &__ubicationContainer {
+      width: 90%;
+      p {
+        margin: 0;
+        margin-bottom: 10px;
+        color: $colorOscuro;
+        font-size: 14px;
+        font-family: "Roboto", sans-serif;
+        span {
+          text-transform: uppercase;
+          color: $colorPpal;
+        }
+        @include breakpoint-up(large) {
+          padding-bottom: 0.7rem;
+        }
+      }
+    }
+    &__footer {
+      display: flex;
+      flex-direction: column;
+      p {
+        margin: 0;
+        font-size: 14px;
+        font-family: "Roboto", sans-serif;
+        line-height: 16px;
+        font-weight: 500;
+        color: $colorOscuro;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* number of lines to show */
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        @include breakpoint-up(small) {
+          width: 100%;
+        }
+      }
+      a {
+        @include links;
+        width: 60%;
+        text-align: center;
+        margin: auto;
+        margin-top: 20px;
+      }
+      a:hover {
+        color: $colorOscuro;
+      }
+    }
+  }
+}
+
+.productCardMainContainer:hover {
+  box-shadow: 0px 0px 30px 10px #cccccc;
+}

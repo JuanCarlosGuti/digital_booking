@@ -1,0 +1,127 @@
+@import "../../../sass/general.scss";
+
+.LoginContainer {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    width: 100vw;
+    background-color: $backBody;
+    height: 100vh;
+    padding-bottom: 58px;
+
+    @include breakpoint-down(medium) {
+        height: calc(100vh - 80px - 58px);
+    }
+
+    #fromBooking {
+        padding: 0.5rem 0.4rem;
+        background-color: rgb(255,0,0,0.4);
+        color: rgb(178, 12, 12);
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
+        margin-top:2rem
+    }
+
+    &__close {
+        align-self: flex-start;
+        justify-self: end;
+        padding-top: 50px;
+        font-size: 1.5rem;
+    }
+
+    &__FormContainer {
+        display: flex;
+        // justify-content: center;
+        flex-direction: column;
+        max-width: 448px;
+        width: 60vw;
+        position: relative;
+        margin-top: 50px;
+
+        @include breakpoint-down(small) {
+            width: 80vw;
+            max-width: 448px;
+        }
+        @include breakpoint-up(medium) {
+            margin-top: 100px;
+        }
+
+        .errorBorder {
+            border: 0.5px red solid;
+        }
+
+        &--close {
+            margin-top: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: $colorOscuro;
+            background-color: $Dark;
+            color: $lightGray;
+            position: absolute;
+            top: -10px;
+            right: 0;
+            border-radius: 50%;
+            height: 35px;
+            width: 34px;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        &--title {
+            color: $colorClaro;
+            font-size: 1.5rem;
+            font-weight: 700;
+            align-self: center;
+            margin: 20px;
+            margin-top: 12px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+
+            .formLabel {
+                font-size: 0.8rem;
+                padding-bottom: 3px;
+            }
+
+            .formInput {
+                margin-bottom: 15px;
+                padding: 10px;
+                font-size: 1rem;
+            }
+            .button {
+                @include links;
+                // padding-left: 40px;
+                // padding-right: 40px;
+                // margin-bottom: 0px;
+                align-self: center;
+                padding: 3px 5px;
+                button {
+                    background-color: transparent;
+                    border: 0px;
+                    color: $buttonsText;
+                    font-weight: 700;
+                    font-size: 100%;
+                    padding: 10px 35px;
+                }
+            }
+
+            p {
+                align-self: center;
+                font-size: 0.8rem;
+
+                a {
+                    text-decoration: none;
+                    color: $colorClaro;
+                }
+            }
+
+            p.invalid {
+                color: red;
+                align-self: flex-start;
+                font-size: 0.9rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,84 @@
+@import "../../../sass/general.scss";
+
+.SearchBarContainer {
+  background-color: $colorOscuro;
+  padding: 2px;
+  padding-bottom: 30px;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    width: 100%;
+    max-width: $mx-w;
+  }
+
+  h1 {
+    padding: 0px 15px;
+    color: $light;
+    font-size: 20px;
+    text-align: center;
+    @include breakpoint-up(small) {
+      font-size: 1.8rem;
+    }
+  }
+  form {
+    width: 95%;
+    margin: auto auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    @include breakpoint-up(small) {
+      width: 95%;
+      // display: flex;
+      flex-direction: row;
+    }
+
+    a {
+      @include links;
+      margin: 0px;
+      padding: 7px 39%;
+      @include breakpoint-up(small) {
+        margin-left: 5px;
+        padding: 7px 10%;
+        height: 40px;
+      }
+    }
+    a:hover {
+      color: black;
+      cursor: pointer;
+    }
+    // button {
+    //   height: 40px;
+    //   width: 100%;
+    //   background-color: $colorPpal;
+    //   border-radius: 5px;
+    //   border: none;
+    //   color: $buttonsText;
+    //   font-weight: 700;
+    //   margin-bottom: 35px;
+    //   @include breakpoint-up(small) {
+    //     margin-left: 5px;
+    //     width: 30%;
+    //   }
+    //   @include breakpoint-up(meduim) {
+    //     width: 20%;
+    //     margin-bottom: 40px;
+    //   }
+    //   &:hover {
+    //     cursor: pointer;
+    //     color: black;
+    //   }
+    // }
+  }
+  &__formContainer-inputBox {
+    height: 40px;
+    margin-bottom: 12px;
+
+    @include breakpoint-up(small) {
+      margin-right: 7px;
+      margin-left: 5px;
+      width: 40%;
+    }
+  }
+}

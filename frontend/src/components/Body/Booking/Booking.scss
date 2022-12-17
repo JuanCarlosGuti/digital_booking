@@ -1,0 +1,343 @@
+@import "./../../../sass/general.scss";
+
+.booking {
+  margin-top: calc($navbar-h + 80px);
+  color: $colorOscuro;
+  background-color: $backBody;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    width: 100%;
+    max-width: $mx-w;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    padding-top: 0.8rem;
+  }
+  @include breakpoint-up(medium) {
+    .displayDesktop {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      display: flex;
+      justify-content: space-between;
+      background-color: $backBody;
+      padding-bottom: 2rem;
+      .formAndCalendar {
+        width: 60%;
+      }
+      .details {
+        width: 35%;
+      }
+    }
+  }
+}
+
+.formContainer {
+  background-color: $backBody;
+
+  padding-bottom: 1rem;
+  h3 {
+    margin: 3%;
+    margin-bottom: 0px;
+  }
+
+  form {
+    margin: 2% 3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: white;
+    padding: 0.5rem 0px 1.2rem 0px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px #f3f1ed;
+
+    @include breakpoint-up(small) {
+      justify-content: space-evenly;
+    }
+
+    .formBlock {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+
+      @include breakpoint-up(small) {
+        width: 45%;
+      }
+      label {
+        font-size: 0.8rem;
+        margin-top: 0.8rem;
+        margin-bottom: 0px;
+      }
+      .formInput {
+        padding: 0.5rem;
+        // border: 0px;
+      }
+    }
+  }
+}
+
+.calendarContainer {
+  margin-bottom: 20px;
+  h3 {
+    margin: auto;
+    margin-bottom: 20px;
+    margin-left: 2%;
+  }
+
+  &_box {
+    background-color: $light;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    display: flex;
+    justify-content: center;
+    width: 98%;
+    height: fit-content;
+    margin: auto;
+
+    &__drp {
+      @include breakpoint-up(large) {
+        width: 100%;
+      }
+    }
+
+    @include breakpoint-up(large) {
+      width: 100%;
+    }
+
+    .rdrMonthName {
+      text-align: center;
+      text-transform: capitalize;
+      color: #1c1c1c;
+    }
+    .rdrMonthAndYearPickers {
+      visibility: hidden;
+    }
+
+    .rdrMonth:first-child {
+      @include breakpoint-up(medium) {
+        margin-left: 40px;
+      }
+    }
+    .rdrMonth:last-child {
+      @include breakpoint-up(medium) {
+        margin-right: 40px;
+      }
+      @include breakpoint-up(large) {
+        margin-left: 40px;
+      }
+    }
+
+    .rdrWeekDays {
+      width: 100%;
+    }
+
+    .rdrMonthsHorizontal {
+      width: 100%;
+    }
+
+    .rdrCalendarWrapper {
+      width: 17rem;
+      @include breakpoint-up(small) {
+        //background-color: blue;
+        margin-bottom: 20px;
+        width: 40rem;
+      }
+      @include breakpoint-up(medium) {
+        width: 33rem;
+      }
+
+      @include breakpoint-up(large) {
+        width: 95%;
+      }
+
+      .rdrNextPrevButton {
+        background-color: $colorPpal;
+        border-radius: 100px;
+        margin: 0;
+      }
+    }
+    .rdrDays {
+      @include breakpoint-up(medium) {
+        row-gap: 20px;
+      }
+    }
+
+    .rdrMonthAndYearWrapper {
+      justify-content: center;
+      position: absolute;
+      align-items: flex-start;
+      margin-left: 10px;
+      padding-right: 10px;
+
+      @include breakpoint-up(small) {
+        width: 40rem;
+      }
+      @include breakpoint-up(medium) {
+        width: 33rem;
+        margin-top: 10rem;
+      }
+      @include breakpoint-up(large) {
+        width: 41rem;
+      }
+    }
+
+    .rdrDefinedRangesWrapper {
+      display: none;
+    }
+  }
+}
+
+.details {
+  margin: 1rem 0px;
+}
+
+.detailsContainer {
+  @include breakpoint-up(medium) {
+    margin-top: 4rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px #f3f1ed;
+    margin-bottom: 2rem;
+    height: 95%;
+  }
+
+  h3 {
+    margin: 3%;
+  }
+  img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+  }
+  .locationDetails {
+    margin: 3%;
+    .category {
+      font-size: 0.9rem;
+    }
+    .title {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .productAddress {
+      margin-bottom: 2.5rem;
+    }
+    .stars {
+      color: $colorPpal;
+    }
+  }
+  .dateDetails {
+    margin: 3%;
+    hr {
+      border: solid 1px $colorClaro;
+      margin: 1rem 0px;
+    }
+    &__in,
+    &__out {
+      margin: 0px 5%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  button {
+    @include links;
+    width: 92%;
+    font-size: 1rem;
+    &:hover {
+      color: black;
+      cursor: pointer;
+    }
+    @include breakpoint-up(medium) {
+      margin-top: 4rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
+.TimeMainContainer {
+  background-color: $light;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  padding-left: 20px;
+
+  i {
+    font-size: 30px;
+    margin: 10px;
+    height: fit-content;
+  }
+  width: 98%;
+  margin: auto;
+  label {
+    margin: 10px;
+  }
+  &_resultMessage {
+    display: flex;
+    i {
+      color: green;
+    }
+    width: 90%;
+  }
+  &_inputContainer {
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    display: flex;
+    justify-content: space-between;
+    width: 15rem;
+    margin: 10px;
+    margin-bottom: 0;
+    @include breakpoint-up(small) {
+      width: 20rem;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    &:hover i {
+      color: black;
+    }
+    p {
+      margin-left: 20px;
+    }
+    i {
+      color: $colorPpal;
+      margin-top: 15px;
+      height: 30px;
+    }
+  }
+  &_HoursContainer {
+    background-color: white;
+    width: 15rem;
+    margin: 10px;
+    margin-top: 0;
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    @include breakpoint-up(small) {
+      width: 20rem;
+    }
+    div {
+      text-align: center;
+      &:hover {
+        background-color: antiquewhite;
+        cursor: pointer;
+      }
+    }
+  }
+  .hiddenHours {
+    height: 0;
+    overflow: hidden;
+  }
+  .inSightHours {
+    z-index: 2;
+    position: absolute;
+    top: 85%;
+    @include breakpoint-up(small) {
+      top: 42%;
+    }
+    @include breakpoint-up(medium) {
+      top: 82%;
+    }
+    @include breakpoint-up(large) {
+      top: 65%;
+    }
+  }
+}

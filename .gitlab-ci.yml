@@ -1,0 +1,104 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build-backend:
+  image: maven:3.8.3-openjdk-17
+  stage: build
+  needs: []
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
+      changes:
+        - backend/**/*
+  script:
+    - echo "Compiling the /backend code "
+    - cd backend/backend-integrador
+    - mvn clean package -DskipTest -U
+  artifacts:
+    paths:
+      - backend/backend-integrador/target/*.jar
+
+build-frontend:
+  image: node:16.14.2-alpine
+  stage: build
+  needs: []
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
+      changes:
+        - frontend/**/*
+  script:
+    - echo "Compiling the /frontend code..."
+    - cd frontend
+    - npm install
+    - CI=false npm run build
+    - echo 'Compile complete.'
+  artifacts:
+    paths:
+      - frontend/build
+
+
+test-backend: 
+  stage: test
+  needs: ["build-backend"]
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
+      changes:
+        - backend/**/*   
+  script:
+    - echo "Running backend tests..."
+  artifacts:
+    paths:
+      - backend/backend-integrador/target/*.jar
+
+
+test-frontend: 
+  stage: test
+  needs: ["build-frontend"]
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
+      changes:
+        - frontend/**/*   
+  script:
+    - echo "Running frontend tests..."
+  artifacts:
+    paths:
+      - frontend/build
+
+
+deploy-backend:    
+  stage: deploy
+  needs: ["test-backend"]  
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
+      changes:
+        - backend/**/*
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan $AWS_EC2_IP_ADDRESS >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - scp -o StrictHostKeyChecking=no backend/backend-integrador/target/back_integrador-0.0.1-SNAPSHOT.jar ubuntu@ec2-18-116-202-151.us-east-2.compute.amazonaws.com:/home/ubuntu
+    - ssh -o StrictHostKeyChecking=no ubuntu@ec2-18-116-202-151.us-east-2.compute.amazonaws.com "/home/ubuntu/scripts/shutdown.sh;/home/ubuntu/scripts/startup.sh"
+
+
+deploy-frontend:
+  image: python:3.9.15    
+  stage: deploy
+  needs: ["test-frontend"]
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
+      changes:
+        - frontend/**/*
+  script:
+    - echo "Deploying application frontend..."
+    - pip install awscli
+    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+    - aws configure set aws_secret-access_key $AWS_SECRET_ACCESS_KEY
+    - aws s3 sync frontend/build s3://0521ptc6n2-grupo03-dev-frontend --delete
+
+
