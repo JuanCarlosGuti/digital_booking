@@ -1,0 +1,1066 @@
+{
+  "id": "49911c92-e005-44eb-a475-dab531c9491d",
+  "version": "2.0",
+  "name": "Digital booking - sprint IV",
+  "url": "http://digital-booking.hopto.org/",
+  "tests": [{
+    "id": "201b468a-bad9-4398-acd3-d27559acc067",
+    "name": "Creación de producto exitosa - admin",
+    "commands": [{
+      "id": "c7bb8150-c6d0-4688-bb5a-2688c63ce436",
+      "comment": "",
+      "command": "open",
+      "target": "http://digital-booking.hopto.org/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1fe38776-31a0-490f-a3e8-fad1f0e1b33a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1366x728",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1fb87407-336e-4ca6-9037-8f12ba714364",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "index=0",
+      "targets": [
+        ["index=0"]
+      ],
+      "value": ""
+    }, {
+      "id": "88df839c-60e6-4cfa-a8ca-7e8efb4b4aae",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Administración",
+      "targets": [
+        ["linkText=Administración", "linkText"],
+        ["css=.header__user--reservas", "css:finder"],
+        ["xpath=//a[contains(text(),'Administración')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/admin')]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Administración')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "93ac34e1-e865-4ff0-9d3e-8e278c7a4c4b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(1) > input",
+      "targets": [
+        ["css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8ece86e0-9a49-4adb-92f3-f41b3086f2e9",
+      "comment": "",
+      "command": "type",
+      "target": "css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(1) > input",
+      "targets": [
+        ["css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Cabaña mirador"
+    }, {
+      "id": "2aaf5e83-369e-4c48-9f84-f0b135895961",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(1) > select",
+      "targets": [
+        ["css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(1) > select", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section/form/div/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b87af6aa-9d46-46d4-aa19-d8a217ef21ee",
+      "comment": "",
+      "command": "select",
+      "target": "css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(1) > select",
+      "targets": [],
+      "value": "label=Cabañas"
+    }, {
+      "id": "75a911a8-6e86-4429-ade7-62291b144c72",
+      "comment": "",
+      "command": "click",
+      "target": "css=textarea:nth-child(2)",
+      "targets": [
+        ["css=textarea:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section/form/div[2]/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6031f2b3-db8a-40b2-baf6-233e45dacff7",
+      "comment": "",
+      "command": "type",
+      "target": "css=textarea:nth-child(2)",
+      "targets": [
+        ["css=textarea:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section/form/div[2]/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "hermosa cabaña cerca al lago "
+    }, {
+      "id": "1daad3e5-46b7-464f-928f-8539920fb44c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(2) > input",
+      "targets": [
+        ["css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(2) > input", "css:finder"],
+        ["xpath=(//input[@type='text'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "607395fe-ff95-482e-b084-b130cb20d307",
+      "comment": "",
+      "command": "type",
+      "target": "css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(2) > input",
+      "targets": [
+        ["css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(2) > input", "css:finder"],
+        ["xpath=(//input[@type='text'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Avenida 123 #4-5"
+    }, {
+      "id": "d86f2a37-2b5c-45c4-a4cd-002b5d674bf0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(2) > select",
+      "targets": [
+        ["css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(2) > select", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section/form/div/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "73b6bd15-2f6b-4049-a737-c2bc62e194f9",
+      "comment": "",
+      "command": "select",
+      "target": "css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(2) > select",
+      "targets": [],
+      "value": "label=Medellin"
+    }, {
+      "id": "b55a635e-b727-4587-9762-d52dfd141fa0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductAttributesContainer_attributesContainer_component:nth-child(2) > .NewProductAttributesContainer_attributesContainer-box:nth-child(1) > .item",
+      "targets": [
+        ["css=.NewProductAttributesContainer_attributesContainer_component:nth-child(2) > .NewProductAttributesContainer_attributesContainer-box:nth-child(1) > .item", "css:finder"],
+        ["xpath=//input[@value='{\"id\":6,\"name\":\"Jacuzzi\",\"reference_icon\":\"jacuzzi\"}']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[2]/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "87082bfa-1389-483c-bdcb-d7745a334bf2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductAttributesContainer_attributesContainer_component:nth-child(2) > .NewProductAttributesContainer_attributesContainer-box:nth-child(2) > .item",
+      "targets": [
+        ["css=.NewProductAttributesContainer_attributesContainer_component:nth-child(2) > .NewProductAttributesContainer_attributesContainer-box:nth-child(2) > .item", "css:finder"],
+        ["xpath=//input[@value='{\"id\":7,\"name\":\"Estacionamiento\",\"reference_icon\":\"estacionamiento\"}']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[2]/div/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ff0cf043-7ede-4b89-8aed-c09bf2d0de9e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(4) > .item",
+      "targets": [
+        ["css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(4) > .item", "css:finder"],
+        ["xpath=//input[@value='{\"id\":4,\"name\":\"Televisor\",\"reference_icon\":\"televisor\"}']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[2]/div/div/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fe46410f-6b6c-43af-8b14-05ff034cf771",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(3) > .item",
+      "targets": [
+        ["css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(3) > .item", "css:finder"],
+        ["xpath=//input[@value='{\"id\":3,\"name\":\"Lavadora\",\"reference_icon\":\"lavadora\"}']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[2]/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0977965f-9278-460e-baff-6deb40bcc2ac",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(2)",
+      "targets": [
+        ["css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section[2]/div/div/div[2]", "xpath:idRelative"],
+        ["xpath=//section[2]/div/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2fcc1874-a0ef-4b82-b72b-902d439d46a3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(2) > .item",
+      "targets": [
+        ["css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(2) > .item", "css:finder"],
+        ["xpath=//input[@value='{\"id\":2,\"name\":\"Cocina\",\"reference_icon\":\"cocina\"}']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[2]/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div/div/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fd204cc9-930f-4126-87fd-1271d5f68c74",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(1) > .item",
+      "targets": [
+        ["css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(1) > .item", "css:finder"],
+        ["xpath=//input[@value='{\"id\":1,\"name\":\"Wifi\",\"reference_icon\":\"wifi\"}']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[2]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7f79c2b9-0c02-46eb-bee3-c7c1d258e9f2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductPolicyContainer_policyContainer-box:nth-child(1) > textarea",
+      "targets": [
+        ["css=.NewProductPolicyContainer_policyContainer-box:nth-child(1) > textarea", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section[3]/div/div/textarea", "xpath:idRelative"],
+        ["xpath=//div/div/textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "60fd55fb-d515-406c-8748-97e9ba042bd9",
+      "comment": "",
+      "command": "type",
+      "target": "css=.NewProductPolicyContainer_policyContainer-box:nth-child(1) > textarea",
+      "targets": [
+        ["css=.NewProductPolicyContainer_policyContainer-box:nth-child(1) > textarea", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section[3]/div/div/textarea", "xpath:idRelative"],
+        ["xpath=//div/div/textarea", "xpath:position"]
+      ],
+      "value": "No se admiten fiestas"
+    }, {
+      "id": "70b8afac-a18a-4beb-b600-0667e8e48e39",
+      "comment": "",
+      "command": "type",
+      "target": "css=.NewProductPolicyContainer_policyContainer-box:nth-child(2) > textarea",
+      "targets": [
+        ["css=.NewProductPolicyContainer_policyContainer-box:nth-child(2) > textarea", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section[3]/div/div[2]/textarea", "xpath:idRelative"],
+        ["xpath=//div/div[2]/textarea", "xpath:position"]
+      ],
+      "value": "No se puede fumar"
+    }, {
+      "id": "01be7d4c-3295-4e9d-a072-9c3f9062ade9",
+      "comment": "",
+      "command": "type",
+      "target": "css=.NewProductPolicyContainer_policyContainer-box:nth-child(3) > textarea",
+      "targets": [
+        ["css=.NewProductPolicyContainer_policyContainer-box:nth-child(3) > textarea", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section[3]/div/div[3]/textarea", "xpath:idRelative"],
+        ["xpath=//div[3]/textarea", "xpath:position"]
+      ],
+      "value": "Se realizan reservas luego de 24hs despues de la reservación"
+    }, {
+      "id": "d6ecaca8-7674-4f79-b40f-0bbaa305639e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductUploadMediaContainer_imageContainer_imagesBox-button",
+      "targets": [
+        ["css=.NewProductUploadMediaContainer_imageContainer_imagesBox-button", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section[4]/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//section[4]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d77089ba-3fef-4990-9560-41d204543a08",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductUploadMediaContainer_imageContainer_imagesBox:nth-child(2) > input",
+      "targets": [
+        ["css=.NewProductUploadMediaContainer_imageContainer_imagesBox:nth-child(2) > input", "css:finder"],
+        ["xpath=(//input[@type='text'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[4]/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//section[4]/div/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "00727262-6948-4617-81c6-355b33f43f1a",
+      "comment": "",
+      "command": "type",
+      "target": "css=.NewProductUploadMediaContainer_imageContainer_imagesBox:nth-child(2) > input",
+      "targets": [
+        ["css=.NewProductUploadMediaContainer_imageContainer_imagesBox:nth-child(2) > input", "css:finder"],
+        ["xpath=(//input[@type='text'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[4]/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//section[4]/div/div[2]/input", "xpath:position"]
+      ],
+      "value": "https://www.istockphoto.com/es/foto/vacaciones-de-verano-en-finlandia-gm1148294777-310065090?phrase=caba%C3%B1a"
+    }, {
+      "id": "75a6e57e-f7c9-467b-9a8f-8ad8b6b247ca",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductUploadMediaContainer_imageContainer_imagesBox:nth-child(3) > input",
+      "targets": [
+        ["css=.NewProductUploadMediaContainer_imageContainer_imagesBox:nth-child(3) > input", "css:finder"],
+        ["xpath=(//input[@type='text'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[4]/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//section[4]/div/div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c40f3931-a6dd-431c-bed3-33881fd88308",
+      "comment": "",
+      "command": "type",
+      "target": "css=.NewProductUploadMediaContainer_imageContainer_imagesBox:nth-child(3) > input",
+      "targets": [
+        ["css=.NewProductUploadMediaContainer_imageContainer_imagesBox:nth-child(3) > input", "css:finder"],
+        ["xpath=(//input[@type='text'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[4]/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//section[4]/div/div[3]/input", "xpath:position"]
+      ],
+      "value": "https://www.istockphoto.com/es/foto/3d-render-de-un-interior-de-lujo-de-una-casa-de-invierno-gm1270113359-373185499?phrase=caba%C3%B1a"
+    }, {
+      "id": "295ba2fa-2156-402d-a994-d3ffb32f1116",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Crear')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6cbd20a2-25e1-4a6d-ac8d-824ed9aa4358",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ok')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "bc1fe090-554c-408c-bac9-58da5263ae99",
+    "name": "Creación de producto - admin",
+    "commands": [{
+      "id": "039646b9-2154-439a-92ca-2938287a7a53",
+      "comment": "",
+      "command": "open",
+      "target": "http://digital-booking.hopto.org/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ab7e1778-0185-4483-8751-9bcdab48f1e4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1366x728",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ff3e6679-949f-46ae-854f-8e736b55fae1",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "index=0",
+      "targets": [
+        ["index=0"]
+      ],
+      "value": ""
+    }, {
+      "id": "8710015c-55da-4dd1-aeb5-7647753040ba",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Administración",
+      "targets": [
+        ["linkText=Administración", "linkText"],
+        ["css=.header__user--reservas", "css:finder"],
+        ["xpath=//a[contains(text(),'Administración')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/admin')]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Administración')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "65ed9967-1cd4-4812-b4fe-3eeabaa82c47",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(1) > input",
+      "targets": [
+        ["css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "63b4bfa1-5a98-440e-9d27-86c422d5f01a",
+      "comment": "",
+      "command": "type",
+      "target": "css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(1) > input",
+      "targets": [
+        ["css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@type='text']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Apartamento 201"
+    }, {
+      "id": "1a179c8e-7bc5-4918-8365-dc087ca442ce",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(2) > input",
+      "targets": [
+        ["css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(2) > input", "css:finder"],
+        ["xpath=(//input[@type='text'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5d558bfc-e24a-4b89-94ee-d8f01742d71d",
+      "comment": "",
+      "command": "type",
+      "target": "css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(2) > input",
+      "targets": [
+        ["css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(2) > input", "css:finder"],
+        ["xpath=(//input[@type='text'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section/form/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "calle 102#3-4"
+    }, {
+      "id": "6c1aa1f6-4c44-4126-90bd-d4516abc2a4c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(1) > select",
+      "targets": [
+        ["css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(1) > select", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section/form/div/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f12e469e-e37f-4563-ac5e-bc143e0b57bd",
+      "comment": "",
+      "command": "select",
+      "target": "css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(1) > select",
+      "targets": [],
+      "value": "label=Apartamentos"
+    }, {
+      "id": "1e9184c7-11bc-487b-9d5c-c351b5d9840b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(2) > select",
+      "targets": [
+        ["css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(2) > select", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section/form/div/div[2]/select", "xpath:idRelative"],
+        ["xpath=//div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1f08ab1e-a150-4099-8420-2b676883cfef",
+      "comment": "",
+      "command": "select",
+      "target": "css=.NewProductFormContainer_firstGroup_formGroupContainer:nth-child(2) > select",
+      "targets": [],
+      "value": "label=Córdoba"
+    }, {
+      "id": "80fd55d4-38b4-4fbe-9624-0759259fe99f",
+      "comment": "",
+      "command": "click",
+      "target": "css=textarea:nth-child(2)",
+      "targets": [
+        ["css=textarea:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section/form/div[2]/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2d46a7bd-cd0c-4fdc-98e6-843aeedca365",
+      "comment": "",
+      "command": "type",
+      "target": "css=textarea:nth-child(2)",
+      "targets": [
+        ["css=textarea:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section/form/div[2]/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "Apartamento con balcón y piscina"
+    }, {
+      "id": "f1d5a576-4d62-44b3-a05c-e6cfca7b41c4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(5) > .item",
+      "targets": [
+        ["css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(5) > .item", "css:finder"],
+        ["xpath=//input[@value='{\"id\":5,\"name\":\"Piscina\",\"reference_icon\":\"piscina\"}']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[2]/div/div/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e3ec6034-3a57-4971-b837-154c14915602",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(2) > .item",
+      "targets": [
+        ["css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(2) > .item", "css:finder"],
+        ["xpath=//input[@value='{\"id\":2,\"name\":\"Cocina\",\"reference_icon\":\"cocina\"}']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[2]/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div/div/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "37cc07d4-4511-4b54-89c5-f78e8b624273",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(3) > .item",
+      "targets": [
+        ["css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(3) > .item", "css:finder"],
+        ["xpath=//input[@value='{\"id\":3,\"name\":\"Lavadora\",\"reference_icon\":\"lavadora\"}']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[2]/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "17d251e0-b760-452e-b6be-416fec7eb913",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(1) > .item",
+      "targets": [
+        ["css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(1) > .item", "css:finder"],
+        ["xpath=//input[@value='{\"id\":1,\"name\":\"Wifi\",\"reference_icon\":\"wifi\"}']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[2]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "94f5eba4-4193-4d59-bea4-794ae8280f85",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(4)",
+      "targets": [
+        ["css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(4)", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section[2]/div/div/div[4]", "xpath:idRelative"],
+        ["xpath=//section[2]/div/div/div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c581fb91-819e-4deb-9221-1bd8fb00e1dd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(4) > .item",
+      "targets": [
+        ["css=.NewProductAttributesContainer_attributesContainer_component:nth-child(1) > .NewProductAttributesContainer_attributesContainer-box:nth-child(4) > .item", "css:finder"],
+        ["xpath=//input[@value='{\"id\":4,\"name\":\"Televisor\",\"reference_icon\":\"televisor\"}']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[2]/div/div/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3e8f41e0-a307-466c-a929-cae1865e43a2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductAttributesContainer_attributesContainer_component:nth-child(2) > .NewProductAttributesContainer_attributesContainer-box:nth-child(4)",
+      "targets": [
+        ["css=.NewProductAttributesContainer_attributesContainer_component:nth-child(2) > .NewProductAttributesContainer_attributesContainer-box:nth-child(4)", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section[2]/div/div[2]/div[4]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b265d90-e63a-4578-a713-67e4cbf1d347",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductAttributesContainer_attributesContainer_component:nth-child(2) > .NewProductAttributesContainer_attributesContainer-box:nth-child(4) > .item",
+      "targets": [
+        ["css=.NewProductAttributesContainer_attributesContainer_component:nth-child(2) > .NewProductAttributesContainer_attributesContainer-box:nth-child(4) > .item", "css:finder"],
+        ["xpath=//input[@value='{\"id\":9,\"name\":\"Detector de humo\",\"reference_icon\":\"detector\"}']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[2]/div/div[2]/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9851b211-3727-4322-b00d-b2063d4b504e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductAttributesContainer_attributesContainer_component:nth-child(2) > .NewProductAttributesContainer_attributesContainer-box:nth-child(2) > .item",
+      "targets": [
+        ["css=.NewProductAttributesContainer_attributesContainer_component:nth-child(2) > .NewProductAttributesContainer_attributesContainer-box:nth-child(2) > .item", "css:finder"],
+        ["xpath=//input[@value='{\"id\":7,\"name\":\"Estacionamiento\",\"reference_icon\":\"estacionamiento\"}']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[2]/div/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e659d759-71f8-4485-bbcf-53e3a3b37926",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductAttributesContainer_attributesContainer_component:nth-child(2) > .NewProductAttributesContainer_attributesContainer-box:nth-child(5) > .item",
+      "targets": [
+        ["css=.NewProductAttributesContainer_attributesContainer_component:nth-child(2) > .NewProductAttributesContainer_attributesContainer-box:nth-child(5) > .item", "css:finder"],
+        ["xpath=//input[@value='{\"id\":10,\"name\":\"Aire acondicionado\",\"reference_icon\":\"aire\"}']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[2]/div/div[2]/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fbcc5935-68d1-47fe-adb1-74d5c4353dac",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductPolicyContainer_policyContainer-box:nth-child(1) > textarea",
+      "targets": [
+        ["css=.NewProductPolicyContainer_policyContainer-box:nth-child(1) > textarea", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section[3]/div/div/textarea", "xpath:idRelative"],
+        ["xpath=//div/div/textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8618e649-ca5b-4831-92f4-4c7e61b0a136",
+      "comment": "",
+      "command": "type",
+      "target": "css=.NewProductPolicyContainer_policyContainer-box:nth-child(1) > textarea",
+      "targets": [
+        ["css=.NewProductPolicyContainer_policyContainer-box:nth-child(1) > textarea", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section[3]/div/div/textarea", "xpath:idRelative"],
+        ["xpath=//div/div/textarea", "xpath:position"]
+      ],
+      "value": "No se admiten niños"
+    }, {
+      "id": "3f1836f3-58ee-40c8-a0da-a2c1d075d9e0",
+      "comment": "",
+      "command": "type",
+      "target": "css=.NewProductPolicyContainer_policyContainer-box:nth-child(2) > textarea",
+      "targets": [
+        ["css=.NewProductPolicyContainer_policyContainer-box:nth-child(2) > textarea", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section[3]/div/div[2]/textarea", "xpath:idRelative"],
+        ["xpath=//div/div[2]/textarea", "xpath:position"]
+      ],
+      "value": "Prohibido fumar en las instalaciones"
+    }, {
+      "id": "4a14cfc7-ac8d-486b-bc1b-80d08315b9bd",
+      "comment": "",
+      "command": "type",
+      "target": "css=.NewProductPolicyContainer_policyContainer-box:nth-child(3) > textarea",
+      "targets": [
+        ["css=.NewProductPolicyContainer_policyContainer-box:nth-child(3) > textarea", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section[3]/div/div[3]/textarea", "xpath:idRelative"],
+        ["xpath=//div[3]/textarea", "xpath:position"]
+      ],
+      "value": "La llegada es flexible"
+    }, {
+      "id": "3677fc24-994a-492c-8006-72268784dbec",
+      "comment": "",
+      "command": "type",
+      "target": "css=input:nth-child(1)",
+      "targets": [
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=(//input[@type='text'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[4]/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//section[4]/div/div[2]/input", "xpath:position"]
+      ],
+      "value": "https://www.istockphoto.com/es/foto/3d-render-de-un-interior-de-lujo-de-una-casa-de-invierno-gm1270113359-373185499?phrase=caba%C3%B1a"
+    }, {
+      "id": "52f42301-00f1-4b31-8047-f6a3a8efa093",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductUploadMediaContainer_imageContainer_imagesBox-button",
+      "targets": [
+        ["css=.NewProductUploadMediaContainer_imageContainer_imagesBox-button", "css:finder"],
+        ["xpath=//div[@id='root']/section/div/section[4]/div/div[2]/div", "xpath:idRelative"],
+        ["xpath=//section[4]/div/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c6157107-6a4a-4979-9a10-a7bf7b47a29b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductUploadMediaContainer_imageContainer_imagesBox:nth-child(2) > input",
+      "targets": [
+        ["css=.NewProductUploadMediaContainer_imageContainer_imagesBox:nth-child(2) > input", "css:finder"],
+        ["xpath=(//input[@type='text'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[4]/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//section[4]/div/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd23627f-a100-44a2-a874-b9e0ccd1de05",
+      "comment": "",
+      "command": "type",
+      "target": "css=.NewProductUploadMediaContainer_imageContainer_imagesBox:nth-child(2) > input",
+      "targets": [
+        ["css=.NewProductUploadMediaContainer_imageContainer_imagesBox:nth-child(2) > input", "css:finder"],
+        ["xpath=(//input[@type='text'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/section[4]/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//section[4]/div/div[2]/input", "xpath:position"]
+      ],
+      "value": "https://www.istockphoto.com/es/foto/3d-render-de-un-interior-de-lujo-de-una-casa-de-invierno-gm1270113359-373185499?phrase=caba%C3%B1a"
+    }, {
+      "id": "e7857b86-28fc-4a7c-83e9-3957016ba906",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductMainContainer",
+      "targets": [
+        ["css=.NewProductMainContainer", "css:finder"],
+        ["xpath=//div[@id='root']/section", "xpath:idRelative"],
+        ["xpath=//section", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5d22b4d6-efd3-4077-91c1-03a2205aa4ae",
+      "comment": "",
+      "command": "click",
+      "target": "css=.NewProductMainContainer_box",
+      "targets": [
+        ["css=.NewProductMainContainer_box", "css:finder"],
+        ["xpath=//div[@id='root']/section/div", "xpath:idRelative"],
+        ["xpath=//div/section/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "f6bd0d3c-be78-487f-a2f9-7fbe0dbfdf85",
+    "name": "Validación mis reservas - usuario recién creado",
+    "commands": [{
+      "id": "6c096355-fc7a-44da-8f33-756bff3a8998",
+      "comment": "",
+      "command": "open",
+      "target": "http://digital-booking.hopto.org/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c6681ad8-5c72-4a94-8b4d-766e880e31d5",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1366x728",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ce6b7a0b-a17c-4570-8674-7187ba42c221",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "index=0",
+      "targets": [
+        ["index=0"]
+      ],
+      "value": ""
+    }, {
+      "id": "250fafb4-6ab8-44cc-b402-722b87546f99",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Mis Reservas",
+      "targets": [
+        ["linkText=Mis Reservas", "linkText"],
+        ["css=.header__user--reservas", "css:finder"],
+        ["xpath=//a[contains(text(),'Mis Reservas')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/10/bookings')]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Mis Reservas')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4779a7e3-67d2-4fd4-97ba-0d357badb3b1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productListMainContainer",
+      "targets": [
+        ["css=.productListMainContainer", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]", "xpath:idRelative"],
+        ["xpath=//body/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5c29d84d-3e34-46ae-89dc-1a77312232d0",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Buscar propiedades",
+      "targets": [
+        ["linkText=Buscar propiedades", "linkText"],
+        ["css=a:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'Buscar propiedades')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/home')])[3]", "xpath:href"],
+        ["xpath=//div[2]/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Buscar propiedades')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a759364b-5f70-4099-8743-eb3f92dfd1fe",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "a1d4c8b9-c939-46a8-8538-5fb4cf792859",
+    "name": "Validación mis reservas redirección al login",
+    "commands": [{
+      "id": "49a3aae5-9b0e-40e4-9c68-2f2a3c6c54b2",
+      "comment": "",
+      "command": "open",
+      "target": "http://digital-booking.hopto.org/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f5d0247b-e9b4-47b1-99b2-d56627b11a90",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1366x728",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a71d59d1-82a5-46d4-b09f-137e822f6722",
+      "comment": "",
+      "command": "selectFrame",
+      "target": "index=0",
+      "targets": [
+        ["index=0"]
+      ],
+      "value": ""
+    }, {
+      "id": "10749179-acbe-4917-a9d1-5f4023c98e2a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Iniciar sesión",
+      "targets": [
+        ["linkText=Iniciar sesión", "linkText"],
+        ["css=.header__buttons--log", "css:finder"],
+        ["xpath=//a[contains(text(),'Iniciar sesión')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/div/div[2]/a[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/login')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Iniciar sesión')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b95f9c43-6b22-4e2a-b4dd-572dd01cc9d5",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=x",
+      "targets": [
+        ["linkText=x", "linkText"],
+        ["css=.LoginContainer__FormContainer--close", "css:finder"],
+        ["xpath=(//a[contains(text(),'x')])[2]", "xpath:link"],
+        ["xpath=//div[@id='root']/section/div/form/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/home')])[3]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d77619af-c08f-4415-8e56-a782250eb816",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "linkText=Buscar",
+      "targets": [
+        ["linkText=Buscar", "linkText"],
+        ["css=.SearchBarContainer__formContainer-button", "css:finder"],
+        ["xpath=//a[contains(text(),'Buscar')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div/div/form/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/date/+#title')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Buscar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "85ed579a-2da2-4643-9e60-428ee69f277a",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "linkText=Buscar",
+      "targets": [
+        ["linkText=Buscar", "linkText"],
+        ["css=.SearchBarContainer__formContainer-button", "css:finder"],
+        ["xpath=//a[contains(text(),'Buscar')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div/div/form/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/date/+#title')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Buscar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d1402d71-ec23-4359-a472-75b8758681b7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cardContainer:nth-child(2) img",
+      "targets": [
+        ["css=.cardContainer:nth-child(2) img", "css:finder"],
+        ["xpath=//img[@alt='Casas']", "xpath:img"],
+        ["xpath=//div[@id='root']/div[2]/section/div/div/a[2]/div/img", "xpath:idRelative"],
+        ["xpath=//a[2]/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "be1ab6e8-0339-41d5-979b-3902046d4e13",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "513db6ac-ed6d-4e58-ab39-86e2a8fa02bc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productCardMainContainer:nth-child(2) .buttonEffect2",
+      "targets": [
+        ["css=.productCardMainContainer:nth-child(2) .buttonEffect2", "css:finder"],
+        ["xpath=(//a[contains(text(),'Visitar')])[2]", "xpath:link"],
+        ["xpath=//div[@id='title']/div/div/div[2]/div[2]/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/products/81')]", "xpath:href"],
+        ["xpath=//div[2]/div[2]/div[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c78850e3-6f4b-4e9f-8cc7-79420b9e8ca3",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,894)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6b4d90f4-e671-40f4-8e07-d5dac42c455e",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,1027)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "30f984cd-df57-4b77-94ad-9a35d536af01",
+      "comment": "",
+      "command": "click",
+      "target": "css=.rdrDayHovered > .rdrDayNumber",
+      "targets": [
+        ["css=.rdrDayHovered > .rdrDayNumber", "css:finder"],
+        ["xpath=//div[@id='root']/div[7]/div/div/div/div/div/div[2]/div[2]/div[2]/div[3]/button[33]/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div[3]/button[33]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b76d577-e92f-4076-8aa5-97d38e5c7c7d",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.rdrMonth:nth-child(1) .rdrDay:nth-child(34) > .rdrDayNumber",
+      "targets": [
+        ["css=.rdrMonth:nth-child(1) .rdrDay:nth-child(34) > .rdrDayNumber", "css:finder"],
+        ["xpath=//div[@id='root']/div[7]/div/div/div/div/div/div[2]/div[2]/div/div[3]/button[34]/span", "xpath:idRelative"],
+        ["xpath=//button[34]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "12dce5c6-a651-4f3b-bead-4b9957245720",
+      "comment": "",
+      "command": "click",
+      "target": "css=.rdrDayHovered > .rdrDayNumber",
+      "targets": [
+        ["css=.rdrDayHovered > .rdrDayNumber", "css:finder"],
+        ["xpath=//div[@id='root']/div[7]/div/div/div/div/div/div[2]/div[2]/div/div[3]/button[34]/span[2]", "xpath:idRelative"],
+        ["xpath=//button[34]/span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e1bd7bea-d37f-421e-802c-02ed914d8534",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.rdrDayHovered > .rdrDayNumber",
+      "targets": [
+        ["css=.rdrDayHovered > .rdrDayNumber", "css:finder"],
+        ["xpath=//div[@id='root']/div[7]/div/div/div/div/div/div[2]/div[2]/div/div[3]/button[34]/span[2]", "xpath:idRelative"],
+        ["xpath=//button[34]/span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6d5c3531-1bf6-4a51-9e88-fde9427aef77",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.rdrMonth:nth-child(1) .rdrDay:nth-child(35) > .rdrDayNumber",
+      "targets": [
+        ["css=.rdrMonth:nth-child(1) .rdrDay:nth-child(35) > .rdrDayNumber", "css:finder"],
+        ["xpath=//div[@id='root']/div[7]/div/div/div/div/div/div[2]/div[2]/div/div[3]/button[35]/span", "xpath:idRelative"],
+        ["xpath=//button[35]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fef13ae1-90c8-4388-a1c6-94fe85521d2d",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.rdrDayHovered > .rdrDayNumber",
+      "targets": [
+        ["css=.rdrDayHovered > .rdrDayNumber", "css:finder"],
+        ["xpath=//div[@id='root']/div[7]/div/div/div/div/div/div[2]/div[2]/div/div[3]/button[35]/span[2]", "xpath:idRelative"],
+        ["xpath=//button[35]/span[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "334499dc-a2e4-4a8a-89de-1c57eda77f1c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Iniciar reserva",
+      "targets": [
+        ["linkText=Iniciar reserva", "linkText"],
+        ["css=.prodCalendar__mainContainer__assignButtonContainer-Box > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Iniciar reserva')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[7]/div/div/div[2]/div/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/login')])[2]", "xpath:href"],
+        ["xpath=//div[2]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Iniciar reserva')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c200967a-cdaa-4dd0-932b-f4bca2b4473d",
+      "comment": "",
+      "command": "click",
+      "target": "id=emailInput",
+      "targets": [
+        ["id=emailInput", "id"],
+        ["css=#emailInput", "css:finder"],
+        ["xpath=//input[@id='emailInput']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/section/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2daf99a5-cfb0-463b-bb8d-d7769ed3e0f4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.LoginContainer",
+      "targets": [
+        ["css=.LoginContainer", "css:finder"],
+        ["xpath=//div[@id='root']/section", "xpath:idRelative"],
+        ["xpath=//section", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "106d655a-6e38-4493-9e0f-9e73e82a67d4",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:3000/", "http://digital-booking.hopto.org/"],
+  "plugins": []
+}

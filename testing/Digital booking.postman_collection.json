@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "83b208be-58f5-4514-9c08-8db8df78da5d",
+		"name": "Digital booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "agregar categoria",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"apartamento\",\r\n    \"descripcion\": \"comodo apartamento con parqueadero\",\r\n    \"imageUrl\": \"https://www.istockphoto.com/es/foto/porche-al-aire-libre-de-moda-gm1413160969-462333709\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/categorias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "traer categoria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/categorias/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizar titulo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"apartamento con parqueadero\",\r\n    \"descripcion\": \"comodo apartamento con parqueadero\",\r\n    \"imageUrl\": \"https://www.istockphoto.com/es/foto/porche-al-aire-libre-de-moda-gm1413160969-462333709\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/categorias/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/categorias/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categorias",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

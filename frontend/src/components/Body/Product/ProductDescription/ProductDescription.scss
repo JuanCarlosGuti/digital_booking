@@ -1,0 +1,24 @@
+@import "./../../../../sass/general.scss";
+
+.prodDescription{
+    padding: 10px $navbar-padding-h;
+    font-weight: 700;
+
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    &__container {
+        width: 100%;
+        max-width: $mx-w;
+
+    }
+
+
+
+    h3{
+        font-size: 1.5rem;
+        
+    }
+}

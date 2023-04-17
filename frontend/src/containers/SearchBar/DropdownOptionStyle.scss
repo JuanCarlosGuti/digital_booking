@@ -1,0 +1,36 @@
+@import "../sass/../../sass/general.scss";
+.optionMainContainer {
+  &:hover{
+    background-color: beige;
+    cursor: pointer;
+  }
+  &__box {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    i {
+      margin-left: 4%;
+      margin-right: 3%;
+    }
+    &-icon {
+      font-size: 25px;
+    }
+    &-city {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 0;
+    }
+    &-country {
+      font-size: 14px;
+      margin-top: 0;
+    }
+  }
+  hr {
+    height: 1px;
+    width: 94%;
+    margin: auto;
+    border: none;
+    background-color: rgba(251, 192, 45, 1);
+  }
+}

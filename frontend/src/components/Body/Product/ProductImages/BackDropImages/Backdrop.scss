@@ -1,0 +1,75 @@
+@import "../../../../../sass/general.scss";
+.backdrop {
+  position: fixed;
+  top: $navbar-h;
+  width: 100vw;
+  height: calc(100vh - ($navbar-h + $footer-h));
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 30;
+}
+.backgroundContainer {
+  position: fixed;
+  margin-top: 0;
+  top: $footer-h;
+  margin-left: 20vh;
+  width: 80%;
+  height: 78%;
+  z-index: 31;
+  &_GaleryContainer {
+    button {
+      position: absolute;
+      margin-left: 45%;
+      font-size: 2.5rem;
+      background-color: transparent;
+      color: $colorPpal;
+      border: none;
+      &:hover {
+        cursor: pointer;
+        color: antiquewhite;
+      }
+    }
+    button:first-child {
+      margin-top: 20px;
+    }
+    button:nth-child(2) {
+      margin-top: 150px;
+    }
+    background-color: $light;
+    margin: auto;
+    margin-top: 6%;
+    width: 50%;
+    height: 90%;
+    border-radius: 10px;
+    &_currentImageContainer {
+      border-radius: 10px;
+      height: 60%;
+      img {
+        width: 100%;
+        height: 100%;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+      }
+    }
+    &_imagesContainer {
+      &_slidesContainer {
+        display: flex;
+        .imageBox {
+          margin-left: 10px;
+          margin-right: 10px;
+          margin-bottom: 20px;
+          border-radius: 10px;
+          width: 180px;
+          height: 120px;
+          img {
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      p {
+        text-align: center;
+      }
+    }
+  }
+}

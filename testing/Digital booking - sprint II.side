@@ -1,0 +1,1676 @@
+{
+  "id": "d0c2c571-93f0-4b54-b09a-3c2309ce99f6",
+  "version": "2.0",
+  "name": "Digital booking - sprint II",
+  "url": "http://localhost:3000/",
+  "tests": [{
+    "id": "ae7c5f32-2df1-4a95-a47c-73edc417da0e",
+    "name": "Bloque de imagenes (Desktop)",
+    "commands": [{
+      "id": "d4be277c-1389-40cf-ba5b-bae4ce84f3eb",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e04d38b5-a8aa-4698-af45-9f51cd2f6524",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2184cb5c-4208-4a95-b262-ff3af3ecd4c0",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Visitar",
+      "targets": [
+        ["linkText=Visitar", "linkText"],
+        ["css=.productCardMainContainer:nth-child(1) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Visitar')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div/div[2]/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/products/1')]", "xpath:href"],
+        ["xpath=//div[2]/div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Visitar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "12f0c03b-36d8-4242-8bd8-82d0e2a96a60",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5f6fac83-bdc2-4db1-9fc0-93dc8165caa9",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(1)",
+      "targets": [
+        ["css=button:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='root']/div[4]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ver más')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "61116f98-a84c-4d35-8d8a-d4fc536cfde1",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(2) path",
+      "targets": [
+        ["css=button:nth-child(2) path", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c0d6d03-b46a-4643-b504-9c1b603c1c69",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(2) > svg",
+      "targets": [
+        ["css=button:nth-child(2) > svg", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "138a0e43-a719-47ff-b948-b1ee9591bea2",
+      "comment": "",
+      "command": "click",
+      "target": "css=path:nth-child(2)",
+      "targets": [
+        ["css=path:nth-child(2)", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "615e0ef2-adef-4595-8498-29b7909c0ac7",
+    "name": "Bloque de imagenes (Mobile)",
+    "commands": [{
+      "id": "1b8c9ddc-973a-473c-ac06-2f9554735991",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8bbc4577-49ff-4e30-ae1d-b3e79b7a9d45",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d5fa4c78-d68c-4a31-9ccf-7379a9f72576",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cardContainer:nth-child(1) img",
+      "targets": [
+        ["css=.cardContainer:nth-child(1) img", "css:finder"],
+        ["xpath=//img[@alt='Apartamentos']", "xpath:img"],
+        ["xpath=//div[@id='root']/div[2]/section/div/a/div/img", "xpath:idRelative"],
+        ["xpath=//div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "673fc464-9c06-49f4-b490-fe312f381682",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productCardMainContainer:nth-child(2) a",
+      "targets": [
+        ["css=.productCardMainContainer:nth-child(2) a", "css:finder"],
+        ["xpath=(//a[contains(text(),'Visitar')])[2]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div[2]/div[2]/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/products/2')]", "xpath:href"],
+        ["xpath=//div[2]/div[2]/div[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "033cd0c0-14cd-4e3f-9b32-2541599600fa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.slider__section:nth-child(1) > .slider__img",
+      "targets": [
+        ["css=.slider__section:nth-child(1) > .slider__img", "css:finder"],
+        ["xpath=//img[contains(@src,'https://a0.muscache.com/im/pictures/ba694acb-41ba-4064-bc48-b3ef76791615.jpg?im_w=1200')]", "xpath:img"],
+        ["xpath=//div[@id='slider']/div/img", "xpath:idRelative"],
+        ["xpath=//div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e1e3cb00-116b-491c-becc-41452efd63f3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.slider__section:nth-child(1) > .slider__img",
+      "targets": [
+        ["css=.slider__section:nth-child(1) > .slider__img", "css:finder"],
+        ["xpath=//img[contains(@src,'https://a0.muscache.com/im/pictures/ba694acb-41ba-4064-bc48-b3ef76791615.jpg?im_w=1200')]", "xpath:img"],
+        ["xpath=//div[@id='slider']/div/img", "xpath:idRelative"],
+        ["xpath=//div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4c02f5e7-dd21-4bc8-a360-49eb48b342f2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.slider__section:nth-child(4) > .slider__img",
+      "targets": [
+        ["css=.slider__section:nth-child(4) > .slider__img", "css:finder"],
+        ["xpath=//img[contains(@src,'https://a0.muscache.com/im/pictures/miso/Hosting-33186477/original/ac13d934-a49c-4653-8833-be8e19ab7180.jpeg?im_w=1200')]", "xpath:img"],
+        ["xpath=//div[@id='slider']/div[4]/img", "xpath:idRelative"],
+        ["xpath=//div[4]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f87bb752-a5fe-4a6f-9174-3def3305f8e3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.countContainer > span",
+      "targets": [
+        ["css=.countContainer > span", "css:finder"],
+        ["xpath=//div[@id='root']/div[4]/div[2]/span", "xpath:idRelative"],
+        ["xpath=//div[4]/div[2]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'1/10')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "c3100863-702f-41f7-a8d8-db2e1e059817",
+    "name": "Bloque de imagenes (Tablet)",
+    "commands": [{
+      "id": "1235a7e8-cd54-465d-aad5-4424c741404a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5947f9e9-52b9-4206-bbfe-b2c76e0434bd",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7f67d9f9-c164-4b8f-8cf2-29d519d83ad1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cardContainer:nth-child(2) img",
+      "targets": [
+        ["css=.cardContainer:nth-child(2) img", "css:finder"],
+        ["xpath=//img[@alt='Casas']", "xpath:img"],
+        ["xpath=//div[@id='root']/div[2]/section/div/a[2]/div/img", "xpath:idRelative"],
+        ["xpath=//a[2]/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f4f8733e-c5a5-45ac-af1d-e22002820288",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productCardMainContainer:nth-child(2) a",
+      "targets": [
+        ["css=.productCardMainContainer:nth-child(2) a", "css:finder"],
+        ["xpath=(//a[contains(text(),'Visitar')])[2]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div[2]/div[2]/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/products/8')]", "xpath:href"],
+        ["xpath=//div[2]/div[2]/div[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa0f6aee-67ab-46f9-b2aa-fe0f41b719aa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.slider__section:nth-child(1) > .slider__img",
+      "targets": [
+        ["css=.slider__section:nth-child(1) > .slider__img", "css:finder"],
+        ["xpath=//img[contains(@src,'https://a0.muscache.com/im/pictures/miso/Hosting-38129047/original/931fc299-5e96-4b72-9166-eee0ea8882b2.png?im_w=1200')]", "xpath:img"],
+        ["xpath=//div[@id='slider']/div/img", "xpath:idRelative"],
+        ["xpath=//div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "896a586a-47d7-49fc-b5bc-13632e9a1e0f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.slider__section:nth-child(1) > .slider__img",
+      "targets": [
+        ["css=.slider__section:nth-child(1) > .slider__img", "css:finder"],
+        ["xpath=//img[contains(@src,'https://a0.muscache.com/im/pictures/miso/Hosting-38129047/original/931fc299-5e96-4b72-9166-eee0ea8882b2.png?im_w=1200')]", "xpath:img"],
+        ["xpath=//div[@id='slider']/div/img", "xpath:idRelative"],
+        ["xpath=//div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5570be76-170e-4ba7-89db-8e93c45e1301",
+      "comment": "",
+      "command": "click",
+      "target": "css=.slider__section:nth-child(2) > .slider__img",
+      "targets": [
+        ["css=.slider__section:nth-child(2) > .slider__img", "css:finder"],
+        ["xpath=//img[contains(@src,'https://a0.muscache.com/im/pictures/068c7bfd-e1c2-41f4-bb62-87fd067c257a.jpg?im_w=1200')]", "xpath:img"],
+        ["xpath=//div[@id='slider']/div[2]/img", "xpath:idRelative"],
+        ["xpath=//div[2]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "79447fa0-e5a9-4ca2-8487-9488b7ca5857",
+      "comment": "",
+      "command": "click",
+      "target": "css=.slider__section:nth-child(3) > .slider__img",
+      "targets": [
+        ["css=.slider__section:nth-child(3) > .slider__img", "css:finder"],
+        ["xpath=//img[contains(@src,'https://a0.muscache.com/im/pictures/eed4cb33-2592-4ae5-812a-b5c8d9fb67dd.jpg?im_w=1200')]", "xpath:img"],
+        ["xpath=//div[@id='slider']/div[3]/img", "xpath:idRelative"],
+        ["xpath=//div[3]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4d2624cd-ff65-4f41-9099-453f55224b1e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.slider__section:nth-child(4) > .slider__img",
+      "targets": [
+        ["css=.slider__section:nth-child(4) > .slider__img", "css:finder"],
+        ["xpath=//img[contains(@src,'https://a0.muscache.com/im/pictures/miso/Hosting-38129047/original/e029f158-93d1-4e6b-bd51-b284a77f7d49.jpeg?im_w=1200')]", "xpath:img"],
+        ["xpath=//div[@id='slider']/div[4]/img", "xpath:idRelative"],
+        ["xpath=//div[4]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "917b089e-25ea-4ec5-8446-5decfa134e84",
+      "comment": "",
+      "command": "click",
+      "target": "css=.slider__section:nth-child(5) > .slider__img",
+      "targets": [
+        ["css=.slider__section:nth-child(5) > .slider__img", "css:finder"],
+        ["xpath=//img[contains(@src,'https://a0.muscache.com/im/pictures/miso/Hosting-38129047/original/894bbb3b-7286-4131-9a7b-edd3c2971723.jpeg?im_w=960')]", "xpath:img"],
+        ["xpath=//div[@id='slider']/div[5]/img", "xpath:idRelative"],
+        ["xpath=//div[5]/img", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "201ae86c-51ca-42a8-ae1b-a98917600e71",
+    "name": "Características (Tablet)",
+    "commands": [{
+      "id": "79e01865-b445-4366-848a-a568c044ba39",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c958582c-ea94-47fb-ad59-b42140af7b96",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d77146b2-38e8-4dde-a1f7-7e69703f6a91",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cardContainer:nth-child(4) img",
+      "targets": [
+        ["css=.cardContainer:nth-child(4) img", "css:finder"],
+        ["xpath=//img[@alt='Cabañas']", "xpath:img"],
+        ["xpath=//div[@id='root']/div[2]/section/div/a[4]/div/img", "xpath:idRelative"],
+        ["xpath=//a[4]/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f6626a34-f184-4792-9075-ef20b64dd09f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Visitar",
+      "targets": [
+        ["linkText=Visitar", "linkText"],
+        ["css=.productCardMainContainer__contentContainer__footer > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Visitar')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div/div[2]/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/products/7')]", "xpath:href"],
+        ["xpath=//div[2]/div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Visitar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b74e4ca-f623-448e-8d2f-5ca7678c5f2c",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(3) > .descripcion",
+      "targets": [
+        ["css=div:nth-child(3) > .descripcion", "css:finder"],
+        ["xpath=//div[@id='root']/div[6]/div/div[3]/span", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div[3]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Lavadora')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "44ac5153-c786-4384-9a5e-90454cd67f3e",
+    "name": "Politicas (Desktop)",
+    "commands": [{
+      "id": "f401a9d8-9c92-4b75-ad90-a30f1a7bfd46",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bc7a28f9-f7b6-4ef5-904b-f2ff0ee8fa07",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c44b01fc-119c-4543-a7fc-627032eba7d2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.CategoriesContainer > h2",
+      "targets": [
+        ["css=.CategoriesContainer > h2", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/section/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Buscar por tipo de alojamiento')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "645ada20-d520-447a-af03-ab3d350a33a4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productListMainContainer__productList",
+      "targets": [
+        ["css=.productListMainContainer__productList", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div", "xpath:idRelative"],
+        ["xpath=//body/div/div[2]/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b4eb1a97-46ef-458e-ae09-2175fa3c692a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productCardMainContainer:nth-child(8) a",
+      "targets": [
+        ["css=.productCardMainContainer:nth-child(8) a", "css:finder"],
+        ["xpath=(//a[contains(text(),'Visitar')])[8]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div[8]/div[2]/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/products/4')]", "xpath:href"],
+        ["xpath=//div[8]/div[2]/div[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "804084db-9570-440f-bf2d-bc6481124b5f",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2f372a43-ef64-4c7b-a61e-eb02fbf1a096",
+      "comment": "",
+      "command": "click",
+      "target": "css=.prodDescription",
+      "targets": [
+        ["css=.prodDescription", "css:finder"],
+        ["xpath=//div[@id='root']/div[5]", "xpath:idRelative"],
+        ["xpath=//body/div/div[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6c3377c3-cb04-49d5-9549-ec4c0bcf3cb9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.prodPolicy > h3",
+      "targets": [
+        ["css=.prodPolicy > h3", "css:finder"],
+        ["xpath=//div[@id='root']/div[8]/h3", "xpath:idRelative"],
+        ["xpath=//div[8]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Qué tenés que saber')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "357fb448-b7f4-447d-adec-409e3597081e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.prodPolicy > h3",
+      "targets": [
+        ["css=.prodPolicy > h3", "css:finder"],
+        ["xpath=//div[@id='root']/div[8]/h3", "xpath:idRelative"],
+        ["xpath=//div[8]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Qué tenés que saber')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "fd1c0def-acb2-4f7e-89e2-c095592caec5",
+    "name": "Politicas (Mobile)",
+    "commands": [{
+      "id": "1cd201d7-3967-4722-ba7b-9cd07502564a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bb6649cc-701b-4c8f-8e85-cc6f93d5d03e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4eea9c9f-a6a1-40e7-bce4-9eb609d7f28e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cardContainer:nth-child(1) img",
+      "targets": [
+        ["css=.cardContainer:nth-child(1) img", "css:finder"],
+        ["xpath=//img[@alt='Apartamentos']", "xpath:img"],
+        ["xpath=//div[@id='root']/div[2]/section/div/a/div/img", "xpath:idRelative"],
+        ["xpath=//div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f1a9177b-aa42-4a36-805c-3eb0f4a7b0ac",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productCardMainContainer:nth-child(2) a",
+      "targets": [
+        ["css=.productCardMainContainer:nth-child(2) a", "css:finder"],
+        ["xpath=(//a[contains(text(),'Visitar')])[2]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div[2]/div[2]/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/products/2')]", "xpath:href"],
+        ["xpath=//div[2]/div[2]/div[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a341842e-eb2d-4c43-827e-91e6a0146b94",
+      "comment": "",
+      "command": "click",
+      "target": "css=.prodPolicy > h3",
+      "targets": [
+        ["css=.prodPolicy > h3", "css:finder"],
+        ["xpath=//div[@id='root']/div[8]/h3", "xpath:idRelative"],
+        ["xpath=//div[8]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Qué tenés que saber')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5e24b131-a6ee-4782-955c-03d07d5d0354",
+      "comment": "",
+      "command": "click",
+      "target": "css=.prodPolicy > h3",
+      "targets": [
+        ["css=.prodPolicy > h3", "css:finder"],
+        ["xpath=//div[@id='root']/div[8]/h3", "xpath:idRelative"],
+        ["xpath=//div[8]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Qué tenés que saber')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "cefa3517-eb15-4f66-9ccb-da0927791ead",
+    "name": "Politicas (Tablet)",
+    "commands": [{
+      "id": "e14189bd-a426-44c5-95c2-5849866cea88",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "54b7b91d-ffff-4bab-9cad-1c8731e38ec3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e13594c1-0232-4d33-b174-7bf3d4f9967f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productCardMainContainer:nth-child(3) a",
+      "targets": [
+        ["css=.productCardMainContainer:nth-child(3) a", "css:finder"],
+        ["xpath=(//a[contains(text(),'Visitar')])[3]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div[3]/div[2]/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/products/8')]", "xpath:href"],
+        ["xpath=//div[3]/div[2]/div[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "23f6a9e2-4a5f-4c70-b619-af8c2e262663",
+      "comment": "",
+      "command": "click",
+      "target": "css=.prodPolicy > h3",
+      "targets": [
+        ["css=.prodPolicy > h3", "css:finder"],
+        ["xpath=//div[@id='root']/div[8]/h3", "xpath:idRelative"],
+        ["xpath=//div[8]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Qué tenés que saber')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c23a9f13-b059-4d32-b703-86c8baa7ddc2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.prodPolicy > h3",
+      "targets": [
+        ["css=.prodPolicy > h3", "css:finder"],
+        ["xpath=//div[@id='root']/div[8]/h3", "xpath:idRelative"],
+        ["xpath=//div[8]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Qué tenés que saber')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b0aafdb-99ff-4ebf-9049-c9265174dc03",
+      "comment": "",
+      "command": "click",
+      "target": "css=.prodPolicy > h3",
+      "targets": [
+        ["css=.prodPolicy > h3", "css:finder"],
+        ["xpath=//div[@id='root']/div[8]/h3", "xpath:idRelative"],
+        ["xpath=//div[8]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Qué tenés que saber')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "62c844e1-df0c-4d56-9224-a81a9a294830",
+    "name": "Bloque buscador - Check in- check out",
+    "commands": [{
+      "id": "1a4fe1ae-a2c7-4667-a01c-c300362c9460",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2d68748f-3264-43c8-a0e8-a61806d502aa",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "24e8c5c4-abb6-4d11-bc8f-c479c424cff2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.CalendarInputBox > p",
+      "targets": [
+        ["css=.CalendarInputBox > p", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/form/div[2]/div/div/p", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Check In - Check out')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3aeeed1a-2ad8-48e3-a801-a718843e7cca",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(2) > .rmdp-week:nth-child(4) > .rmdp-day:nth-child(3) > .sd",
+      "targets": [
+        ["css=div:nth-child(2) > .rmdp-week:nth-child(4) > .rmdp-day:nth-child(3) > .sd", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/form/div[2]/div/div[2]/div/div/div/div[2]/div/div[2]/div[4]/div[3]/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div[4]/div[3]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c67db368-e26e-41b6-a50b-9d3523a5f4f9",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/form/div[2]/div/div[2]/div/div[2]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aplicar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e448b62e-2a6d-48ac-9e11-7aae231b3205",
+      "comment": "",
+      "command": "click",
+      "target": "css=.CategoriesContainer",
+      "targets": [
+        ["css=.CategoriesContainer", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/section", "xpath:idRelative"],
+        ["xpath=//section", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "bc7db15f-69ec-4132-bbc9-e92ec8ca803f",
+    "name": "Bloque buscador- ciudad",
+    "commands": [{
+      "id": "de29567c-51d9-40ad-b4de-689cfc00cf9f",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9e61c71a-ec29-4043-85bb-a7124657986c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "17438f36-218a-4cbf-878d-a214baf47167",
+      "comment": "",
+      "command": "click",
+      "target": "css=.SelectContainer",
+      "targets": [
+        ["css=.SelectContainer", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/form/div/div/div", "xpath:idRelative"],
+        ["xpath=//form/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "310e2f0f-1491-418a-a675-aa47193b5201",
+      "comment": "",
+      "command": "click",
+      "target": "css=.optionMainContainer:nth-child(1) .optionMainContainer__box-country",
+      "targets": [
+        ["css=.optionMainContainer:nth-child(1) .optionMainContainer__box-country", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div/form/div/div/div[2]/div/div/span/p[2]", "xpath:idRelative"],
+        ["xpath=//p[2]", "xpath:position"],
+        ["xpath=//p[contains(.,'Argentina')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "89934f50-ceda-4642-973a-e99228d0fe01",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Buscar",
+      "targets": [
+        ["linkText=Buscar", "linkText"],
+        ["css=.SearchBarContainer__formContainer-button", "css:finder"],
+        ["xpath=//a[contains(text(),'Buscar')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div/form/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/city/1')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Buscar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f6065c0-342b-43b4-bd54-5465374e8e8b",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "linkText=Buscar",
+      "targets": [
+        ["linkText=Buscar", "linkText"],
+        ["css=.SearchBarContainer__formContainer-button", "css:finder"],
+        ["xpath=//a[contains(text(),'Buscar')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div/form/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/city/0')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Buscar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c4f61f9-ac0e-4ffc-ac79-673fe6854155",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "linkText=Buscar",
+      "targets": [
+        ["linkText=Buscar", "linkText"],
+        ["css=.SearchBarContainer__formContainer-button", "css:finder"],
+        ["xpath=//a[contains(text(),'Buscar')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div/form/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/city/0')]", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Buscar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3da23157-8ec8-4565-86b6-80244e47f703",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productListMainContainer > h2",
+      "targets": [
+        ["css=.productListMainContainer > h2", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//div[2]/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Resultados de la búsqueda en Buenos Aires, Argentina')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "7edb876a-9589-4c83-bcfb-7feb165e47b7",
+    "name": "Header del producto",
+    "commands": [{
+      "id": "dc00514f-a6e9-4184-bb94-5c04302c5603",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dca0e018-03a2-4618-b80d-da0f30435c9f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3ef54a14-49a8-4118-a2ba-fc49dd1788db",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Visitar",
+      "targets": [
+        ["linkText=Visitar", "linkText"],
+        ["css=.productCardMainContainer:nth-child(1) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Visitar')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div/div[2]/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/products/5')]", "xpath:href"],
+        ["xpath=//div[2]/div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Visitar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "188e2d5a-6e2d-417d-bc73-1e3e11d5b51d",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "efcc7bcd-59c4-45c1-9620-d32d8e1576a2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productHeader",
+      "targets": [
+        ["css=.productHeader", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]", "xpath:idRelative"],
+        ["xpath=//body/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "30d437ae-9e90-42fc-80e3-4df1ee5da1f0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productLocation > span",
+      "targets": [
+        ["css=.productLocation > span", "css:finder"],
+        ["xpath=//div[@id='root']/div[3]/span", "xpath:idRelative"],
+        ["xpath=//div[3]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Bariloche, Argentina')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f3e614ad-00af-47c2-80b6-9816880c9f4b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productLocation > span",
+      "targets": [
+        ["css=.productLocation > span", "css:finder"],
+        ["xpath=//div[@id='root']/div[3]/span", "xpath:idRelative"],
+        ["xpath=//div[3]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Bariloche, Argentina')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "71e54b2d-35ce-47f4-9dbc-da77f5b51136",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.productLocation > span",
+      "targets": [
+        ["css=.productLocation > span", "css:finder"],
+        ["xpath=//div[@id='root']/div[3]/span", "xpath:idRelative"],
+        ["xpath=//div[3]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Bariloche, Argentina')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "18874bc6-0257-4b25-a49a-85381dfb34a9",
+    "name": "Bloque categorias",
+    "commands": [{
+      "id": "50fd1013-b509-47c7-9c5d-062169be169e",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "298a6a42-d9f4-433b-9ac4-841ce9bead05",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f105a50b-523c-469c-9017-6a24df55347c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.CategoriesContainer > h2",
+      "targets": [
+        ["css=.CategoriesContainer > h2", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/section/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Buscar por tipo de alojamiento')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3f78ee17-4fe9-4fb9-aac5-1a3e661ab1fc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cardContainer:nth-child(3)",
+      "targets": [
+        ["css=.cardContainer:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/section/div/a[3]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/category/3')]", "xpath:href"],
+        ["xpath=//a[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7746d6ad-2461-40e5-9246-022d258bc265",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "38e2c036-567b-4529-b522-5232eb653b93",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productCardMainContainer:nth-child(2) > .productCardMainContainer__contentContainer",
+      "targets": [
+        ["css=.productCardMainContainer:nth-child(2) > .productCardMainContainer__contentContainer", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div[2]/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/div/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "13eaf51b-2394-45ad-a8b3-a004a4cdf851",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productListMainContainer > h2",
+      "targets": [
+        ["css=.productListMainContainer > h2", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//div[2]/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Resultados de la búsqueda de Lofts')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a9a6e8fb-535f-4d2d-af0b-50aae564b960",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cardContainer:nth-child(4) h3",
+      "targets": [
+        ["css=.cardContainer:nth-child(4) h3", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/section/div/a[4]/div[2]/h3", "xpath:idRelative"],
+        ["xpath=//a[4]/div[2]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Cabañas')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "13e2d72e-396f-44a2-8b9e-4b0b4b017e3f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productCardMainContainer__contentContainer__header__endContainer",
+      "targets": [
+        ["css=.productCardMainContainer__contentContainer__header__endContainer", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div/div[2]/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div[2]/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8ba99603-f554-44a6-b982-33921199076b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cardContainer:nth-child(2) h3",
+      "targets": [
+        ["css=.cardContainer:nth-child(2) h3", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/section/div/a[2]/div[2]/h3", "xpath:idRelative"],
+        ["xpath=//a[2]/div[2]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Casas')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "54beab39-7b96-4f15-8d23-eaf47c1b8a0c",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4ff06c4d-ba72-4905-885c-69c0846b0e4e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productListMainContainer > h2",
+      "targets": [
+        ["css=.productListMainContainer > h2", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//div[2]/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Resultados de la búsqueda de Casas')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "145963cd-7503-4f0d-9c9b-8521a1d66b40",
+    "name": "Bloque de productos",
+    "commands": [{
+      "id": "bb3acbcb-33a0-4229-b0b3-eac05deeb840",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f89dc62c-2a93-44fa-a2f4-715a5aeb19c2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e002c4d5-c42b-40ad-a3ed-990d273ccf32",
+      "comment": "",
+      "command": "click",
+      "target": "css=.CategoriesContainer",
+      "targets": [
+        ["css=.CategoriesContainer", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/section", "xpath:idRelative"],
+        ["xpath=//section", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "16343675-8ff9-4b3b-a92b-4ed4f8523511",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productListMainContainer > h2",
+      "targets": [
+        ["css=.productListMainContainer > h2", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//div[2]/h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Recomendaciones')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f9ce4a1-16fe-476b-a3d4-1c6568ba6c57",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Visitar",
+      "targets": [
+        ["linkText=Visitar", "linkText"],
+        ["css=.productCardMainContainer:nth-child(1) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Visitar')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div/div[2]/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/products/1')]", "xpath:href"],
+        ["xpath=//div[2]/div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Visitar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "429e2d31-c01c-4832-b0e4-80e59acbc9a6",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0e197467-fc69-43de-8819-e9efc1bc00fe",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MainContainerProductImages_imgPpal",
+      "targets": [
+        ["css=.MainContainerProductImages_imgPpal", "css:finder"],
+        ["xpath=//img[contains(@src,'https://a0.muscache.com/im/pictures/a08c77e2-401e-470c-ab07-49c96cf3a44a.jpg?im_w=1200')]", "xpath:img"],
+        ["xpath=//div[@id='root']/div[4]/img", "xpath:idRelative"],
+        ["xpath=//div[4]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "350b2465-9765-43e8-b1b3-a78631fed67d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MainContainerProductImages_imgPpal",
+      "targets": [
+        ["css=.MainContainerProductImages_imgPpal", "css:finder"],
+        ["xpath=//img[contains(@src,'https://a0.muscache.com/im/pictures/a08c77e2-401e-470c-ab07-49c96cf3a44a.jpg?im_w=1200')]", "xpath:img"],
+        ["xpath=//div[@id='root']/div[4]/img", "xpath:idRelative"],
+        ["xpath=//div[4]/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4e9c1fce-3633-4416-b729-2ebceed5dff4",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(1)",
+      "targets": [
+        ["css=button:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='root']/div[4]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ver más')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7833b97-4a8e-4eb4-88ed-a3c5d5f4ff40",
+      "comment": "",
+      "command": "click",
+      "target": "css=path:nth-child(2)",
+      "targets": [
+        ["css=path:nth-child(2)", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "20be2797-7116-4cce-be6b-992e0f10033e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.prodDescription",
+      "targets": [
+        ["css=.prodDescription", "css:finder"],
+        ["xpath=//div[@id='root']/div[5]", "xpath:idRelative"],
+        ["xpath=//body/div/div[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b8a304f2-2d2c-4f5b-abab-ad124b158d09",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productHeader",
+      "targets": [
+        ["css=.productHeader", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]", "xpath:idRelative"],
+        ["xpath=//body/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba671103-b023-44f5-87a3-f053a1a624a1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.backButton > path",
+      "targets": [
+        ["css=.backButton > path", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "488d97d8-a6db-46c0-8763-cdffb45a2e24",
+    "name": "Boton Ver más (Desktop)",
+    "commands": [{
+      "id": "d075881d-b2b4-484e-8c06-4ca58f530087",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "481eee70-9aa6-4d48-bee3-7c4f0fa9135f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0d9b00b4-12aa-4cc5-86c2-0081004f0f54",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cardContainer:nth-child(4) img",
+      "targets": [
+        ["css=.cardContainer:nth-child(4) img", "css:finder"],
+        ["xpath=//img[@alt='Cabañas']", "xpath:img"],
+        ["xpath=//div[@id='root']/div[2]/section/div/a[4]/div/img", "xpath:idRelative"],
+        ["xpath=//a[4]/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c210dfd4-eb19-4aa3-9ec8-ece7fa7aecb4",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Visitar",
+      "targets": [
+        ["linkText=Visitar", "linkText"],
+        ["css=.productCardMainContainer__contentContainer__footer > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Visitar')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div/div[2]/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/products/7')]", "xpath:href"],
+        ["xpath=//div[2]/div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Visitar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "abef2936-e746-4911-836c-7d489da7437e",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4ff0eef5-ec02-4d46-a6e8-406267acae4a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.first:nth-child(3)",
+      "targets": [
+        ["css=.first:nth-child(3)", "css:finder"],
+        ["xpath=//img[contains(@src,'https://a0.muscache.com/im/pictures/7ecac6e8-d773-4a7c-a3cf-1024cf0dc47d.jpg?im_w=1200')]", "xpath:img"],
+        ["xpath=//div[@id='root']/div[4]/img[3]", "xpath:idRelative"],
+        ["xpath=//img[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fb5c5b73-e912-4808-b3cf-704dbf4c2198",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(1)",
+      "targets": [
+        ["css=button:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='root']/div[4]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Ver más')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "c7961b1d-6ab7-423e-951f-ebc28050c1da",
+    "name": "Características (Desktop)",
+    "commands": [{
+      "id": "1b79474c-f7a0-4220-9f46-e331784235ae",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ecc61bf4-f8c7-4806-8f56-42351d3a4e51",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "02dd7f54-4c62-4d27-acd1-ce4f1dcf8299",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productCardMainContainer:nth-child(4) a",
+      "targets": [
+        ["css=.productCardMainContainer:nth-child(4) a", "css:finder"],
+        ["xpath=(//a[contains(text(),'Visitar')])[4]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div[4]/div[2]/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/products/4')]", "xpath:href"],
+        ["xpath=//div[4]/div[2]/div[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f4138a48-15c7-4f66-bb52-2fd957f25d71",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "02654a74-0741-470f-8107-4eb0a1aa49ab",
+      "comment": "",
+      "command": "click",
+      "target": "css=.MainContainerProductImages",
+      "targets": [
+        ["css=.MainContainerProductImages", "css:finder"],
+        ["xpath=//div[@id='root']/div[4]", "xpath:idRelative"],
+        ["xpath=//body/div/div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8a3b040b-762f-4113-bf30-2f67f0184418",
+      "comment": "",
+      "command": "click",
+      "target": "css=.prodDescription > h3",
+      "targets": [
+        ["css=.prodDescription > h3", "css:finder"],
+        ["xpath=//div[@id='root']/div[5]/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Hermosa casa céntrica, espaciosa y dotada para 6')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0142d20d-7f8a-498b-8679-3b688a71fb0d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.prodCharacteristics > h3",
+      "targets": [
+        ["css=.prodCharacteristics > h3", "css:finder"],
+        ["xpath=//div[@id='root']/div[6]/h3", "xpath:idRelative"],
+        ["xpath=//div[6]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'¿Qué ofrece este lugar?')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "d9126c37-fe09-4920-a104-0e0434899d0e",
+    "name": "Características (Mobile)",
+    "commands": [{
+      "id": "12d2bdb4-c807-4eb1-a735-ebe01340970d",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3fde9377-2bfa-4fda-a7c3-fc12fb068eff",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "40987acf-f43a-43e5-8617-b416c996471b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cardContainer:nth-child(1) img",
+      "targets": [
+        ["css=.cardContainer:nth-child(1) img", "css:finder"],
+        ["xpath=//img[@alt='Apartamentos']", "xpath:img"],
+        ["xpath=//div[@id='root']/div[2]/section/div/a/div/img", "xpath:idRelative"],
+        ["xpath=//div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "11e0dac5-9e9e-4068-a627-e1e728868c66",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productCardMainContainer:nth-child(1) img",
+      "targets": [
+        ["css=.productCardMainContainer:nth-child(1) img", "css:finder"],
+        ["xpath=(//img[contains(@src,'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')])[2]", "xpath:img"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div/div/img", "xpath:idRelative"],
+        ["xpath=//div/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c954931-c0a5-4764-bb1b-46f81ffde3c2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Visitar",
+      "targets": [
+        ["linkText=Visitar", "linkText"],
+        ["css=.productCardMainContainer:nth-child(1) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Visitar')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div/div[2]/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/products/2')]", "xpath:href"],
+        ["xpath=//div[2]/div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Visitar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "02769499-8e6e-461c-84a6-1455d5cf0301",
+      "comment": "",
+      "command": "click",
+      "target": "css=p:nth-child(2)",
+      "targets": [
+        ["css=p:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='root']/div[5]/p", "xpath:idRelative"],
+        ["xpath=//p", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce7d84e7-55c0-41fa-a961-9a9230d3403d",
+      "comment": "",
+      "command": "click",
+      "target": "css=p:nth-child(2)",
+      "targets": [
+        ["css=p:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='root']/div[5]/p", "xpath:idRelative"],
+        ["xpath=//p", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "12dc8f4a-8b21-4f6a-a1bb-1df12f8ab7dd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.prodCharacteristics > h3",
+      "targets": [
+        ["css=.prodCharacteristics > h3", "css:finder"],
+        ["xpath=//div[@id='root']/div[6]/h3", "xpath:idRelative"],
+        ["xpath=//div[6]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'¿Qué ofrece este lugar?')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "491ba803-34e4-4b50-971e-2ffb3d78f637",
+      "comment": "",
+      "command": "click",
+      "target": "css=.prodCharacteristics > h3",
+      "targets": [
+        ["css=.prodCharacteristics > h3", "css:finder"],
+        ["xpath=//div[@id='root']/div[6]/h3", "xpath:idRelative"],
+        ["xpath=//div[6]/h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'¿Qué ofrece este lugar?')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "1612f023-bf7a-49cd-8466-68e85670dd74",
+    "name": "URLs amigables - Producto/id y Categoria/id",
+    "commands": [{
+      "id": "a7628d48-a77f-4ed8-96c4-19f5679a1318",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "11324765-4d70-4012-a749-7ceb53488e9d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c3d2aed0-d8a1-4994-a1fb-9fc8d2e57f14",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cardContainer:nth-child(2) img",
+      "targets": [
+        ["css=.cardContainer:nth-child(2) img", "css:finder"],
+        ["xpath=//img[@alt='Casas']", "xpath:img"],
+        ["xpath=//div[@id='root']/div[2]/section/div/a[2]/div/img", "xpath:idRelative"],
+        ["xpath=//a[2]/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "37f136d0-1752-4a6d-a0cd-cce4648db663",
+      "comment": "",
+      "command": "click",
+      "target": "css=.header",
+      "targets": [
+        ["css=.header", "css:finder"],
+        ["xpath=//div[@id='root']/div", "xpath:idRelative"],
+        ["xpath=//div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "96bf3a12-bd33-4e2b-9b8c-d6c942e6bf01",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cardContainer:nth-child(1) img",
+      "targets": [
+        ["css=.cardContainer:nth-child(1) img", "css:finder"],
+        ["xpath=//img[@alt='Apartamentos']", "xpath:img"],
+        ["xpath=//div[@id='root']/div[2]/section/div/a/div/img", "xpath:idRelative"],
+        ["xpath=//div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "539f18f0-5a89-49f6-9dbe-3d17bfc67f49",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cardContainer:nth-child(1) img",
+      "targets": [
+        ["css=.cardContainer:nth-child(1) img", "css:finder"],
+        ["xpath=//img[@alt='Apartamentos']", "xpath:img"],
+        ["xpath=//div[@id='root']/div[2]/section/div/a/div/img", "xpath:idRelative"],
+        ["xpath=//div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "07b70319-5198-482b-958d-f470800ac569",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cardContainer:nth-child(3) img",
+      "targets": [
+        ["css=.cardContainer:nth-child(3) img", "css:finder"],
+        ["xpath=//img[@alt='Lofts']", "xpath:img"],
+        ["xpath=//div[@id='root']/div[2]/section/div/a[3]/div/img", "xpath:idRelative"],
+        ["xpath=//a[3]/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "85e2672f-6a3a-4060-a2ce-82d6b0f72ae4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.CategoriesContainer > h2",
+      "targets": [
+        ["css=.CategoriesContainer > h2", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/section/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'Buscar por tipo de alojamiento')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "de3504ed-1795-4a81-bc9c-59f16c35307b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productCardMainContainer:nth-child(2) a",
+      "targets": [
+        ["css=.productCardMainContainer:nth-child(2) a", "css:finder"],
+        ["xpath=(//a[contains(text(),'Visitar')])[2]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div[2]/div[2]/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/products/5')]", "xpath:href"],
+        ["xpath=//div[2]/div[2]/div[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4ba71b6a-d6c5-43a1-82f3-c25280e8d297",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5088248f-85e3-4dae-b7d3-bf2a55f822c8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.header",
+      "targets": [
+        ["css=.header", "css:finder"],
+        ["xpath=//div[@id='root']/div", "xpath:idRelative"],
+        ["xpath=//div/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "c922594d-d7eb-4451-a0fc-2435ec880990",
+    "name": "Bloque calendario de reserva - Responsive Tablet",
+    "commands": [{
+      "id": "3ebb0bd5-0dc9-4db5-8a1c-585457c32642",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "71036c6a-1444-491e-a019-0aaf4f6076c1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1c11879a-ec24-4d3a-8fd8-3d75ea95e4e1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cardContainer:nth-child(2) img",
+      "targets": [
+        ["css=.cardContainer:nth-child(2) img", "css:finder"],
+        ["xpath=//img[@alt='Casas']", "xpath:img"],
+        ["xpath=//div[@id='root']/div[2]/section/div/a[2]/div/img", "xpath:idRelative"],
+        ["xpath=//a[2]/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f1809bc2-09dc-4366-89a0-9a6aa6a416aa",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Visitar",
+      "targets": [
+        ["linkText=Visitar", "linkText"],
+        ["css=.productCardMainContainer:nth-child(1) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Visitar')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div/div[2]/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/products/8')]", "xpath:href"],
+        ["xpath=//div[2]/div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Visitar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2cfd9386-7fff-4e29-a45e-6a46aca816c4",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(1) > .rmdp-week:nth-child(5) > .rmdp-day:nth-child(5) > .sd",
+      "targets": [
+        ["css=div:nth-child(1) > .rmdp-week:nth-child(5) > .rmdp-day:nth-child(5) > .sd", "css:finder"],
+        ["xpath=//div[@id='root']/div[7]/div/div/div/h1/div/div/div/div[2]/div/div/div[5]/div[5]/span", "xpath:idRelative"],
+        ["xpath=//div[5]/div[5]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'24')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "416b9129-3817-4412-93ac-245d03004959",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(2)",
+      "targets": [
+        ["css=button:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='root']/div[7]/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Iniciar reserva')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "588559f4-3330-497b-b096-6c047ccbd84a",
+    "name": "Bloque calendario de reserva - Responsive Phone",
+    "commands": [{
+      "id": "691c7568-b570-41a8-b756-98b7f4ef9878",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6783aef0-e85c-4a72-9eae-b4e9d5f6f26b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "30c1ea2a-7b12-41a2-9d25-ecd2dde57464",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Visitar",
+      "targets": [
+        ["linkText=Visitar", "linkText"],
+        ["css=.productCardMainContainer:nth-child(1) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Visitar')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div/div[2]/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/products/1')]", "xpath:href"],
+        ["xpath=//div[2]/div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Visitar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b3bf3704-5fc7-47b0-a025-9cbf385b20cc",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5f846188-4135-4d4e-97f8-b2df0b7e1d65",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,773.5999755859375)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b2246651-2349-405b-904e-9378259db9e2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.rmdp-week:nth-child(5) > .rmdp-day:nth-child(5) > .sd",
+      "targets": [
+        ["css=.rmdp-week:nth-child(5) > .rmdp-day:nth-child(5) > .sd", "css:finder"],
+        ["xpath=//div[@id='root']/div[7]/div/div/div/h1/div/div/div/div[2]/div/div/div[5]/div[5]/span", "xpath:idRelative"],
+        ["xpath=//div[5]/div[5]/span", "xpath:position"],
+        ["xpath=//span[contains(.,'24')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6815b3df-8cbb-481c-bc0e-9e2d8aa6c71b",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//div[@id='root']/div[7]/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Iniciar reserva')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "3d041068-5492-48a9-96e2-1c3e667b26af",
+    "name": "Bloque calendario de reserva",
+    "commands": [{
+      "id": "68770560-1206-478b-a5bf-7d8865930a0b",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:3000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3e24bbd1-7034-4fbc-8c39-5d2499408a4a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x832",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a21222fa-a3b4-49d7-aa2b-c1b46b2b1e89",
+      "comment": "",
+      "command": "click",
+      "target": "css=.productCardMainContainer:nth-child(3) a",
+      "targets": [
+        ["css=.productCardMainContainer:nth-child(3) a", "css:finder"],
+        ["xpath=(//a[contains(text(),'Visitar')])[3]", "xpath:link"],
+        ["xpath=//div[@id='root']/div[2]/div[2]/div/div[3]/div[2]/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/products/6')]", "xpath:href"],
+        ["xpath=//div[3]/div[2]/div[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "715f87ac-713a-4358-8b5c-429972e340a5",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3af17fe9-ddcd-44a8-ac87-9ac1ac299374",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(2) > .rmdp-week:nth-child(4) > .rmdp-day:nth-child(5) > .sd",
+      "targets": [
+        ["css=div:nth-child(2) > .rmdp-week:nth-child(4) > .rmdp-day:nth-child(5) > .sd", "css:finder"],
+        ["xpath=//div[@id='root']/div[7]/div/div/div/h1/div/div/div/div[2]/div/div[2]/div[4]/div[5]/span", "xpath:idRelative"],
+        ["xpath=//div[2]/div[4]/div[5]/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bde84e53-251b-457d-b1c7-cbed71399394",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(2)",
+      "targets": [
+        ["css=button:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='root']/div[7]/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Iniciar reserva')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "b21bce9f-862e-4449-a539-271cc1bd9323",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:3000/"],
+  "plugins": []
+}

@@ -1,0 +1,137 @@
+@import "../../../sass/general.scss";
+.CalendarInputBox {
+  background-color: $light;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  &:hover {
+    cursor: pointer;
+  }
+  p {
+    font-size: 14px;
+    color: #7f7f7f;
+    font-weight: 700;
+    margin-left: 3%;
+  }
+  &__iconContainer {
+    height: fit-content;
+    width: 25px;
+    margin-left: 5px;
+    font-size: 30px;
+    &-icon {
+      font-size: 100px;
+      height: 100%;
+      width: 100%;
+      opacity: 0.5;
+    }
+  }
+}
+/* Efecto para aparacer y desaparecer enlaces */
+.hidden {
+  height: 0;
+  overflow: hidden;
+}
+.inSight {
+  height: fit-content;
+  z-index: 2;
+  margin-top: 5px;
+  box-shadow: 2px 2px #f3f1ed;
+  width: fit-content;
+  position: absolute;
+  @include breakpoint-up(small) {
+    left: 30px;
+  }
+  @include breakpoint-up(medium) {
+    left: auto;
+  }
+}
+
+//Calendar characteristics
+.optionsContainer {
+  background-color: $light;
+  display: flex;
+  flex-direction: column;
+  width: 94%;
+  @include breakpoint-up(medium) {
+    width: 60%;
+  }
+  @include breakpoint-up(large) {
+    width: 42%;
+  }
+
+  .calendarContainer {
+    width: 90%;
+    margin: auto;
+    // background-color: #7f7f7f;
+    padding-left: 5px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+
+    .rdrMonthAndYearPickers {
+      visibility: hidden;
+    }
+    .rdrDefinedRangesWrapper {
+      display: none;
+    }
+    .rdrMonthName {
+      text-align: center;
+      text-transform: capitalize;
+    }
+    .rdrMonths {
+      width: 100%;
+    }
+    .rdrMonth {
+      padding: 0;
+    }
+    .rdrNextPrevButton {
+      background-color: $light;
+    }
+    .rdrMonthAndYearWrapper {
+      position: absolute;
+      align-items: flex-start;
+      width: 80vw;
+    }
+    .rdrCalendarWrapper {
+      width: 82vw;
+      @include breakpoint-up(medium) {
+        width: 85%;
+      }
+    }
+  }
+
+  .CalendarButtonContainer {
+    background-color: $light;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    button {
+      @include links;
+      width: 60%;
+      margin: auto;
+    }
+    @include breakpoint-up(small) {
+    }
+  }
+}
+/*
+
+
+ 
+
+
+
+  .rdrMonthAndYearWrapper {
+    position: absolute;
+    align-items: flex-start;
+    width: 85vw
+  }
+
+  
+  .rdrCalendarWrapper{
+    width: 85vw;
+  }
+
+*/

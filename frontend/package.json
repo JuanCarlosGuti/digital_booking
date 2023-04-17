@@ -1,0 +1,47 @@
+{
+  "name": "pi_gr3",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "babel-plugin-macros": "^3.1.0",
+    "cors": "^2.8.5",
+    "react": "^18.2.0",
+    "react-date-range": "^1.4.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.6.0",
+    "react-multi-date-picker": "^3.3.4",
+    "react-router-dom": "^6.4.2",
+    "react-router-hash-link": "^2.4.3",
+    "react-scripts": "5.0.1",
+    "sass": "^1.55.0",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --coverage --watchAll",
+    "eject": "react-scripts eject",
+    "deploy": "aws s3 sync build/ s3://0521ptc6n2-grupo03-dev-frontend"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

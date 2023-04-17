@@ -1,0 +1,52 @@
+@import "../../../sass/general.scss";
+.CategoriesContainer {
+  // padding-top: 0.8rem;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+
+
+  &__container {
+    width: 100%;
+    max-width: $mx-w;
+
+  }
+
+
+  h2 {
+    color: $colorOscuro;
+    margin-top: 10px;
+    margin-left: 5vw;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    @include breakpoint-up(small) {
+      font-size: 1.5rem;
+      margin-left: 2.5rem;
+    }
+    @include breakpoint-up(medium) {
+      font-size: 1.8rem;
+      margin-left: 5rem;
+    }
+  }
+  &_listContainer {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(1, 90%);
+    justify-content: center;
+    row-gap: 30px;
+    @include breakpoint-up(small) {
+      grid-template-columns: repeat(2, 45%);
+      column-gap: 15px;
+      display: grid;
+      justify-content: center;
+     
+    }
+    @include breakpoint-up(large) {
+      display: flex;
+      justify-content: space-evenly;
+      margin: 0px 3vw;
+    }
+  }
+}

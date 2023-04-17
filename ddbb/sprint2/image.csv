@@ -1,0 +1,41 @@
+id,title,url,product_id
+1,"apt buenos aires",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/apart-bsas-1.jpeg,1
+2,"apt buenos aires",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/apart-bsas-2.jpeg,1
+3,"apt buenos aires",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/apart-bsas-3.jpeg,1
+4,"apt buenos aires",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/apart-bsas-4.jpeg,1
+5,"apt buenos aires",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/apart-bsas-5.jpeg,1
+6,"apt bogota",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/apart-bog-1.jpeg,2
+7,"apt bogota",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/apart-bog-2.jpeg,2
+8,"apt bogota",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/apart-bog-3.jpeg,2
+9,"apt bogota",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/apart-bog-4.jpeg,2
+10,"apt bogota",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/apart-bog-5.jpeg,2
+11,"casa cordoba",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/casa-cba-01.jpeg,3
+12,"casa cordoba",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/casa-cba-02.jpeg,3
+13,"casa cordoba",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/casa-cba-03.jpeg,3
+14,"casa cordoba",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/casa-cba-04.jpeg,3
+15,"casa cordoba",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/casa-cba-05.jpeg,3
+16,"casa medellin",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/casa-med-01.jpeg,4
+17,"casa medellin",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/casa-med-02.jpeg,4
+18,"casa medellin",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/casa-med-03.jpeg,4
+19,"casa medellin",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/casa-med-04.jpeg,4
+20,"casa medellin",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/casa-med-05.jpeg,4
+21,"loft bariloche",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/loft-bari-01.jpeg,5
+22,"loft bariloche",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/loft-bari-02.jpeg,5
+23,"loft bariloche",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/loft-bari-03.jpeg,5
+24,"loft bariloche",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/loft-bari-04.jpeg,5
+25,"loft bariloche",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/loft-bari-05.jpeg,5
+26,"loft cartagena",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/loft-cart-01.jpeg,6
+27,"loft cartagena",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/loft-cart-02.jpeg,6
+28,"loft cartagena",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/loft-cart-03.jpeg,6
+29,"loft cartagena",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/loft-cart-04.jpeg,6
+30,"loft cartagena",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/loft-cart-05.jpeg,6
+31,"cabaña cordoba",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/cab-cba-01.jpeg,7
+32,"cabaña cordoba",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/cab-cba-02.jpeg,7
+33,"cabaña cordoba",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/cab-cba-03.jpeg,7
+34,"cabaña cordoba",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/cab-cba-04.jpeg,7
+35,"cabaña cordoba",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/cab-cba-05.jpeg,7
+36,"cabaña medellin",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/cab-med-01.jpeg,8
+37,"cabaña medellin",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/cab-med-02.jpeg,8
+38,"cabaña medellin",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/cab-med-03.jpeg,8
+39,"cabaña medellin",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/cab-med-04.jpeg,8
+40,"cabaña medellin",https://0521ptc6n2-grupo03-images.s3.us-east-2.amazonaws.com/img/products/cab-med-05.jpeg,8

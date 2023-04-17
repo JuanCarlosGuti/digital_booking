@@ -1,0 +1,15 @@
+id,address,description,number_of_bathrooms,room_number,title,category_id,city_id
+1,ABG,"Fantástico dúplex de un dormitorio con sala de estar enorme y una linda terraza en el dormitorio. Perfecta Ubicación en lo mejor de Recoleta
+Otros aspectos a destacar
+En general aceptamos mascotas
+Gracias",1,1,"Duplex de diseño en lo mejor de Recoleta",1,1
+2,"Barrios unidos","Zonas Comunes:
+- Gimnasio, Salón de Yoga, TRX, Rooftop, Lounge,  Billar Pool, Ping Pong. 
+-  Piscina, Jacuzzy y Sauna
+Podrás usar las zonas comunes del edificio con reservación previa sujeta a disponibilidad y aforo por protocolos de bioseguridad",1,2,"Acogedor apartamento con gran vista, gimnasio y azotea",1,3
+3,"villa allende","Hermosa Casa de Veraneo en el balneario mas importante de Villa Carlos Paz! Está a unas pocas cuadras del río San Antonio, el bado de tala huasi o el río de Icho Cruz. A 10" de Carlos Paz, y a pocas cuadras de la calle principal del pueblo.",2,3,"Casa de vacaciones en las Sierras de Córdoba!",2,2
+4,"casa medellin","Esta espectacular vivienda te brinda una experiencia local y esta cerca de hermosos lugares naturales que visitar con cercanía a deliciosos restaurantes. Es muy cómoda, cuenta con todo lo necesario de primera mano para que sientas que llegaste a tu hogar.",2,3,"Hermosa casa céntrica, espaciosa y dotada para 6",2,4
+5,"San Carlos de Bariloche","Disfrutá de una experiencia con estilo en este alojamiento céntrico.",1,2,"BAM | Depto Studio en el centro con vista al lago",3,5
+6,"Cartagena de indias","Disfrute de las mejores vacaciones de lujo en esta impresionante casa frente a la playa, ubicada en el exclusivo barrio de Cartagena. Cada detalle ha sido diseñado profesionalmente para una vida familiar activa y el máximo confort desde hace 53 años",2,3,"Casa Porto por Huespedia. Casa de lujo frente a la playa",3,6
+7,"Villa General Belgrano",""VIlla natural", Ambiente Natural , cabaña de tronco , muy cómoda, zona residencial,  cerca del centro.",2,3,"CABAÑA EN VILLA GENERAL BELGRANO "Villa Natural"",4,2
+8,Antioquia,"Tu casa en la naturaleza.   En la bella región de Santa Elena,  lindando con la reserva forestal del Parque Arví,  a solo 40 minutos de Medellín,  pero con la tranquilidad del campo.",2,3,"La naturaleza es tu casa",2,4

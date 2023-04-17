@@ -1,0 +1,43 @@
+@import "./../../../../sass/general.scss";
+
+.productHeader {
+  position: fixed;
+  top: $navbar-h;
+  background-color: $colorPpal;
+  padding: 10px $navbar-padding-h;
+  z-index: 20;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    max-width: $mx-w;
+
+
+  }
+
+
+  .category {
+    text-transform: uppercase;
+
+    font-weight: 700;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .backButton {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-right: 15px;
+  }
+}

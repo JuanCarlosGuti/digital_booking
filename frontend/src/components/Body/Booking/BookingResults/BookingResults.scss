@@ -1,0 +1,57 @@
+@import "../../../../sass/general.scss";
+.newContainer {
+  height: 93vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ResultsContainer {
+  background-color: white;
+  width: 90%;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  @include breakpoint-up(small) {
+    width: 60%;
+  }
+  @include breakpoint-up(medium) {
+    width: 35%;
+    padding-top: 20px;
+  }
+  &_icon {
+    align-self: center;
+    font-size: 80px;
+    color: $colorPpal;
+    margin: 0%;
+    polygon:first-child {
+      fill: $colorPpal;
+    }
+    polygon:last-child {
+      fill: white;
+    }
+  }
+  h4 {
+    color: $colorPpal;
+    text-transform: capitalize;
+    margin: 0;
+    margin-top: 10px;
+  }
+  p {
+    margin: auto;
+    margin-top: 10px;
+    width: 90%;
+  }
+  button {
+    @include links;
+    width: 60%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    &:hover {
+      color: black;
+      cursor: pointer;
+    }
+  }
+}

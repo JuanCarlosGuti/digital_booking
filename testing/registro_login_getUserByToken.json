@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "affa82b4-fc1d-4917-a69e-f36401437314",
+		"name": "todos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18572066"
+	},
+	"item": [
+		{
+			"name": "registrar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"pepe\",\n    \"lastname\": \"grillo\",\n    \"email\": \"email2222@mail.com\",\n    \"password\": \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/user/publico/registro",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"publico",
+						"registro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserByToken",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNAbWFpbC5jb20iLCJleHAiOjE2NjkxOTIwMjYsImlhdCI6MTY2OTE2MzIyNiwicm9sIjp7ImF1dGhvcml0eSI6IkFETUlOIn19.GmnOMP2rBrQzGSO3jp5bXTJ5BGnrPcszxKAZ5IU96Zg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/user/getUserByToken",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"getUserByToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"usuario\": \"abc@mail.com\",\n    \"clave\": \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/publico/authenticate",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"publico",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

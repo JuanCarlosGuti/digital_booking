@@ -1,0 +1,204 @@
+@import "./../../../../sass/general.scss";
+
+.prodCalendar {
+  background-color: #ececef;
+  padding: 10px $navbar-padding-h;
+  font-weight: 700;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    width: 100%;
+    max-width: $mx-w;
+    position: relative;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0px;
+  }
+  &__mainContainer {
+    display: flex;
+    flex-direction: column;
+    @include breakpoint-up(large) {
+      flex-direction: row;
+      width: 83rem;
+    }
+    &__calendarBoxContainer {
+      width: 100%;
+      @include breakpoint-up(small) {
+        width: 80%;
+        margin: auto;
+        margin-bottom: 20px;
+      }
+      @include breakpoint-up(medium) {
+        width: 45rem;
+        margin-left: 20px;
+      }
+
+      &-Box {
+        background-color: $light;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+        width: 98%;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+        @include breakpoint-up(small) {
+          width: 95%;
+        }
+        @include breakpoint-up(medium) {
+          margin-top: 30px;
+          width: 100%;
+        }
+        .rdrMonthName {
+          text-align: center;
+          text-transform: capitalize;
+          color: #1c1c1c;
+        }
+        .rdrMonthAndYearPickers {
+          visibility: hidden;
+        }
+        .rdrMonths {
+          width: 100%;
+        }
+        .rdrMonth {
+          width: 100%;
+        }
+        .rdrMonth:first-child {
+          @include breakpoint-up(medium) {
+            margin-left: 40px;
+          }
+        }
+        .rdrMonth:last-child {
+          @include breakpoint-up(medium) {
+            margin-right: 40px;
+          }
+        }
+
+        .rdrWeekDays {
+          width: 100%;
+        }
+
+        .rdrMonthsHorizontal {
+          width: 100%;
+        }
+
+        .rdrCalendarWrapper {
+          width: 17rem;
+          @include breakpoint-up(small) {
+            margin-bottom: 20px;
+            width: 33rem;
+          }
+          @include breakpoint-up(medium) {
+            width: 45rem;
+            margin-bottom: 20px;
+          }
+          .rdrNextPrevButton {
+            background-color: $colorPpal;
+            border-radius: 100px;
+            margin: 0;
+          }
+        }
+        .rdrDays {
+          @include breakpoint-up(medium) {
+            row-gap: 20px;
+          }
+        }
+
+        .rdrMonthAndYearWrapper {
+          justify-content: center;
+          position: absolute;
+          align-items: flex-start;
+          margin-left: 10px;
+          padding-right: 10px;
+
+          @include breakpoint-up(small) {
+            width: 33rem;
+          }
+          @include breakpoint-up(medium) {
+            width: 44rem;
+            margin-top: 10rem;
+          }
+        }
+
+        .rdrDefinedRangesWrapper {
+          display: none;
+        }
+      }
+    }
+    &__assignButtonContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding-bottom: 15px;
+      @include breakpoint-up(small) {
+        width: 90%;
+        margin: auto;
+      }
+      @include breakpoint-up(medium) {
+        width: 40rem;
+      }
+      @include breakpoint-up(large) {
+        background-color: $light;
+        margin-left: 30px;
+        border-radius: 10px;
+        padding-top: 20px;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+      }
+
+      &-Box {
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 98%;
+        height: fit-content;
+        @include breakpoint-up(small) {
+          width: 90%;
+          background-color: transparent;
+          flex-direction: row;
+          width: 85%;
+        }
+        @include breakpoint-up(medium) {
+          width: 90%;
+          flex-direction: column;
+          padding-top: 3%;
+        }
+        p {
+          width: 97%;
+          font-size: 12px;
+          @include breakpoint-up(small) {
+            width: 60%;
+            font-size: 13px;
+          }
+          @include breakpoint-up(medium) {
+            width: 100%;
+            font-size: 17px;
+          }
+
+          margin: auto;
+          height: fit-content;
+        }
+        a {
+          @include links;
+          width: 100%;
+          height: 30px;
+          text-align: center;
+          padding: 0;
+          margin-top: 15px;
+
+          &:hover {
+            cursor: pointer;
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}

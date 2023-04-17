@@ -1,0 +1,37 @@
+@import "./../../sass/general.scss";
+
+.notFound{
+    margin-top: $navbar-h;
+    text-align: center;
+    .codigo{
+        
+        font-size: 5rem;
+        color: $colorOscuro;
+        background-color: $colorPpal;
+        margin: 200px 35vw 50px 35vw;
+        @include breakpoint-down(small) {
+            font-size: 3rem;
+            margin: 120px 15vw 50px 15vw;
+          }
+
+    }
+    img{
+        margin-top: 20px;
+        width: 50vw;
+    }
+    h2{
+        font-size: 3rem;
+        @include breakpoint-down(small) {
+            font-size: 2rem;
+        }
+    }
+    div.link{
+        img{
+            margin-top: 100px;
+            width: 200px;
+            @include breakpoint-up(small) {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+@import "../../sass/general.scss";
+
+.footer {
+    position: fixed;
+    margin: 0;
+    bottom: 0px;
+    height: 58px;
+    background-color: $colorPpal;
+    color: $buttonsText;
+
+
+
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+
+    &__container {
+        width: 100%;
+        max-width: $mx-w;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 50px;
+        position: relative;
+
+
+    }
+
+
+
+
+
+
+
+
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    &__icons {
+        font-size: 27px;
+        // padding: 12px;
+        margin: 0 10px;
+
+        @include breakpoint-down(small) {
+            display: none;
+        }
+    }
+}

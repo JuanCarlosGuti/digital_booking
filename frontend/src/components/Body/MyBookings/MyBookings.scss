@@ -1,0 +1,79 @@
+@import "./../../../sass/general.scss";
+
+.productListMainContainer_booking {
+    background-color: $backBody;
+    margin-top: calc($navbar-h + 60px);
+    height: calc(100vh - $navbar-h - 60px);
+    padding: 50px 0px;
+    @include breakpoint-down(medium) {
+    }
+
+    &__productList {
+        padding: 30px 0px;
+    }
+}
+.emptyBooking {
+    margin-top: calc($navbar-h + 60px);
+    padding-top: 100px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: calc(100vh - 80px - 58px);
+    svg {
+        font-size: 7rem;
+        margin-left: 0px;
+    }
+
+    a {
+        @include links;
+        margin-top: 50px;
+    }
+    a:hover {
+        color: black;
+    }
+
+    @include breakpoint-down(medium) {
+        width: 95vw;
+        text-align: center;
+    }
+}
+
+.productCardMainContainer {
+    .dateDetails__in,
+    .dateDetails__out {
+        padding: 0px 0.5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .gestionar {
+        @include links;
+        font-size: 0.8rem;
+        text-align: center;
+        margin: 15px 40px 0px 40px;
+        @include breakpoint-up(medium) {
+            margin: 15px 15px 0px 15px;
+            font-size: 0.9rem;
+        }
+    }
+    .gestionar:hover {
+        color: $colorOscuro;
+    }
+}
+
+.reserva {
+    height: auto;
+    max-height: 540px;
+    @include breakpoint-up(small) {
+        max-height: 320px;
+    }
+
+    .productCardMainContainer__imageContainer {
+        height: 45%;
+        @include breakpoint-up(small) {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
