@@ -95,7 +95,7 @@ html div {
 
 .countContainer {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   position: relative;
   bottom: 7vh;
 }

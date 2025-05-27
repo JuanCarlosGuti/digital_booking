@@ -1,11 +1,11 @@
 import React from "react";
+import PropTypes from 'prop-types'; // Importa PropTypes
 import { addDays } from "date-fns";
 import { es } from "date-fns/locale";
-import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { DateRangePicker } from "react-date-range";
 import { getBookingDates } from "../../../services/fetchService";
-
 import "./Booking.scss";
 
 export default class BookingCalendar extends React.Component {
@@ -26,58 +26,45 @@ export default class BookingCalendar extends React.Component {
   }
 
   updateState = (property, value) => {
-    this.setState({
-      ...this.state,
-      [property]: value,
-    });
     if (property === "state") {
-      this.state.num = this.state.num + 1;
-      this.props.setStartDate(value[0].startDate);
-      this.props.setEndDate(value[0].endDate);
-    }
+      this.setState(prevState => ({
+        ...prevState,
+        [property]: value,
+        num: prevState.num + 1
+      }), () => {
+        this.props.setStartDate(value[0].startDate);
+        this.props.setEndDate(value[0].endDate);
+      });
+    } else  {
+  this.setState(prevState => ({
+    ...prevState,
+    [property]: value
+  }));
+}
   };
-  handleClick = (e) => {
-    e.preventDefault();
-    const firstDate = this.state.state[0].startDate.toLocaleDateString(
-      "es-co",
-      { weekday: "short", year: "numeric", month: "short", day: "numeric" }
-    );
-    const lastDate = this.state.state[0].endDate.toLocaleDateString("es-co", {
-      weekday: "short",
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    });
-    const inputCalendarText = this.areValidDates(
-      this.state.state[0].startDate,
-      this.state.state[0].endDate
-    )
-      ? `${firstDate} - ${lastDate}`
-      : "Check In - Check out";
-    this.props.setValue(inputCalendarText);
-    if (
-      this.areValidDates(
-        this.state.state[0].startDate,
-        this.state.state[0].endDate
-      )
-    )
-      this.updateState("toggle", !this.state.toggle);
+
+  areValidDates = (startDate, endDate) => {
+    // Implementa tu lógica de validación de fechas aquí
+    return startDate && endDate && startDate < endDate;
   };
+
+  
+
   disableDatesArray = () => {
     let disableDatesArray = [];
-
     for (let i = 1; i <= 60; i++) {
       const date = new Date();
       date.setDate(date.getDate() - i);
       disableDatesArray.push(date);
     }
-
     return disableDatesArray;
   };
 
   updateBookingDates = () => {
     getBookingDates(this.props.product.id).then((response) => {
-      response.map((r) => {
+      const newDisabledDates = [...this.state.disabledDates];
+      
+      response.forEach((r) => {
         const startDate = new Date(r.checkIn);
         let endDate = new Date(r.checkOut);
         const userTimezoneOffset = startDate.getTimezoneOffset() * 60000;
@@ -87,16 +74,13 @@ export default class BookingCalendar extends React.Component {
 
         date.setDate(date.getDate());
 
-        const currentDates = this.state.disabledDates;
-
         while (date <= endDate) {
-          currentDates.push(new Date(date));
+          newDisabledDates.push(new Date(date));
           date.setDate(date.getDate() + 1);
         }
-
-        this.updateState("disabledDates", currentDates);
-        return true
       });
+
+      this.updateState("disabledDates", newDisabledDates);
     });
   };
 
@@ -109,7 +93,7 @@ export default class BookingCalendar extends React.Component {
     window.removeEventListener("resize", this.updateCalendarPages);
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  componentDidUpdate(prevProps) {
     if (prevProps.product !== this.props.product) {
       this.updateBookingDates();
     }
@@ -120,6 +104,7 @@ export default class BookingCalendar extends React.Component {
     this.updateBookingDates();
     window.addEventListener("resize", this.updateCalendarPages);
   }
+
   render() {
     const disableDatesArray = [
       ...this.disableDatesArray(),
@@ -147,3 +132,22 @@ export default class BookingCalendar extends React.Component {
     );
   }
 }
+
+// Validación de props (esto va al final del archivo, fuera de la clase)
+BookingCalendar.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]).isRequired
+  }).isRequired,
+  setValue: PropTypes.func.isRequired,
+  setStartDate: PropTypes.func.isRequired,
+  setEndDate: PropTypes.func.isRequired,
+  toggle: PropTypes.bool // Si es opcional, quita el isRequired
+};
+
+// Valores por defecto para props opcionales
+BookingCalendar.defaultProps = {
+  toggle: false // Solo si toggle es opcional
+};

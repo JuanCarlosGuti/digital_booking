@@ -44,7 +44,7 @@
   &_buttonContainer {
     grid-column: 4/5;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     position: relative;
     bottom: 180%;
     height: fit-content;

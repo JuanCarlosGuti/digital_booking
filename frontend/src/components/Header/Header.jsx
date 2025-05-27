@@ -14,46 +14,52 @@ export default function Header() {
   const [sideBar, setSideBar] = useState("sideBarInit");
   const { email, setEmail } = useContext(EmailContext);
   const [userId, setUserId] = useState();
-
-  const navigate = useNavigate();
-
-  const location = useLocation();
-  const url = location.pathname;
-
   const [user, setUser] = useState({ name: "", lastname: "", email: "" });
   const [login, setLogin] = useState(false);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  const url = location.pathname;
+
   useEffect(() => {
-    if (localStorage.getItem("user")) {
-      setUser(JSON.parse(localStorage.getItem("user")));
-      document.querySelector(".header__buttons").classList.add("hidden");
-      document.querySelector(".header__user").classList.remove("hidden");
-      setUserId(JSON.parse(localStorage.getItem("user")).id);
-      setFlag(true);
-    } else {
-      document.querySelector(".header__buttons").classList.remove("hidden");
-      document.querySelector(".header__user").classList.add("hidden");
+    try {
+      const storedUser = JSON.parse(localStorage.getItem("user") || "{}");
+
+      if (storedUser && storedUser.name && storedUser.lastname) {
+        setUser({
+          name: storedUser.name || "",
+          lastname: storedUser.lastname || "",
+          email: storedUser.email || "",
+        });
+
+        document.querySelector(".header__buttons")?.classList.add("hidden");
+        document.querySelector(".header__user")?.classList.remove("hidden");
+
+        setUserId(storedUser.id);
+        setFlag(true);
+      } else {
+        document.querySelector(".header__buttons")?.classList.remove("hidden");
+        document.querySelector(".header__user")?.classList.add("hidden");
+      }
+    } catch (e) {
+      console.error("Error leyendo user del localStorage:", e);
     }
   }, [email, login, flag]);
 
-  function linkBurguer(link) {
+  const linkBurguer = (link) => {
     setSideBar("sideBarOff");
     navigate(link);
-  }
+  };
 
-  function turnSideBar() {
-    if (sideBar === "sideBarInit") {
-      setSideBar("sideBarOn");
-    } else if (sideBar === "sideBarOn") {
-      setSideBar("sideBarOff");
-    } else if (sideBar === "sideBarOff") {
-      setSideBar("sideBarOn");
-    }
-  }
+  const turnSideBar = () => {
+    setSideBar((prev) =>
+      prev === "sideBarInit" || prev === "sideBarOff" ? "sideBarOn" : "sideBarOff"
+    );
+  };
 
-  function turnOffSideBar() {
+  const turnOffSideBar = () => {
     setSideBar("sideBarOff");
-  }
+  };
 
   const closeSession = () => {
     localStorage.clear();
@@ -64,13 +70,14 @@ export default function Header() {
     navigate("./home");
   };
 
-  function checkPath() {
+  const checkPath = () => {
     const regex = new RegExp("products");
     const fromBooking = regex.test(window.location.pathname);
     if (fromBooking) {
       localStorage.setItem("prevUrl", "desdeHeader");
     }
-  }
+  };
+
   return (
     <div className="header">
       <div className="header__container">
@@ -80,15 +87,24 @@ export default function Header() {
             <img className="header__imgLarge" src={logoLg} alt="DB" />
           </Link>
         </div>
+
         <div className="header__buttons">
           <Link
-            className={url === "/registration" ? "button-hide" : "header__buttons--reg buttonEffect"}
+            className={
+              url === "/registration"
+                ? "button-hide"
+                : "header__buttons--reg buttonEffect"
+            }
             to="./registration"
           >
             Crear cuenta
           </Link>
           <Link
-            className={url === "/login" ? "button-hide" : "header__buttons--log buttonEffect"}
+            className={
+              url === "/login"
+                ? "button-hide"
+                : "header__buttons--log buttonEffect"
+            }
             to="./login"
             onClick={checkPath}
           >
@@ -114,12 +130,15 @@ export default function Header() {
           )}
 
           <div className="line"></div>
-          <div className="header__user--circle">{`${user.name[0] || ""}${
-            user.lastname[0] || ""
-          }`}</div>
+          <div className="header__user--circle">
+            {(user.name || "").charAt(0)}
+            {(user.lastname || "").charAt(0)}
+          </div>
           <div className="header__user--text">
             <span className="header__user--greeting">Hola,</span>
-            <span className="header__user--name">{`${user.name} ${user.lastname}`}</span>
+            <span className="header__user--name">
+              {`${user.name} ${user.lastname}`}
+            </span>
           </div>
           <div className="header__user--close">
             <Link onClick={closeSession} to="/home">
@@ -132,7 +151,7 @@ export default function Header() {
           <GiHamburgerMenu onClick={turnSideBar} />
         </IconContext.Provider>
 
-        {/* burguer menu */}
+        {/* Menú hamburguesa */}
         <div className={sideBar}>
           <div className="st1" onClick={turnOffSideBar}>
             <div className="st2"></div>
@@ -144,9 +163,10 @@ export default function Header() {
               <div className="userData">
                 <div className="userData__data">
                   <div>
-                    <span>{`${user.name[0] || ""}${
-                      user.lastname[0] || ""
-                    }`}</span>
+                    <span>
+                      {(user.name || "").charAt(0)}
+                      {(user.lastname || "").charAt(0)}
+                    </span>
                   </div>
                   <span className="userData__data--greeting">Hola, </span>
                   <span>{`${user.name} ${user.lastname}`}</span>
@@ -156,10 +176,10 @@ export default function Header() {
               ""
             )}
           </div>
+
           <div className="sideBarLinks">
             {localStorage.user && sideBar === "sideBarOn" ? (
               <div>
-                {/* <p>Menu</p> */}
                 <div onClick={() => linkBurguer("/home")}>Home</div>
                 {JSON.parse(localStorage.user).rol === "ADMIN" ? (
                   <div onClick={() => linkBurguer("/admin")}>
@@ -173,11 +193,9 @@ export default function Header() {
                 <div
                   className="sideBarLinks__closeSession"
                   onClick={closeSession}
-                  to="/home"
                 >
                   ¿Deseas{" "}
                   <span className="sideBarLinks__closeSession--link">
-                    {" "}
                     cerrar sesión
                   </span>
                   ?
@@ -185,7 +203,6 @@ export default function Header() {
               </div>
             ) : (
               <div>
-                {/* <p>Menu</p> */}
                 <div onClick={() => linkBurguer("/home")}>Home</div>
                 <div onClick={() => linkBurguer("/login")}>Iniciar sesión</div>
                 <div onClick={() => linkBurguer("/registration")}>
