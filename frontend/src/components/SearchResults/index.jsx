@@ -16,8 +16,6 @@ import shuffle from "../../services/shuffleService";
 import SearchBar from "../Body/SearchBar/SearchBar";
 import CategoryList from "../Body/CategoryList/CategoryList";
 
-import imagesBucketUrl from "../../data/imagesBucket";
-
 const SearchResults = (props) => {
   const { type, param } = useParams();
   const [products, setProducts] = useState([]);
@@ -77,7 +75,7 @@ const SearchResults = (props) => {
     } else {
       navigate("/NotFound");
     }
-  }, [type, param]);
+  }, [type, param, navigate]);
 
   return (
     <div className="body">

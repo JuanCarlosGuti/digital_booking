@@ -11,7 +11,7 @@ const Login = () => {
   const [emailInput, setEmailInput] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { email, setEmail } = useContext(EmailContext);
+  const { setEmail } = useContext(EmailContext);
   //Evento
   const handleSubmit = (e) => {
     e.preventDefault();

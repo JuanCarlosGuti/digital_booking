@@ -28,10 +28,10 @@ export default function NewProduct() {
     if (
       name !== "" &&
       categoryId !== "" &&
-      categoryId !== NaN &&
+      !Number.isNaN(Number(categoryId)) &&
       address !== "" &&
       cityId !== "" &&
-      cityId !== NaN &&
+      !Number.isNaN(Number(cityId)) &&
       description !== "" &&
       attributes.length !== 0 &&
       policy1 !== "" &&

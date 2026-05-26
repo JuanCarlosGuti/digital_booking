@@ -26,20 +26,19 @@ export default function Booking(props) {
   const [policy3, setPolicy3] = useState([]);
 
   useEffect(() => {
-    if (!ready) {
-      getProduct(id).then((res) => {
-        setProduct(res);
-        setCity(res.city);
-        setCategory(res.category);
-        let text = res.extraDescription1.split(",");
-        setPolicy1(text);
-        text = res.extraDescription2.split(",");
-        setPolicy2(text);
-        setPolicy3(res.extraDescription3);
-        setReady(true);
-      });
-    }
-  }, [ready]);
+    setReady(false);
+    getProduct(id).then((res) => {
+      setProduct(res);
+      setCity(res.city);
+      setCategory(res.category);
+      let text = res.extraDescription1.split(",");
+      setPolicy1(text);
+      text = res.extraDescription2.split(",");
+      setPolicy2(text);
+      setPolicy3(res.extraDescription3);
+      setReady(true);
+    });
+  }, [id]);
 
   if (!ready) {
     return <h2>Cargando ...</h2>;

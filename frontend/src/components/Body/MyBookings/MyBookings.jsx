@@ -3,7 +3,6 @@ import "./MyBookings.scss";
 import "./../ProductList/ProductListStyle.scss";
 import { useState, useEffect } from "react";
 import BookingCard from "./BookingCard";
-import imagesBucketUrl from "../../../data/imagesBucket";
 
 import ProductHeader from "../Product/ProductHeader";
 import { BiBuildingHouse } from "react-icons/bi";
@@ -17,13 +16,12 @@ export default function Booking() {
 
   // useEffect() -- obtener reservas
   useEffect(() => {
-    if (!ready) {
-      getAllBookings().then((response) => {
-        setBookings(response.filter((b) => b.user.id == userId));
-        setReady(true);
-      });
-    }
-  }, []);
+    setReady(false);
+    getAllBookings().then((response) => {
+      setBookings(response.filter((b) => b.user.id === Number(userId)));
+      setReady(true);
+    });
+  }, [userId]);
 
   if (!ready) {
     return (

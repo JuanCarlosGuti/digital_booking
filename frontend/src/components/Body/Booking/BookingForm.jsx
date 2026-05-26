@@ -1,10 +1,7 @@
-import { useEffect, useReducer } from "react";
 import "./Booking.scss";
-import { useState } from "react";
 
 export default function BookingForm(props) {
   const user = JSON.parse(localStorage.getItem("user"));
-  const [ready, setReady] = useState(false);
 
   return (
     <div className="formContainer">
