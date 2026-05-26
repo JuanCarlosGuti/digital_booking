@@ -55,8 +55,6 @@ export default function BookingDetails({
       //   setUser(response);
       // });
     }
-    //console.log(city);
-    //console.log(category);
   }, []);
 
   return (

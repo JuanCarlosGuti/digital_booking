@@ -19,8 +19,6 @@ export default function Booking() {
   useEffect(() => {
     if (!ready) {
       getAllBookings().then((response) => {
-        //console.log(typeof(userId));
-        //console.log(response.filter((b) => b.user.id == userId));
         setBookings(response.filter((b) => b.user.id == userId));
         setReady(true);
       });

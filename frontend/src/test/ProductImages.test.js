@@ -1,13 +1,31 @@
 
-import ProductImages from '../components/Body/Product/ProductImages';
-import {render, screen, act, fireEvent, cleanup, prettyDOM} from '@testing-library/react';
+import ProductImages from "../components/Body/Product/ProductImages";
+import { render, screen, waitFor } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import { sampleProduct } from "./fixtures";
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+test("should render component", async () => {
+  const { container, rerender } = render(
+    <BrowserRouter>
+      <ProductImages product={{ images: [] }} />
+    </BrowserRouter>
+  );
 
-test ('should render component', () => {
-    let view = render(<BrowserRouter>
-            <ProductImages/>
-            </BrowserRouter>);
+  rerender(
+    <BrowserRouter>
+      <ProductImages product={sampleProduct} />
+    </BrowserRouter>
+  );
 
-        console.log(prettyDOM(view.container));
-})
+  await waitFor(() => {
+    const mainImage = container.querySelector(
+      ".MainContainerProductImages_imgPpal"
+    );
+    expect(mainImage).toBeInTheDocument();
+    expect(mainImage).toHaveAttribute("src", sampleProduct.images[0].url);
+  });
+
+  expect(
+    screen.getByRole("button", { name: /ver más/i })
+  ).toBeInTheDocument();
+});

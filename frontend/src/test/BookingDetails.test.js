@@ -1,15 +1,23 @@
 
-import BookingDetails from '../components/Body/Booking/BookingDetails';
-import {render, screen, act, fireEvent, cleanup, prettyDOM} from '@testing-library/react';
+import BookingDetails from "../components/Body/Booking/BookingDetails";
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import { sampleCategory, sampleCity, sampleProduct } from "./fixtures";
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+test("should render component", () => {
+  render(
+    <BrowserRouter>
+      <BookingDetails
+        product={sampleProduct}
+        city={sampleCity}
+        category={sampleCategory}
+        startDate={new Date("2024-01-01")}
+        endDate={new Date("2024-01-02")}
+        hour="10:00 AM"
+      />
+    </BrowserRouter>
+  );
 
-test ('should render component', () => {
-    let view = render(
-             <BrowserRouter>
-          <BookingDetails/>
-            </BrowserRouter>);
-
-        console.log(prettyDOM(view.container));
-})
+  expect(screen.getByText("Detalle de la reserva")).toBeInTheDocument();
+});
 

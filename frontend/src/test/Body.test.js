@@ -1,14 +1,26 @@
-import Body from '../components/Body/Body';
-import {render, prettyDOM} from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import '@testing-library/jest-dom/extend-expect';
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 
+jest.mock("../components/Body/SearchBar/SearchBar", () => () => (
+  <div>SearchBar</div>
+));
+jest.mock("../components/Body/CategoryList/CategoryList", () => () => (
+  <div>CategoryList</div>
+));
+jest.mock("../components/Body/ProductList/ProductList", () => () => (
+  <div>ProductList</div>
+));
 
-test ('should render component', () => {
-    let view = render(<BrowserRouter>
-            <Body/>
-            </BrowserRouter>);
+import Body from "../components/Body/Body";
 
-        console.log(prettyDOM(view.container));
+test("should render component", () => {
+  render(
+    <BrowserRouter>
+      <Body />
+    </BrowserRouter>
+  );
 
-})
+  expect(screen.getByText("SearchBar")).toBeInTheDocument();
+  expect(screen.getByText("CategoryList")).toBeInTheDocument();
+  expect(screen.getByText("ProductList")).toBeInTheDocument();
+});

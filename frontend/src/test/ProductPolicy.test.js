@@ -1,13 +1,19 @@
 
-import ProductPolicy from '../components/Body/Product/ProductPolicy';
-import {render, screen, act, fireEvent, cleanup, prettyDOM} from '@testing-library/react';
+import ProductPolicy from "../components/Body/Product/ProductPolicy";
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import { samplePolicies } from "./fixtures";
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+test("should render component", () => {
+  render(
+    <BrowserRouter>
+      <ProductPolicy
+        policy1={samplePolicies.policy1}
+        policy2={samplePolicies.policy2}
+        policy3={samplePolicies.policy3}
+      />
+    </BrowserRouter>
+  );
 
-test ('should render component', () => {
-    let view = render(<BrowserRouter>
-            <ProductPolicy/>
-            </BrowserRouter>);
-
-        console.log(prettyDOM(view.container));
-})
+  expect(screen.getByText("Qué tenés que saber")).toBeInTheDocument();
+});

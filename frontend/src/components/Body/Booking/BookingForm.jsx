@@ -1,6 +1,5 @@
 import { useEffect, useReducer } from "react";
 import "./Booking.scss";
-import { getUserByToken } from "../../../services/fetchService";
 import { useState } from "react";
 
 export default function BookingForm(props) {

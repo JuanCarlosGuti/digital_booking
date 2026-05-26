@@ -1,13 +1,16 @@
 
-import ProductCharacteristics from '../components/Body/Product/ProductCharacteristics';
-import {render, screen, act, fireEvent, cleanup, prettyDOM} from '@testing-library/react';
+import ProductCharacteristics from "../components/Body/Product/ProductCharacteristics";
+import { render, screen } from "@testing-library/react";
+import { MemoryRouter, Route, Routes } from "react-router-dom";
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+test("should render component", () => {
+  render(
+    <MemoryRouter initialEntries={["/products/1"]}>
+      <Routes>
+        <Route path="/products/:id" element={<ProductCharacteristics />} />
+      </Routes>
+    </MemoryRouter>
+  );
 
-test ('should render component', () => {
-    let view = render(<BrowserRouter>
-            <ProductCharacteristics/>
-            </BrowserRouter>);
-
-        console.log(prettyDOM(view.container));
-})
+  expect(screen.getByText("Cargando")).toBeInTheDocument();
+});

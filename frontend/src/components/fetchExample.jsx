@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { getFeaturesByProduct,getUserByToken } from "../services/fetchService";
 const images = require.context("../img", true);
 
 export default function FetchExample() {
@@ -12,17 +11,6 @@ export default function FetchExample() {
 
 
   const obtainFeatures = () => {
-    // getUserByToken()
-    //   .then((response) => {
-    //     // console.log("response ok:");
-    //     console.log(response);
-    //     setData(response);
-    //   })
-    //   .catch((error) => {
-    //     alert(`Error while retreiving the users: ${error}`);
-    //   })
-    //   .finally(() => {
-    //   });
   };
 
   

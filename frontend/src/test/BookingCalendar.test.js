@@ -1,13 +1,22 @@
 
-import BookingCalendar from '../components/Body/Booking/BookingCalendar';
-import {render, screen, act, fireEvent, cleanup, prettyDOM} from '@testing-library/react';
+import BookingCalendar from "../components/Body/Booking/BookingCalendar";
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import { sampleProduct } from "./fixtures";
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+test("should render component", () => {
+  render(
+    <BrowserRouter>
+      <BookingCalendar
+        product={sampleProduct}
+        setStartDate={jest.fn()}
+        setEndDate={jest.fn()}
+        setValue={jest.fn()}
+      />
+    </BrowserRouter>
+  );
 
-test ('should render component', () => {
-    let view = render(<BrowserRouter>
-            <BookingCalendar/>
-            </BrowserRouter>);
-
-        console.log(prettyDOM(view.container));
-})
+  expect(
+    screen.getByText("Seleccioná tu fecha de Reserva")
+  ).toBeInTheDocument();
+});

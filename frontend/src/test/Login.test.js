@@ -1,16 +1,19 @@
-import Login from '../components/Body/Login/Login';
-import {render, screen, act, fireEvent, cleanup, prettyDOM} from '@testing-library/react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from "../components/Body/Login/Login";
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import EmailContext from "../context/Context";
 
-test ('should render component', () => {
-    let view = render(
-            <BrowserRouter>
-            <Login/>
-            </BrowserRouter>);
+test("should render component", () => {
+  render(
+    <BrowserRouter>
+      <EmailContext.Provider value={{ email: "", setEmail: jest.fn() }}>
+        <Login />
+      </EmailContext.Provider>
+    </BrowserRouter>
+  );
 
-        console.log(prettyDOM(view.container));
-
-})
+  expect(screen.getByText("Iniciar sesión")).toBeInTheDocument();
+});
 
 
 

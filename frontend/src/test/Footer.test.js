@@ -1,11 +1,8 @@
-import Footer from '../components/Footer/Footer';
-import {render, screen, act, fireEvent, cleanup, prettyDOM} from '@testing-library/react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Footer from "../components/Footer/Footer";
+import { render, screen } from "@testing-library/react";
 
-test ('should render component', () => {
-    let view = render(<BrowserRouter>
-                           <Footer/>
-                       </BrowserRouter>);
+test("should render component", () => {
+  render(<Footer />);
 
-        console.log(prettyDOM(view.container));
-})
+  expect(screen.getByText("©2022 Digital Booking")).toBeInTheDocument();
+});

@@ -1,15 +1,9 @@
-import CategoryList from '../components/Body/CategoryList/CategoryList';
-import React from 'react';
-import { ReactDOM } from 'react';
-import {render, screen, act, fireEvent, cleanup, prettyDOM} from '@testing-library/react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import '@testing-library/jest-dom/extend-expect';
+import CategoryList from "../components/Body/CategoryList/CategoryList";
+import { render, screen } from "@testing-library/react";
 
-
-
-
-    it('prueba',()=>{
-        render(<CategoryList/>);
-        expect(screen.getByText('Buscar por tipo de alojamiento')).toBeInTheDocument();
-
-    })
+test("renders category heading", () => {
+  render(<CategoryList />);
+  expect(
+    screen.getByText("Buscar por tipo de alojamiento")
+  ).toBeInTheDocument();
+});

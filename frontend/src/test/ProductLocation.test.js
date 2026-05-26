@@ -1,13 +1,17 @@
 
-import ProductLocation from '../components/Body/Product/ProductLocation';
-import {render, screen, act, fireEvent, cleanup, prettyDOM} from '@testing-library/react';
+import ProductLocation from "../components/Body/Product/ProductLocation";
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import { sampleCity } from "./fixtures";
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+test("should render component", () => {
+  render(
+    <BrowserRouter>
+      <ProductLocation city={sampleCity} />
+    </BrowserRouter>
+  );
 
-test ('should render component', () => {
-    let view = render(<BrowserRouter>
-            <ProductLocation/>
-            </BrowserRouter>);
-
-        console.log(prettyDOM(view.container));
-})
+  expect(
+    screen.getByText(`${sampleCity.city}, ${sampleCity.country}`)
+  ).toBeInTheDocument();
+});

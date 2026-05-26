@@ -72,7 +72,6 @@ export const createProduct = async (product) => {
     extraDescription2: product.policy2,
     extraDescription3: product.policy3,
   };
-  console.log(p);
   let response = await fetch(`${mainRute}/productos`, {
     method: "POST",
     body: JSON.stringify(p),

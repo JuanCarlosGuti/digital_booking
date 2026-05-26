@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import { Routes, Route } from "react-router-dom";
-import {} from "react-router";
 import Header from "./components/Header/Header";
 import Body from "./components/Body/Body";
 import Footer from "./components/Footer/Footer";
@@ -28,11 +27,11 @@ function App() {
       <Header />
       <ScrollToTop />
       <Routes>
-        <Route exact path="/" element={<Body />}></Route>
-        <Route exact path="/home" element={<Body />}></Route>
-        <Route exact path="/login" element={<Login />}></Route>
-        <Route exact path="/admin" element={<NewProduct />}></Route>
-        <Route exact path="/registration" element={<Register />}></Route>
+        <Route path="/" element={<Body />}></Route>
+        <Route path="/home" element={<Body />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/admin" element={<NewProduct />}></Route>
+        <Route path="/registration" element={<Register />}></Route>
         <Route path="/products/:id" element={<Product />}></Route>
         <Route path="/product/:id/booking" element={<Booking />}></Route>
         <Route

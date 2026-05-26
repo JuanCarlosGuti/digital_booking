@@ -51,7 +51,12 @@ const Login = () => {
             document.querySelector("#emailInput").classList.add("errorBorder");
           }
         })
-        .catch((error) => console.error(error));
+        .catch(() => {
+          document.querySelector(".invalid").innerHTML =
+            "Error de conexión. Intente nuevamente.";
+          document.querySelector("#passwordInput").classList.add("errorBorder");
+          document.querySelector("#emailInput").classList.add("errorBorder");
+        });
     } else {
       document.querySelector(".invalid").innerHTML =
         "Por favor ingrese sus credenciales para acceder.";
@@ -63,8 +68,6 @@ const Login = () => {
   useEffect(() => {
     const regex = new RegExp("products");
     const fromBooking = regex.test(localStorage.prevUrl);
-    console.log(localStorage.prevUrl);
-    console.log(fromBooking);
     if (fromBooking) {
       document.getElementById("fromBooking").classList.remove("hidden");
     }

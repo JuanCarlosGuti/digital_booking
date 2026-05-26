@@ -28,7 +28,6 @@ export default function Booking(props) {
   useEffect(() => {
     if (!ready) {
       getProduct(id).then((res) => {
-        console.log(res);
         setProduct(res);
         setCity(res.city);
         setCategory(res.category);

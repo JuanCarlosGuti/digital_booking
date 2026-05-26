@@ -1,11 +1,19 @@
-import Header from '../components/Header/Header';
-import {render, screen, act, fireEvent, cleanup, prettyDOM} from '@testing-library/react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from "../components/Header/Header";
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import EmailContext from "../context/Context";
 
-test ('should render component', () => {
-    let view = render(<BrowserRouter>
-                           <Header/>
-                       </BrowserRouter>);
+test("should render component", () => {
+  localStorage.removeItem("user");
+  delete localStorage.user;
 
-        console.log(prettyDOM(view.container));
-})
+  render(
+    <BrowserRouter>
+      <EmailContext.Provider value={{ email: "", setEmail: jest.fn() }}>
+        <Header />
+      </EmailContext.Provider>
+    </BrowserRouter>
+  );
+
+  expect(screen.getByText("Crear cuenta")).toBeInTheDocument();
+});

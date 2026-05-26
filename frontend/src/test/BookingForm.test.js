@@ -1,13 +1,15 @@
 
-import BookingForm from '../components/Body/Booking/BookingForm';
-import {render, screen, act, fireEvent, cleanup, prettyDOM} from '@testing-library/react';
+import BookingForm from "../components/Body/Booking/BookingForm";
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import { sampleCity } from "./fixtures";
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+test("should render component", () => {
+  render(
+    <BrowserRouter>
+      <BookingForm city={sampleCity} />
+    </BrowserRouter>
+  );
 
-test ('should render component', () => {
-    let view = render(<BrowserRouter>
-            <BookingForm/>
-            </BrowserRouter>);
-
-        console.log(prettyDOM(view.container));
-})
+  expect(screen.getByText("Completá tus datos")).toBeInTheDocument();
+});

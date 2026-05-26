@@ -31,7 +31,6 @@ const SearchResults = (props) => {
   useEffect(() => {
     if (type === "category") {
       getProductByCategory(param).then((res) => {
-        console.log(res);
         shuffle(res);
         setProducts(res);
       });
@@ -56,7 +55,6 @@ const SearchResults = (props) => {
         const endDate = param.split("+")[1];
 
         getProductByDate(startDate, endDate).then((res) => {
-          console.log(res);
           setProducts(res);
           setDate1(startDate);
           setDate2(endDate);

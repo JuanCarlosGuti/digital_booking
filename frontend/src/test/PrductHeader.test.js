@@ -1,14 +1,15 @@
 
-import ProductHeader from '../components/Body/Product/ProductHeader/index';
-import {render, screen, act, fireEvent, cleanup, prettyDOM} from '@testing-library/react';
+import ProductHeader from "../components/Body/Product/ProductHeader/index";
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import { sampleCategory, sampleProduct } from "./fixtures";
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+test("should render component", () => {
+  render(
+    <BrowserRouter>
+      <ProductHeader category={sampleCategory} product={sampleProduct} />
+    </BrowserRouter>
+  );
 
-test ('should render component', () => {
-    let view = render(<BrowserRouter>
-                    <ProductHeader/>
-                </BrowserRouter>);
-
-
-        console.log(prettyDOM(view.container));
-})
+  expect(screen.getByText(sampleProduct.name)).toBeInTheDocument();
+});

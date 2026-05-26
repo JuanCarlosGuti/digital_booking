@@ -41,8 +41,10 @@ export default function Header() {
         document.querySelector(".header__buttons")?.classList.remove("hidden");
         document.querySelector(".header__user")?.classList.add("hidden");
       }
-    } catch (e) {
-      console.error("Error leyendo user del localStorage:", e);
+    } catch {
+      localStorage.removeItem("user");
+      document.querySelector(".header__buttons")?.classList.remove("hidden");
+      document.querySelector(".header__user")?.classList.add("hidden");
     }
   }, [email, login, flag]);
 

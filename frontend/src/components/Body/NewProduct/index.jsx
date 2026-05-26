@@ -25,7 +25,6 @@ export default function NewProduct() {
   const [lastimg, setLastImg] = useState("");
 
   const handleSubmit = () => {
-    console.log(categoryId);
     if (
       name !== "" &&
       categoryId !== "" &&

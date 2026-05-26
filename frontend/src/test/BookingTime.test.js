@@ -1,13 +1,19 @@
 
-import BookingTime from '../components/Body/Booking/BookingTime';
-import {render, screen, act, fireEvent, cleanup, prettyDOM} from '@testing-library/react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import BookingTime from "../components/Body/Booking/BookingTime";
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 
-test ('should render component', () => {
-    let view = render(<BrowserRouter>
-            <BookingTime/>
-            </BrowserRouter>);
+test("should render component", () => {
+  render(
+    <BrowserRouter>
+      <BookingTime setBookinHour={jest.fn()} />
+    </BrowserRouter>
+  );
 
-
-        console.log(prettyDOM(view.container));
-})
+  expect(
+    screen.getByText(
+      "indicá tu horario estimado de llegada",
+      { exact: false }
+    )
+  ).toBeInTheDocument();
+});
