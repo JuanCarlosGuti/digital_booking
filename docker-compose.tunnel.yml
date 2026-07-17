@@ -1,0 +1,19 @@
+# Override para exponer la app local por Cloudflare Tunnel (demo desde el propio PC):
+#
+#   docker compose -f docker-compose.yml -f docker-compose.tunnel.yml up -d --build frontend property-service
+#   cloudflared tunnel --url http://localhost:3000
+#
+# Igual que producción (VITE_API_URL y PUBLIC_BASE_URL vacías → rutas relativas same-origin,
+# el nginx del frontend proxya /api y /uploads al gateway), pero SIN publicar el puerto 80:
+# el túnel entra por el 3000 de siempre. Ver docs/DEPLOY.md para el despliegue real en una VM.
+
+services:
+  property-service:
+    environment:
+      PUBLIC_BASE_URL: ""
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: ""
