@@ -1,7 +1,9 @@
 import { readSession } from "./authStorage";
 
 // api-gateway (ver docs/ARCHITECTURE.md) — único punto de entrada al backend.
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+// `??` y no `||`: en producción VITE_API_URL viene como cadena vacía a propósito
+// (rutas relativas /api/... que el nginx del frontend proxya al gateway — same-origin).
+const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:8080";
 
 async function apiFetch(path, { method = "GET", body, auth = false } = {}) {
   const headers = { "Content-Type": "application/json" };

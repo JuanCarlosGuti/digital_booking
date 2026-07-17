@@ -1,0 +1,26 @@
+# Override de producción/demo pública (VM Oracle u otra) — se usa ENCIMA del compose base:
+#
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+#
+# Qué cambia respecto a desarrollo:
+# - El frontend publica el puerto 80 (el ÚNICO público de la VM — el resto quedó en loopback
+#   en el compose base) y su nginx proxya /api y /uploads al gateway por la red interna.
+# - VITE_API_URL vacía: el navegador usa rutas relativas same-origin (sin CORS, sin exponer
+#   el gateway) — ver frontend/nginx.conf y el `??` de fetchService.js.
+# - PUBLIC_BASE_URL vacía: las imágenes subidas se guardan con URL relativa (/uploads/...),
+#   válida desde cualquier dominio/IP que sirva la app.
+#
+# Ver docs/DEPLOY.md para la guía completa de despliegue.
+
+services:
+  property-service:
+    environment:
+      PUBLIC_BASE_URL: ""
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: ""
+    ports:
+      - "80:80"
