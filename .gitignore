@@ -11,6 +11,9 @@
 # production
 /build
 
+# build de Maven (los jars se construyen dentro de Docker, nunca se versionan)
+target/
+
 # misc
 .DS_Store
 .env
