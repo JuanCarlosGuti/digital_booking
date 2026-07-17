@@ -1,0 +1,47 @@
+server:
+  port: ${SERVER_PORT:8083}
+
+spring:
+  application:
+    name: booking-service
+
+  datasource:
+    url: jdbc:mysql://${BOOKING_DB_HOST:localhost}:${BOOKING_DB_PORT:3306}/${BOOKING_DB_NAME:booking_db}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: ${BOOKING_DB_USER:booking_service}
+    password: ${BOOKING_DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+# Mismo secreto que auth-service (JWT_SECRET) — acá solo se usa para validar, nunca para firmar.
+cesartravel:
+  jwt:
+    secret: ${JWT_SECRET}
+  property-service:
+    base-url: ${PROPERTY_SERVICE_URL:http://localhost:8082}
+  auth-service:
+    base-url: ${AUTH_SERVICE_URL:http://localhost:8081}
+  notification-service:
+    base-url: ${NOTIFICATION_SERVICE_URL:http://localhost:8084}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

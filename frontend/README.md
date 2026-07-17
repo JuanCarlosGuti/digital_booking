@@ -1,72 +1,36 @@
-# Getting Started with Create React App
+# Cesar Travel — frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+SPA en React + Vite. Consume únicamente el `api-gateway` del backend (ver [../docs/ARCHITECTURE.md](../docs/ARCHITECTURE.md)) — nunca habla directo con auth-service/property-service/booking-service.
 
-## Available Scripts
+## Variables de entorno
 
-In the project directory, you can run:
+| Variable | Requerida | Descripción |
+|---|---|---|
+| `VITE_API_URL` | no (default `http://localhost:8080`) | Base URL del api-gateway |
 
-### `npm start`
+## Correr local
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm install
+npm run dev       # servidor de desarrollo, http://localhost:5173
+npm run build     # build de producción a build/ (nombre elegido para no romper .gitlab-ci.yml)
+npm run preview   # sirve el build de producción localmente
+npm test          # corre la suite de Vitest una vez
+npm run test:watch
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Requiere el `api-gateway` (y detrás, los demás servicios) corriendo y alcanzable en `VITE_API_URL`.
 
-### `npm test`
+## Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Vite** (no Create React App — CRA está deprecado por Meta) + **React 19**.
+- **Vitest** + Testing Library para tests (no Jest — Vite no lo integra de forma nativa).
+- **react-router-dom v7** para ruteo, con rutas protegidas reales (`components/ProtectedRoute.jsx`) en vez de solo esconder enlaces en el menú.
+- `context/AuthContext.jsx` — sesión (token/usuario/rol) persistida en `localStorage` bajo una única clave (`services/authStorage.js`), consumida tanto por el contexto de React como por `services/fetchService.js` para el header `Authorization`.
 
-### `npm run build`
+## Notas conocidas
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-test pipeline 3 front
+- `date-fns` está fijado a `2.30.0` (no la última) porque `react-date-range` todavía no es compatible con `date-fns` 3/4 — si en algún momento se actualiza `react-date-range`, revisar si ya soporta una versión más nueva antes de sacar el pin.
+- La carga de imágenes de una propiedad sigue siendo "pegar una URL" (`NewProductUploadMedia.jsx`) — ya no se pierde en el envío (property-service las persiste de verdad), pero el upload real de archivos es un ítem de la fase 2 (ver `docs/ROADMAP.md`).
+- La búsqueda por rango de fechas se sacó de `SearchBar` (el backend no tiene un endpoint de disponibilidad por fecha entre propiedades) — la búsqueda quedó acotada a categoría/ciudad. Buscar disponibilidad por fecha sigue existiendo, pero a nivel de una propiedad puntual (`ProductCalendar`/`BookingCalendar`, vía `GET /api/bookings/availability/{id}`).
+- `general.scss` todavía usa `@import` y `map-get()` de Sass, que Dart Sass va a remover en 3.0 (hoy solo tira warnings, no rompe el build) — migrar a `@use`/`map.get()` queda pendiente.

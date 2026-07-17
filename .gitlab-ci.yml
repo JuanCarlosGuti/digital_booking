@@ -1,104 +1,66 @@
+# CI para el stack de microservicios (el pipeline anterior compilaba el monolito
+# backend-integrador con JDK 17 y lo subía por SCP a un EC2 — ambos ya no existen).
+# El deploy con imágenes Docker queda pendiente para la fase 3 (ver docs/ROADMAP.md).
+
 stages:
   - build
-  - test
-  - deploy
 
-build-backend:
-  image: maven:3.8.3-openjdk-17
+# Un job por servicio, usando el wrapper de Maven del propio servicio (Java 25).
+.backend-service:
+  image: eclipse-temurin:25-jdk
   stage: build
-  needs: []
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
       changes:
-        - backend/**/*
+        - backend/services/**/*
   script:
-    - echo "Compiling the /backend code "
-    - cd backend/backend-integrador
-    - mvn clean package -DskipTest -U
-  artifacts:
+    - cd backend/services/$SERVICE
+    - chmod +x mvnw
+    - ./mvnw -B clean verify
+  cache:
+    key: maven-repo
     paths:
-      - backend/backend-integrador/target/*.jar
+      - .m2/repository
+  variables:
+    MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+
+build-auth-service:
+  extends: .backend-service
+  variables:
+    SERVICE: auth-service
+
+build-property-service:
+  extends: .backend-service
+  variables:
+    SERVICE: property-service
+
+build-booking-service:
+  extends: .backend-service
+  variables:
+    SERVICE: booking-service
+
+build-notification-service:
+  extends: .backend-service
+  variables:
+    SERVICE: notification-service
+
+build-api-gateway:
+  extends: .backend-service
+  variables:
+    SERVICE: api-gateway
 
 build-frontend:
-  image: node:16.14.2-alpine
+  image: node:22-alpine
   stage: build
-  needs: []
   rules:
     - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
       changes:
         - frontend/**/*
   script:
-    - echo "Compiling the /frontend code..."
     - cd frontend
-    - npm install
-    - CI=false npm run build
-    - echo 'Compile complete.'
+    - npm ci || npm install
+    - npx vitest run
+    - npm run build
   artifacts:
     paths:
       - frontend/build
-
-
-test-backend: 
-  stage: test
-  needs: ["build-backend"]
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
-      changes:
-        - backend/**/*   
-  script:
-    - echo "Running backend tests..."
-  artifacts:
-    paths:
-      - backend/backend-integrador/target/*.jar
-
-
-test-frontend: 
-  stage: test
-  needs: ["build-frontend"]
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
-      changes:
-        - frontend/**/*   
-  script:
-    - echo "Running frontend tests..."
-  artifacts:
-    paths:
-      - frontend/build
-
-
-deploy-backend:    
-  stage: deploy
-  needs: ["test-backend"]  
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
-      changes:
-        - backend/**/*
-  before_script:
-    - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'
-    - eval $(ssh-agent -s)
-    - echo "$SSH_KEY" | tr -d '\r' | ssh-add -
-    - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
-    - ssh-keyscan $AWS_EC2_IP_ADDRESS >> ~/.ssh/known_hosts
-    - chmod 644 ~/.ssh/known_hosts
-  script:
-    - scp -o StrictHostKeyChecking=no backend/backend-integrador/target/back_integrador-0.0.1-SNAPSHOT.jar ubuntu@ec2-18-116-202-151.us-east-2.compute.amazonaws.com:/home/ubuntu
-    - ssh -o StrictHostKeyChecking=no ubuntu@ec2-18-116-202-151.us-east-2.compute.amazonaws.com "/home/ubuntu/scripts/shutdown.sh;/home/ubuntu/scripts/startup.sh"
-
-
-deploy-frontend:
-  image: python:3.9.15    
-  stage: deploy
-  needs: ["test-frontend"]
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"'
-      changes:
-        - frontend/**/*
-  script:
-    - echo "Deploying application frontend..."
-    - pip install awscli
-    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-    - aws configure set aws_secret-access_key $AWS_SECRET_ACCESS_KEY
-    - aws s3 sync frontend/build s3://0521ptc6n2-grupo03-dev-frontend --delete
-
-

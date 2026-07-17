@@ -1,71 +1,68 @@
-// jest-dom adds custom jest matchers for asserting on DOM nodes.
-// allows you to do things like:
-// expect(element).toHaveTextContent(/react/i)
-// learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom";
+import { afterEach, beforeEach, vi } from "vitest";
 
-jest.mock("./services/fetchService", () => ({
-  getAllCities: jest.fn().mockResolvedValue([]),
-  getAllCategory: jest.fn().mockResolvedValue([]),
-  getAllProducts: jest.fn().mockResolvedValue([]),
-  getFeaturesByProduct: jest.fn().mockResolvedValue([]),
-  getBookingDates: jest.fn().mockResolvedValue([]),
-  postBooking: jest.fn().mockResolvedValue({}),
-  authenticateUser: jest.fn(() =>
-    Promise.resolve({ status: 401, json: async () => ({}) })
-  ),
-  postUser: jest.fn(() => Promise.resolve({ status: 201 })),
-  parseJwt: jest.fn(() => ({
+vi.mock("./services/fetchService", () => ({
+  getAllCities: vi.fn().mockResolvedValue([]),
+  getAllCategories: vi.fn().mockResolvedValue([]),
+  getAllFeatures: vi.fn().mockResolvedValue([]),
+  getAllProducts: vi.fn().mockResolvedValue([]),
+  getProduct: vi.fn().mockResolvedValue({}),
+  getProductsByOwner: vi.fn().mockResolvedValue([]),
+  createProduct: vi.fn().mockResolvedValue({}),
+  createBooking: vi.fn().mockResolvedValue({}),
+  getMyBookings: vi.fn().mockResolvedValue([]),
+  getBookingsByProperty: vi.fn().mockResolvedValue([]),
+  getAvailability: vi.fn().mockResolvedValue([]),
+  cancelBooking: vi.fn().mockResolvedValue(null),
+  getUserById: vi.fn().mockResolvedValue({}),
+  updateProduct: vi.fn().mockResolvedValue({}),
+  deleteProduct: vi.fn().mockResolvedValue(null),
+  uploadProductImages: vi.fn().mockResolvedValue({}),
+  getUnavailableProductIds: vi.fn().mockResolvedValue([]),
+  createReview: vi.fn().mockResolvedValue({}),
+  getReviewsByProperty: vi.fn().mockResolvedValue([]),
+  getReviewSummaries: vi.fn().mockResolvedValue([]),
+  getMyReviews: vi.fn().mockResolvedValue([]),
+  openChat: vi.fn().mockResolvedValue({ id: 1 }),
+  getMyChats: vi.fn().mockResolvedValue([]),
+  getChatMessages: vi.fn().mockResolvedValue([]),
+  sendChatMessage: vi.fn().mockResolvedValue({}),
+  markChatRead: vi.fn().mockResolvedValue(null),
+  getUnreadCount: vi.fn().mockResolvedValue({ unread: 0 }),
+  login: vi.fn().mockRejectedValue(new Error("Credenciales inválidas")),
+  register: vi.fn().mockResolvedValue({}),
+  parseJwt: vi.fn(() => ({
     id: 1,
-    rol: "USER",
+    role: "USER",
     name: "Test",
     lastname: "User",
+    sub: "test@example.com",
   })),
 }));
 
-jest.mock("react-date-range", () => {
-  const React = require("react");
-  return {
-    DateRangePicker: () =>
-      React.createElement("div", { "data-testid": "date-range" }),
-  };
-});
-
-if (!require.context) {
-  require.context = () => {
-    const context = (key) => key;
-    context.keys = () => [];
-    return context;
-  };
-}
+vi.mock("react-date-range", () => ({
+  DateRangePicker: () => null,
+  DateRange: () => null,
+}));
 
 if (!window.matchMedia) {
-  window.matchMedia = jest.fn().mockImplementation((query) => ({
+  window.matchMedia = vi.fn().mockImplementation((query) => ({
     matches: false,
     media: query,
     onchange: null,
-    addListener: jest.fn(),
-    removeListener: jest.fn(),
-    addEventListener: jest.fn(),
-    removeEventListener: jest.fn(),
-    dispatchEvent: jest.fn(),
+    addListener: vi.fn(),
+    removeListener: vi.fn(),
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+    dispatchEvent: vi.fn(),
   }));
 }
 
 beforeEach(() => {
-  const user = {
-    id: 1,
-    rol: "USER",
-    name: "Test",
-    lastname: "User",
-    email: "test@example.com",
-  };
-  localStorage.setItem("user", JSON.stringify(user));
-  localStorage.user = JSON.stringify(user);
-  localStorage.setItem("prevUrl", "");
+  localStorage.clear();
 });
 
 afterEach(() => {
   localStorage.clear();
-  jest.clearAllMocks();
+  vi.clearAllMocks();
 });

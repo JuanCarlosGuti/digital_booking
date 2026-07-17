@@ -1,0 +1,215 @@
+@import "./../../../sass/general.scss";
+
+// Bandeja de conversaciones -----------------------------------------------
+
+.messagesList {
+  width: 92%;
+  max-width: 700px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: calc($footer-h + 20px);
+
+  &__item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background-color: $light;
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.18);
+    }
+  }
+
+  &__avatar {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: $colorClaro;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    flex: 1;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__name {
+    font-weight: 700;
+    color: $colorOscuro;
+  }
+
+  &__badge {
+    background-color: $colorAccent;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 2px 8px;
+  }
+
+  &__property {
+    color: $colorClaro;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  &__preview {
+    color: $colorOscuro;
+    opacity: 65%;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// Hilo de conversación ------------------------------------------------------
+
+.chatThread {
+  margin-top: $navbar-h;
+  height: calc(100vh - #{$navbar-h} - #{$footer-h});
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+
+  &__header {
+    background-color: $colorPpal;
+    padding: 10px $navbar-padding-h;
+  }
+
+  &__headerContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__back {
+    font-size: 1.8rem;
+    color: $colorOscuro;
+    display: flex;
+    align-items: center;
+  }
+
+  &__name {
+    font-weight: 700;
+    font-family: $fontSerif;
+    font-size: 1.1rem;
+    color: $colorOscuro;
+  }
+
+  &__property {
+    font-size: 0.8rem;
+    color: $colorOscuro;
+    text-decoration: underline;
+  }
+
+  &__messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: $colorFondo;
+  }
+
+  &__status {
+    color: $colorOscuro;
+    opacity: 70%;
+    text-align: center;
+  }
+
+  &__bubble {
+    max-width: 75%;
+    background-color: $light;
+    border-radius: 12px 12px 12px 2px;
+    padding: 8px 12px;
+    align-self: flex-start;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+
+    p {
+      margin: 0;
+      color: $colorOscuro;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      overflow-wrap: break-word;
+    }
+
+    &--mine {
+      align-self: flex-end;
+      background-color: #d8efe5; // verde suave — mis mensajes
+      border-radius: 12px 12px 2px 12px;
+    }
+  }
+
+  &__time {
+    display: block;
+    text-align: right;
+    font-size: 0.7rem;
+    color: $colorOscuro;
+    opacity: 55%;
+    margin-top: 2px;
+  }
+
+  &__composer {
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px;
+    background-color: $light;
+
+    input {
+      flex: 1;
+      font-family: "Roboto", sans-serif;
+      border: none;
+      background: $colorFondo;
+      border-radius: 20px;
+      padding: 10px 16px;
+      font-size: 0.95rem;
+
+      &:focus {
+        outline: 2px solid $colorPpal;
+      }
+    }
+
+    button {
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 50%;
+      background-color: $colorPpal;
+      color: white;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      &:disabled {
+        opacity: 50%;
+        cursor: default;
+      }
+    }
+  }
+}

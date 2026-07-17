@@ -8,7 +8,7 @@ export default function NewProductHeader() {
   return (
     <section className="NewProductHeaderContainer">
       <div className="NewProductHeaderContainer_box">
-        <p>Administración</p>
+        <p>Publicar propiedad</p>
         <div>
           <IoIosArrowBack onClick={() => navigate(-1)} />
         </div>

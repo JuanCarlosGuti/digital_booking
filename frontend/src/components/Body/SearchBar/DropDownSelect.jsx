@@ -21,7 +21,7 @@ const DropdownSelect = (props) => {
         {props.places.map((c) => (
           <DropdownOption
             key={c.id}
-            country={c.country}
+            department={c.department}
             city={c.city}
             setPlace={props.setPlace}
             setDisplay={setToggle}

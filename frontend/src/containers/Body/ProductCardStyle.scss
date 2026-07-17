@@ -84,7 +84,7 @@
         &--numberContainer {
           font-size: 20px;
           margin: 0;
-          background-color: #383b58;
+          background-color: $Dark;
           color: $light;
           width: 30px;
           height: 30px;
@@ -96,6 +96,14 @@
       &__startContainer {
         &--star {
           color: $colorPpal;
+
+          svg {
+            vertical-align: middle;
+          }
+        }
+        .sinResenas {
+          opacity: 60%;
+          text-transform: none;
         }
         display: flex;
         flex-direction: column;
@@ -111,8 +119,8 @@
           margin: 0;
           color: $colorOscuro;
           font-weight: 700;
-          font-family: "Roboto", sans-serif;
-          font-size: 17px;
+          font-family: $fontSerif; // títulos en serif (identidad aprobada)
+          font-size: 19px;
           padding-top: 0.7rem;
         }
       }
@@ -127,7 +135,7 @@
         font-family: "Roboto", sans-serif;
         span {
           text-transform: uppercase;
-          color: $colorPpal;
+          color: $colorClaro; // Caribe — secundario, para la etiqueta de categoría
         }
         @include breakpoint-up(large) {
           padding-bottom: 0.7rem;

@@ -1,0 +1,44 @@
+@import "../sass/general.scss";
+
+.paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  // El padding inferior grande evita que el footer fijo (55px) tape los botones.
+  padding: 25px 0 calc($footer-h + 20px) 0;
+
+  &__page,
+  &__arrow {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    min-width: 36px;
+    height: 36px;
+    border: 1px solid rgba(22, 40, 63, 0.25);
+    border-radius: 6px;
+    background-color: $light;
+    color: $colorOscuro;
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      border-color: $colorPpal;
+      color: $colorPpal;
+    }
+
+    &:disabled {
+      opacity: 40%;
+      cursor: default;
+    }
+  }
+
+  &__page--active {
+    background-color: $colorPpal;
+    border-color: $colorPpal;
+    color: $buttonsText;
+
+    &:hover:not(:disabled) {
+      color: $buttonsText;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+@import "./../../../../sass/general.scss";
+
+.prodContact {
+  display: flex;
+  justify-content: center;
+  padding: 10px $navbar-padding-h;
+
+  &__container {
+    width: 100%;
+    max-width: $mx-w;
+  }
+
+  &__cta {
+    margin: 0;
+    color: $colorOscuro;
+
+    a {
+      color: $colorClaro;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: $colorClaro; // Caribe — acción de comunicación, distinta del CTA dorado
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      background-color: #0b6360;
+    }
+
+    &:disabled {
+      opacity: 70%;
+      cursor: default;
+    }
+  }
+
+  &__error {
+    margin: 8px 0 0 0;
+    color: $colorAccent;
+    font-size: 0.9rem;
+  }
+
+  &__icon {
+    font-size: 1.5rem;
+  }
+}

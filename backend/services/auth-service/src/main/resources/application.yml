@@ -1,0 +1,44 @@
+server:
+  port: ${SERVER_PORT:8081}
+
+spring:
+  application:
+    name: auth-service
+
+  datasource:
+    url: jdbc:mysql://${AUTH_DB_HOST:localhost}:${AUTH_DB_PORT:3306}/${AUTH_DB_NAME:auth_db}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: ${AUTH_DB_USER:auth_service}
+    password: ${AUTH_DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+# JWT: sin valor por defecto para el secreto — falla rápido en el arranque si no se configuró
+# la variable de entorno, en vez de firmar tokens con un secreto hardcodeado como hacía el monolito.
+# JWT_SECRET es compartido por todos los servicios (auth-service lo firma, los demás solo lo validan).
+cesartravel:
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration-minutes: ${JWT_EXPIRATION_MINUTES:480}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

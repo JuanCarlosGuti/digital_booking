@@ -1,52 +1,29 @@
 import "./Booking.scss";
+import { useAuth } from "../../../context/AuthContext";
 
-export default function BookingForm(props) {
-  const user = JSON.parse(localStorage.getItem("user"));
+export default function BookingForm({ city }) {
+  const { session } = useAuth();
 
   return (
     <div className="formContainer">
       <h3>Completá tus datos</h3>
-      <form action="">
+      <form>
         <div className="formBlock">
-          <label htmlFor="">Nombre</label>
-          <input
-            type="text"
-            className="formInput"
-            id="nombreInput"
-            value={user.name}
-            disabled
-          />
+          <label htmlFor="nombreInput">Nombre</label>
+          <input type="text" className="formInput" id="nombreInput" value={session.name} disabled />
         </div>
 
         <div className="formBlock">
-          <label htmlFor="">Apellido</label>
-          <input
-            type="text"
-            className="formInput"
-            id="apellidoInput"
-            value={user.lastname}
-            disabled
-          />
+          <label htmlFor="apellidoInput">Apellido</label>
+          <input type="text" className="formInput" id="apellidoInput" value={session.lastname} disabled />
         </div>
         <div className="formBlock">
-          <label htmlFor="">Correo electrónico</label>
-          <input
-            type="email"
-            className="formInput"
-            id="correoInput"
-            value={user.email}
-            disabled
-          />
+          <label htmlFor="correoInput">Correo electrónico</label>
+          <input type="email" className="formInput" id="correoInput" value={session.email} disabled />
         </div>
         <div className="formBlock">
-          <label htmlFor="">Ciudad</label>
-          <input
-            type="text"
-            className="formInput"
-            id="ciudadInput"
-            value={props.city.city + "," + props.city.country}
-            disabled
-          />
+          <label htmlFor="ciudadInput">Municipio</label>
+          <input type="text" className="formInput" id="ciudadInput" value={`${city.city}, ${city.department}`} disabled />
         </div>
       </form>
     </div>

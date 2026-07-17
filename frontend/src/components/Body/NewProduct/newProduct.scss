@@ -227,6 +227,21 @@
               width: 95%;
             }
           }
+          &-preview {
+            width: 80%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+            @include breakpoint-up(medium) {
+              width: 95%;
+              height: 120px;
+            }
+          }
+          &-upload {
+            cursor: pointer;
+            justify-content: center;
+          }
           &-button {
             width: 15%;
             height: 30px;

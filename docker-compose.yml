@@ -1,0 +1,152 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: cesartravel-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpass}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./infra/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p${MYSQL_ROOT_PASSWORD:-rootpass}"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  auth-service:
+    build: ./backend/services/auth-service
+    container_name: cesartravel-auth-service
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      AUTH_DB_HOST: mysql
+      AUTH_DB_PORT: 3306
+      AUTH_DB_NAME: auth_db
+      AUTH_DB_USER: auth_service
+      AUTH_DB_PASSWORD: auth_service_pw
+      JWT_SECRET: ${JWT_SECRET:?Definí JWT_SECRET en tu .env — ver .env.example}
+    ports:
+      - "8081:8081"
+
+  property-service:
+    build: ./backend/services/property-service
+    container_name: cesartravel-property-service
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      PROPERTY_DB_HOST: mysql
+      PROPERTY_DB_PORT: 3306
+      PROPERTY_DB_NAME: property_db
+      PROPERTY_DB_USER: property_service
+      PROPERTY_DB_PASSWORD: property_service_pw
+      JWT_SECRET: ${JWT_SECRET:?Definí JWT_SECRET en tu .env — ver .env.example}
+      UPLOADS_DIR: /data/uploads
+      # El navegador del usuario resuelve las imágenes contra el gateway (igual que el resto de la
+      # API), no directo a property-service — ver ADR-0005 y GatewayRoutesConfig (/uploads/**).
+      PUBLIC_BASE_URL: http://localhost:8080
+    volumes:
+      - property-uploads:/data/uploads
+    ports:
+      - "8082:8082"
+
+  booking-service:
+    build: ./backend/services/booking-service
+    container_name: cesartravel-booking-service
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+      property-service:
+        condition: service_started
+      notification-service:
+        condition: service_started
+    environment:
+      BOOKING_DB_HOST: mysql
+      BOOKING_DB_PORT: 3306
+      BOOKING_DB_NAME: booking_db
+      BOOKING_DB_USER: booking_service
+      BOOKING_DB_PASSWORD: booking_service_pw
+      JWT_SECRET: ${JWT_SECRET:?Definí JWT_SECRET en tu .env — ver .env.example}
+      PROPERTY_SERVICE_URL: http://property-service:8082
+      AUTH_SERVICE_URL: http://auth-service:8081
+      NOTIFICATION_SERVICE_URL: http://notification-service:8084
+    ports:
+      - "8083:8083"
+
+  chat-service:
+    build: ./backend/services/chat-service
+    container_name: cesartravel-chat-service
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+      property-service:
+        condition: service_started
+    environment:
+      CHAT_DB_HOST: mysql
+      CHAT_DB_PORT: 3306
+      CHAT_DB_NAME: chat_db
+      CHAT_DB_USER: chat_service
+      CHAT_DB_PASSWORD: chat_service_pw
+      JWT_SECRET: ${JWT_SECRET:?Definí JWT_SECRET en tu .env — ver .env.example}
+      PROPERTY_SERVICE_URL: http://property-service:8082
+      AUTH_SERVICE_URL: http://auth-service:8081
+    ports:
+      - "8085:8085"
+
+  # Interno: sin "ports" (solo accesible en la red de compose) y sin ruta en el gateway —
+  # nadie de afuera puede disparar emails (ver ADR-0002). Si las variables SMTP quedan vacías,
+  # el envío falla logueado y la reserva se crea igual (best-effort).
+  notification-service:
+    build: ./backend/services/notification-service
+    container_name: cesartravel-notification-service
+    restart: unless-stopped
+    environment:
+      SMTP_HOST: ${SMTP_HOST:-smtp.gmail.com}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_APP_PASSWORD: ${SMTP_APP_PASSWORD:-}
+      MAIL_FROM: ${MAIL_FROM:-no-reply@cesartravel.co}
+
+  api-gateway:
+    build: ./backend/services/api-gateway
+    container_name: cesartravel-api-gateway
+    restart: unless-stopped
+    depends_on:
+      - auth-service
+      - property-service
+      - booking-service
+      - chat-service
+    environment:
+      AUTH_SERVICE_URL: http://auth-service:8081
+      PROPERTY_SERVICE_URL: http://property-service:8082
+      BOOKING_SERVICE_URL: http://booking-service:8083
+      CHAT_SERVICE_URL: http://chat-service:8085
+      CORS_ALLOWED_ORIGINS: http://localhost:3000
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        # El navegador del usuario (no el contenedor) es quien llama a esta URL, por eso
+        # sigue siendo localhost:8080 — ahí es donde docker-compose publica el gateway.
+        VITE_API_URL: http://localhost:8080
+    container_name: cesartravel-frontend
+    restart: unless-stopped
+    depends_on:
+      - api-gateway
+    ports:
+      - "3000:80"
+
+volumes:
+  mysql-data:
+  property-uploads:

@@ -1,16 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 
-//variables
-$colorPpal: rgba(251, 192, 45, 1);
-$Dark: rgb(20, 31, 37);
-$colorOscuro: rgba(38, 50, 56, 1);
-$colorClaro: rgba(96, 125, 139, 1);
-$colorFondo: rgba(255, 251, 226, 1);
+// Paleta Cesar Travel — Cesar / La Guajira (ver la identidad aprobada en docs/ROADMAP.md)
+$colorPpal: #f0a600; // Cañaguate — flor del árbol, color primario
+$colorAccent: #c1502e; // Guajira — tierra roja del desierto, precios/destacados
+$colorSupport: #2e6b4f; // Sierra — verde de la Sierra Nevada, uso puntual
+$Dark: #16283f; // Noche — cielo nocturno guajiro: texto, navbar, footer
+$colorOscuro: #16283f;
+$colorClaro: #0e7b78; // Caribe — mar frente a Cabo de la Vela/Palomino
+$colorFondo: #fbf2de; // Arena — salinas de Manaure: fondo base de la interfaz
 $light: rgb(255, 255, 255);
 $lightGray: rgb(235, 235, 235);
-$backBody: #e3e3e3;
+$backBody: $colorFondo; // el fondo de la interfaz ES Arena (identidad aprobada), no un gris genérico
 $buttonsText: rgb(255, 255, 255);
+
+// Serif cálido para el nombre de la marca y títulos (identidad aprobada) — stack de sistema,
+// sin webfont extra que cargar.
+$fontSerif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
 
 html {
   font-family: "Poppins", sans-serif;
@@ -24,6 +30,12 @@ html {
 
   .hidden {
     display: none;
+  }
+
+  .formError {
+    color: $colorAccent;
+    font-size: 0.9rem;
+    margin: 8px 0;
   }
 
   body {

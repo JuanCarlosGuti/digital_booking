@@ -15,10 +15,6 @@
           }
 
     }
-    img{
-        margin-top: 20px;
-        width: 50vw;
-    }
     h2{
         font-size: 3rem;
         @include breakpoint-down(small) {
@@ -26,12 +22,10 @@
         }
     }
     div.link{
-        img{
+        .notFound__logo{
             margin-top: 100px;
-            width: 200px;
-            @include breakpoint-up(small) {
-                display: none;
-            }
+            width: 160px;
+            height: 160px;
         }
     }
 }

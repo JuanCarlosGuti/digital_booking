@@ -1,73 +1,83 @@
 import React, { useState } from "react";
 import "./Register.scss";
 import { Link, useNavigate } from "react-router-dom";
-import { postUser } from "./../../../services/fetchService";
+import { register } from "./../../../services/fetchService";
+
+const NAME_PATTERN = /^[A-Za-zÀ-ÿ\s]+$/;
+const EMAIL_PATTERN = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+const PHONE_PATTERN = /^3\d{9}$/;
 
 const Register = () => {
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [email, setEmail] = useState("");
+  const [celular, setCelular] = useState("");
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const navigate = useNavigate();
 
-  const clearError = () => {
-    document.querySelector(".invalid").innerHTML = "";
+  const validate = () => {
+    if (!nombre || !apellido || !email || !password || !passwordRepeat) {
+      return "Por favor complete todos los campos.";
+    }
+    if (!NAME_PATTERN.test(nombre)) {
+      return "El campo de nombre solo admite texto";
+    }
+    if (!NAME_PATTERN.test(apellido)) {
+      return "El campo de apellido solo admite texto";
+    }
+    if (!EMAIL_PATTERN.test(email)) {
+      return "Por favor ingrese un email válido.";
+    }
+    if (celular && !PHONE_PATTERN.test(celular)) {
+      return "El celular debe ser colombiano: 10 dígitos empezando por 3.";
+    }
+    if (password.length < 8) {
+      return "La contraseña es demasiado corta. Ingrese al menos 8 caracteres.";
+    }
+    if (password !== passwordRepeat) {
+      return "Las contraseñas no coinciden. Intente nuevamente.";
+    }
+    return "";
   };
 
-  const errorMessage = (message) => {
-    document.querySelector(".invalid").innerHTML = message;
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (
-      nombre === "" ||
-      apellido === "" ||
-      email === "" ||
-      password === "" ||
-      passwordRepeat === ""
-    ) {
-      errorMessage("Por favor complete todos los campos.");
-    } else if (!/^[A-Za-z]+$/.test(nombre)) {
-      errorMessage("El campo de nombre solo admite texto");
-      document.querySelector("#nombreInput").classList.add("errorBorder");
-    } else if (!/^[A-Za-z]+$/.test(apellido)) {
-      errorMessage("El campo de apellido solo admite texto");
-      document.querySelector("#apellidoInput").classList.add("errorBorder");
-    } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-      errorMessage("Por favor ingrese un email válido.");
-      document.querySelector("#emailInput").classList.add("errorBorder");
-    } else if (password.length < 6) {
-      errorMessage(
-        "La contraseña es demasiado corta. Ingrese al menos 6 caracteres."
-      );
-      document.querySelector("#passwordInput").classList.add("errorBorder");
-      document
-        .querySelector("#confirmPasswordInput")
-        .classList.add("errorBorder");
-    } else if (password !== passwordRepeat) {
-      errorMessage("Las contraseñas no coinciden. Intente nuevamente.");
-      document.querySelector("#passwordInput").classList.add("errorBorder");
-      document
-        .querySelector("#confirmPasswordInput")
-        .classList.add("errorBorder");
-    } else {
-      postUser(nombre, apellido, email, password).then((response) => {
-        if (response.status === 201) {
-          document.querySelector(".exito").classList.remove("hidden");
-          document.querySelector("form").classList.add("hidden");
-          setTimeout(() => {
-            navigate("/login");
-          }, 3000);
-        } else {
-          errorMessage("El usuario ya existe");
-          document.querySelector("#emailInput").classList.add("errorBorder");
-        }
-      });
+    const validationError = validate();
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+
+    setError("");
+    setSubmitting(true);
+    try {
+      await register(nombre, apellido, email, password, celular);
+      setSuccess(true);
+      setTimeout(() => navigate("/login"), 3000);
+    } catch (err) {
+      setError(err.message || "No se pudo crear la cuenta. Intente nuevamente.");
+    } finally {
+      setSubmitting(false);
     }
   };
+
+  if (success) {
+    return (
+      <section className="RegisterContainer">
+        <div className="RegisterContainer__FormContainer">
+          <div className="exito">
+            Cuenta creada con éxito!
+            <br /> <span className="small">Serás redirigido al login</span>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="RegisterContainer">
@@ -77,102 +87,85 @@ const Register = () => {
         </Link>
 
         <p className="RegisterContainer__FormContainer--title">Crear Cuenta</p>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="RegisterContainer__FormContainer--fullName">
-            <label className="formLabel" htmlFor="">
+            <label className="formLabel" htmlFor="nombreInput">
               Nombre
             </label>
-
             <input
-              className="formInput"
+              className={`formInput${error ? " errorBorder" : ""}`}
               id="nombreInput"
               type="text"
-              onChange={(e) => {
-                setNombre(e.target.value);
-                clearError();
-              }}
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
             />
 
-            <label className="formLabel" htmlFor="">
+            <label className="formLabel" htmlFor="apellidoInput">
               Apellido
             </label>
-
             <input
-              className="formInput apellido"
+              className={`formInput apellido${error ? " errorBorder" : ""}`}
               id="apellidoInput"
               type="text"
-              onChange={(e) => {
-                setApellido(e.target.value);
-                clearError();
-              }}
+              value={apellido}
+              onChange={(e) => setApellido(e.target.value)}
             />
           </div>
-          <label className="formLabel" htmlFor="">
+          <label className="formLabel" htmlFor="emailInput">
             Correo electrónico
           </label>
-
           <input
-            className="formInput"
+            className={`formInput${error ? " errorBorder" : ""}`}
             id="emailInput"
             type="email"
-            onChange={(e) => {
-              setEmail(e.target.value);
-              clearError();
-              document
-                .querySelector("#emailInput")
-                .classList.remove("errorBorder");
-            }}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
-          <label className="formLabel" htmlFor="">
+          <label className="formLabel" htmlFor="celularInput">
+            Celular (opcional)
+          </label>
+          <input
+            className="formInput"
+            id="celularInput"
+            type="tel"
+            placeholder="3001234567"
+            value={celular}
+            onChange={(e) => setCelular(e.target.value.trim())}
+          />
+
+          <label className="formLabel" htmlFor="passwordInput">
             Contraseña
           </label>
-
           <input
-            className="formInput"
+            className={`formInput${error ? " errorBorder" : ""}`}
             id="passwordInput"
             type="password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-              clearError();
-              document
-                .querySelector("#passwordInput")
-                .classList.remove("errorBorder");
-            }}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
 
-          <label className="formLabel" htmlFor="">
+          <label className="formLabel" htmlFor="confirmPasswordInput">
             Confirmar Contraseña
           </label>
-
           <input
-            className="formInput"
+            className={`formInput${error ? " errorBorder" : ""}`}
             id="confirmPasswordInput"
             type="password"
-            onChange={(e) => {
-              setPasswordRepeat(e.target.value);
-              clearError();
-              document
-                .querySelector("#confirmPasswordInput")
-                .classList.remove("errorBorder");
-            }}
+            value={passwordRepeat}
+            onChange={(e) => setPasswordRepeat(e.target.value)}
           />
 
-          <p className="invalid"></p>
+          <p className="invalid">{error}</p>
 
-          <button className="button" type="submit" onClick={handleSubmit}>
-            Crear Cuenta
+          <button className="button" type="submit" disabled={submitting}>
+            {submitting ? "Creando cuenta..." : "Crear Cuenta"}
           </button>
 
           <p>
             ¿Ya tienes una cuenta? <Link to="/login">Iniciar sesión</Link>
           </p>
         </form>
-
-        <div className="exito hidden">
-          Cuenta creada con éxito!
-          <br /> <span className="small">Serás redirigido al login</span>
-        </div>
       </div>
     </section>
   );

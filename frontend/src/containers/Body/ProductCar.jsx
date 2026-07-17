@@ -1,46 +1,46 @@
 import React from "react";
 import { ImLocation } from "react-icons/im";
-import { RiStarSFill } from "react-icons/ri";
 import "./ProductCardStyle.scss";
 import { Link } from "react-router-dom";
+import RatingStars from "../../components/RatingStars";
 
 const ProductCar = (props) => {
+  const hasReviews = props.reviewCount > 0;
+
   return (
     <div className="productCardMainContainer">
       <div className="productCardMainContainer__imageContainer">
-        <img src={props.image} alt="" />
+        <img src={props.image} alt={props.title} />
       </div>
       <div className="productCardMainContainer__contentContainer">
         <div className="productCardMainContainer__contentContainer__header">
           <div className="productCardMainContainer__contentContainer__header__startContainer">
             <span>
               {props.category}
-              <RiStarSFill className="productCardMainContainer__contentContainer__header__startContainer--star" />
-              <RiStarSFill className="productCardMainContainer__contentContainer__header__startContainer--star" />
-              <RiStarSFill className="productCardMainContainer__contentContainer__header__startContainer--star" />
-              <RiStarSFill className="productCardMainContainer__contentContainer__header__startContainer--star" />
+              {hasReviews ? (
+                <>
+                  <RatingStars
+                    value={props.avgRating}
+                    className="productCardMainContainer__contentContainer__header__startContainer--star"
+                  />
+                  ({props.reviewCount})
+                </>
+              ) : (
+                <span className="sinResenas"> · Sin reseñas aún</span>
+              )}
             </span>
-            <p>{props.name}</p>
-          </div>
-          <div className="productCardMainContainer__contentContainer__header__endContainer">
-            <p className="productCardMainContainer__contentContainer__header__endContainer--numberContainer">
-              <span>8</span>
-            </p>
-            <p className="productCardMainContainer__contentContainer__header__endContainer--calification">
-              Muy bueno
-            </p>
+            <p>{props.title}</p>
           </div>
         </div>
         <div className="productCardMainContainer__contentContainer__ubicationContainer">
           <p>
-            <ImLocation />A 940 de {props.location} -{" "}
-            <span>Mostrar en el mapa</span>
+            <ImLocation /> {props.location}
           </p>
         </div>
         <div className="productCardMainContainer__contentContainer__footer">
-          <p>{props.description}</p>
-          <Link to={"/products/" + props.id}  className="buttonEffect2" >Visitar</Link>
-        
+          <Link to={"/products/" + props.id} className="buttonEffect2">
+            Visitar
+          </Link>
         </div>
       </div>
     </div>

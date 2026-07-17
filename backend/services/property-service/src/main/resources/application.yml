@@ -1,0 +1,52 @@
+server:
+  port: ${SERVER_PORT:8082}
+
+spring:
+  application:
+    name: property-service
+
+  datasource:
+    url: jdbc:mysql://${PROPERTY_DB_HOST:localhost}:${PROPERTY_DB_PORT:3306}/${PROPERTY_DB_NAME:property_db}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: ${PROPERTY_DB_USER:property_service}
+    password: ${PROPERTY_DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  servlet:
+    multipart:
+      max-file-size: 8MB
+      max-request-size: 40MB
+
+# Mismo secreto que auth-service (JWT_SECRET) — acá solo se usa para validar, nunca para firmar.
+cesartravel:
+  jwt:
+    secret: ${JWT_SECRET}
+  # Almacenamiento local de imágenes (ver ADR-0005) — uploads.dir es la ruta en disco dentro del
+  # contenedor (montada como volumen persistente), public-url es el origen público con el que se
+  # arma la URL absoluta que se guarda en Image.url (el gateway, no property-service directamente).
+  uploads:
+    dir: ${UPLOADS_DIR:/data/uploads}
+  public-url: ${PUBLIC_BASE_URL:http://localhost:8080}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

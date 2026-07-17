@@ -1,0 +1,4 @@
+# mvnw es un script de shell — si Windows lo commitea con CRLF (por autocrlf), el shebang
+# queda roto ("#!/bin/sh\r") y el build de Docker falla con "./mvnw: not found" (exit 127).
+# Encontrado al levantar docker-compose por primera vez — ver docs/ROADMAP.md.
+**/mvnw text eol=lf

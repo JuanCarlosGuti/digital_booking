@@ -1,0 +1,86 @@
+@import "./../../../../sass/general.scss";
+
+.prodReviews {
+  display: flex;
+  justify-content: center;
+  padding: 20px $navbar-padding-h;
+
+  &__container {
+    width: 100%;
+    max-width: $mx-w;
+
+    h3 {
+      color: $colorOscuro;
+      font-family: $fontSerif;
+    }
+  }
+
+  &__empty {
+    color: $colorOscuro;
+    opacity: 75%;
+    margin: 0;
+  }
+
+  &__average {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  &__averageNumber {
+    font-family: $fontSerif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: $colorOscuro;
+  }
+
+  &__stars {
+    color: $colorPpal;
+
+    svg {
+      vertical-align: middle;
+      font-size: 1.1rem;
+    }
+  }
+
+  &__count {
+    color: $colorOscuro;
+    opacity: 75%;
+    font-size: 0.9rem;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__item {
+    background-color: $light;
+    border-radius: 10px;
+    padding: 14px 18px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  &__itemHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__reviewer {
+    font-weight: 700;
+    color: $colorOscuro;
+  }
+
+  &__comment {
+    margin: 8px 0 0 0;
+    color: $colorOscuro;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}

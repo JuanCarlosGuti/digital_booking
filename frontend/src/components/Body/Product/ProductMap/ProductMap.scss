@@ -1,0 +1,39 @@
+@import "./../../../../sass/general.scss";
+
+.prodMap {
+  display: flex;
+  justify-content: center;
+  padding: 20px $navbar-padding-h;
+
+  &__container {
+    width: 100%;
+    max-width: $mx-w;
+
+    h3 {
+      color: $colorOscuro;
+      font-family: $fontSerif;
+    }
+  }
+
+  &__place {
+    margin: 0 0 12px 0;
+    color: $colorOscuro;
+    font-size: 0.9rem;
+  }
+
+  &__mapBox {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  }
+
+  // Leaflet no renderiza nada si su contenedor no tiene altura explícita.
+  &__map {
+    height: 400px;
+    width: 100%;
+
+    @include breakpoint-down(small) {
+      height: 280px;
+    }
+  }
+}

@@ -5,7 +5,8 @@
   top: 0px;
   height: 80px;
   position: fixed;
-  background: $light;
+  // Noche — navbar oscura como en la identidad aprobada (ver artifact de marca / ROADMAP.md)
+  background: $Dark;
 
   width: 100%;
   display: flex;
@@ -25,19 +26,24 @@
   &__img {
     height: 100%;
 
-    img {
-      margin-right: 10px;
+    a {
+      display: flex;
+      align-items: center;
       height: 100%;
     }
   }
 
-  &__imgSmall {
-    @include breakpoint-up(small) {
-      display: none;
-    }
+  &__logoMark {
+    height: 70%;
+    margin-right: 10px;
   }
 
-  &__imgLarge {
+  &__logoWordmark {
+    font-family: $fontSerif;
+    font-weight: 700;
+    font-size: 1.45rem;
+    color: $colorFondo;
+
     @include breakpoint-down(small) {
       display: none;
     }
@@ -71,7 +77,7 @@
     }
   }
   &__hamburguer {
-    color: $colorOscuro;
+    color: $colorFondo;
     height: 30px;
     width: 40px;
     position: absolute;
@@ -84,7 +90,6 @@
   }
 
   &__user {
-    display: none;
     margin-right: 15px;
     display: flex;
     align-items: center;
@@ -105,9 +110,8 @@
     }
     .line {
       height: 50px;
-      background-color: $colorClaro;
+      background-color: rgba(251, 242, 222, 0.35); // Arena translúcido sobre Noche
       width: 2px;
-      // border-left: 1px solid black;
       margin-right: 1rem;
     }
     &--text {
@@ -130,11 +134,11 @@
 
     }
     &--greeting {
-      color: gray;
+      color: rgba(251, 242, 222, 0.75); // Arena al 75% — como los links del mockup aprobado
     }
 
     &--name {
-      color: $colorClaro;
+      color: $colorPpal; // Cañaguate sobre Noche — el teal Caribe no contrasta en fondo oscuro
       font-weight: bold;
     }
 
@@ -142,9 +146,27 @@
       font-weight: bold;
       align-self: flex-start;
       position: relative;
-      // top: -10px;
+      color: $colorFondo;
+    }
+
+    &--mensajes {
+      position: relative;
     }
   }
+}
+
+.header__unreadBadge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: $colorAccent; // Guajira — destaca sobre el botón dorado
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 2px 6px;
+  min-width: 18px;
+  text-align: center;
 }
 
 .sideBarOn,

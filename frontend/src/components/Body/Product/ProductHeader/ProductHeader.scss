@@ -33,11 +33,18 @@
   .title {
     font-size: 1.5rem;
     font-weight: 700;
+    font-family: $fontSerif;
   }
 
   .backButton {
     font-size: 2.5rem;
     font-weight: 700;
     margin-right: 15px;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
 }

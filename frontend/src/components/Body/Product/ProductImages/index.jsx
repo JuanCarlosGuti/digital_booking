@@ -1,51 +1,23 @@
 import "./ProductImages.scss";
 import MobileComponent from "./MobileComponent";
 import DesktopImageComponent from "./desktopComponent";
-import React from "react";
+import { useEffect, useState } from "react";
 
-export default class ProductImages extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isMobile: false,
-      productImages: []
-    };
-  }
+export default function ProductImages({ product }) {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  updateState = (property, value) => {
-    this.setState({
-      ...this.state,
-      [property]: value,
-    });
-  };
+  useEffect(() => {
+    const updateDimensions = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevProps.product !== this.props.product) {
-      this.updateState("productImages", this.props.product.images);
-    }
-  }
-  
+  const images = product.images || [];
 
-  updateDimensions = () => {
-    this.updateState("isMobile", window.innerWidth <= 768);
-  };
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateDimensions);
-  }
-
-  componentDidMount() {
-    this.updateDimensions();
-    window.addEventListener("resize", this.updateDimensions);
-  }
-  render() {
-    return (
-      <>
-        {!this.state.isMobile && <DesktopImageComponent images={this.state.productImages} />}
-        {this.state.isMobile && (
-          <MobileComponent product={this.state.productImages} />
-        )}
-      </>
-    );
-  }
+  return (
+    <>
+      {!isMobile && <DesktopImageComponent images={images} />}
+      {isMobile && <MobileComponent images={images} />}
+    </>
+  );
 }

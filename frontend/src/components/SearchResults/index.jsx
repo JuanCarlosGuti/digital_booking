@@ -3,79 +3,68 @@ import "./../Body/Body.scss";
 import "./../Body/ProductList/ProductListStyle.scss";
 
 import {
-  getProductByCategory,
-  getCategory,
-  getProductByCity,
-  getCity,
-  getProductByDate,
-  getProductByCityAndDate,
+  getAllProducts,
+  getAllCategories,
+  getAllCities,
+  getUnavailableProductIds,
+  getReviewSummaries,
 } from "../../services/fetchService";
 import ProductCar from "../../containers/Body/ProductCar";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 import shuffle from "../../services/shuffleService";
 import SearchBar from "../Body/SearchBar/SearchBar";
 import CategoryList from "../Body/CategoryList/CategoryList";
+import Paginator from "../Paginator";
 
-const SearchResults = (props) => {
+const PAGE_SIZE = 8;
+
+const SearchResults = () => {
   const { type, param } = useParams();
+  const [searchParams] = useSearchParams();
   const [products, setProducts] = useState([]);
-  const [category, setCategory] = useState("");
-  const [city, setCity] = useState("");
-  const [date1, setDate1] = useState("");
-  const [date2, setDate2] = useState("");
-
+  const [summaries, setSummaries] = useState({});
+  const [page, setPage] = useState(1);
+  const [placeLabel, setPlaceLabel] = useState("");
   const navigate = useNavigate();
 
+  // Rango opcional (?from=yyyy-MM-dd&to=...): si viene, se excluyen los inmuebles ocupados.
+  const from = searchParams.get("from");
+  const to = searchParams.get("to");
+
   useEffect(() => {
+    const loadProducts = async (filter) => {
+      const [results, unavailableIds] = await Promise.all([
+        getAllProducts(filter),
+        from && to ? getUnavailableProductIds(from, to).catch(() => []) : Promise.resolve([]),
+      ]);
+      const unavailable = new Set(unavailableIds);
+      const available = results.filter((p) => !unavailable.has(p.id));
+      setProducts(shuffle(available));
+      setPage(1);
+      if (available.length > 0) {
+        const reviewSummaries = await getReviewSummaries(available.map((p) => p.id)).catch(() => []);
+        setSummaries(Object.fromEntries(reviewSummaries.map((s) => [s.productId, s])));
+      }
+    };
+
     if (type === "category") {
-      getProductByCategory(param).then((res) => {
-        shuffle(res);
-        setProducts(res);
-      });
-      getCategory(param).then((cat) => {
-        setCategory(cat.title);
+      loadProducts({ categoryId: param });
+      getAllCategories().then((categories) => {
+        const match = categories.find((c) => String(c.id) === param);
+        setPlaceLabel(match?.title || "");
       });
     } else if (type === "city") {
-      getProductByCity(param).then((res) => {
-        shuffle(res);
-        setProducts(res);
-      });
-      getCity(param).then((city) => {
-        let cityCountry = city.city + ", " + city.country;
-        setCity(cityCountry);
-      });
-    } else if (type === "date") {
-      if (param === "+") {
-        alert("ingrese un criterio de busqueda");
-        navigate(-1);
-      } else {
-        const startDate = param.split("+")[0];
-        const endDate = param.split("+")[1];
-
-        getProductByDate(startDate, endDate).then((res) => {
-          setProducts(res);
-          setDate1(startDate);
-          setDate2(endDate);
-        });
-      }
-    } else if (type === "cityAndDate") {
-      const placeId = param.split("+")[0];
-      const startDate = param.split("+")[1];
-      const endDate = param.split("+")[2];
-
-      getProductByCityAndDate(startDate, endDate, placeId).then((res) => {
-        setProducts(res);
-        setDate1(startDate);
-        setDate2(endDate);
-      });
-      getCity(placeId).then((city) => {
-        let cityCountry = city.city + ", " + city.country;
-        setCity(cityCountry);
+      loadProducts({ cityId: param });
+      getAllCities().then((cities) => {
+        const match = cities.find((c) => String(c.id) === param);
+        setPlaceLabel(match ? `${match.city}, ${match.department}` : "");
       });
     } else {
       navigate("/NotFound");
     }
-  }, [type, param, navigate]);
+  }, [type, param, from, to, navigate]);
+
+  const datesLabel = from && to ? ` — disponibles del ${from} al ${to}` : "";
 
   return (
     <div className="body">
@@ -85,32 +74,35 @@ const SearchResults = (props) => {
       <div className="productListMainContainer" id="title">
         <div className="productListMainContainer__container">
           <h2>
-            {" "}
-            Resultados de la búsqueda{" "}
-            {type === "category"
-              ? `de ${category}`
-              : type === "city"
-              ? `en ${city}`
-              : type === "date"
-              ? `entre ${date1} y ${date2}`
-              : `en ${city} entre ${date1} y ${date2}`}
+            Resultados de la búsqueda {type === "category" ? `de ${placeLabel}` : `en ${placeLabel}`}
+            {datesLabel}
           </h2>
           <div className="productListMainContainer__productList">
-            {products.map((p) => (
+            {products.length === 0 && (
+              <p>No hay propiedades disponibles con esos criterios. Probá con otras fechas u otro municipio.</p>
+            )}
+            {products.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE).map((p) => (
               <ProductCar
                 key={p.id}
                 id={p.id}
-                name={p.name}
                 title={p.title}
                 category={p.category.title}
-                image={
-                  p.images.length > 0 ? p.images[0].url : p.categoy.imageUrl
-                }
+                image={p.coverImageUrl || p.category.imageUrl}
                 location={p.address}
-                description={p.description}
+                avgRating={summaries[p.id]?.avgRating || 0}
+                reviewCount={summaries[p.id]?.reviewCount || 0}
               />
             ))}
           </div>
+          <Paginator
+            totalItems={products.length}
+            pageSize={PAGE_SIZE}
+            currentPage={page}
+            onPageChange={(nextPage) => {
+              setPage(nextPage);
+              document.getElementById("title")?.scrollIntoView({ behavior: "smooth", block: "start" });
+            }}
+          />
         </div>
       </div>
     </div>

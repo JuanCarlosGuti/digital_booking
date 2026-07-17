@@ -1,0 +1,101 @@
+@import "./../../../sass/general.scss";
+
+.myProperties__error {
+  max-width: $mx-w;
+  margin: 10px auto 0 auto;
+  color: $colorAccent;
+  padding: 0 $navbar-padding-h;
+}
+
+.myProperties__card {
+  background-color: $light;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+
+  @include breakpoint-up(small) {
+    flex-direction: row;
+    height: 220px;
+  }
+}
+
+.myProperties__image {
+  object-fit: cover;
+  width: 100%;
+  height: 180px;
+  cursor: pointer;
+
+  @include breakpoint-up(small) {
+    width: 40%;
+    height: 100%;
+  }
+}
+
+.myProperties__body {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 18px;
+  flex: 1;
+}
+
+.myProperties__category {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: $colorClaro;
+  font-weight: 700;
+}
+
+.myProperties__title {
+  margin: 6px 0;
+  font-family: $fontSerif;
+  font-weight: 700;
+  font-size: 19px;
+  color: $colorOscuro;
+  cursor: pointer;
+}
+
+.myProperties__location {
+  margin: 0;
+  font-size: 14px;
+  color: $colorOscuro;
+}
+
+.myProperties__actions {
+  margin-top: auto;
+  padding-top: 12px;
+  display: flex;
+  gap: 10px;
+
+  button {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 8px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &.edit {
+      background-color: $colorPpal;
+      border: 1px solid $colorPpal;
+      color: $buttonsText;
+
+      &:hover {
+        background-color: white;
+        color: $colorOscuro;
+      }
+    }
+
+    &.delete {
+      background: none;
+      border: 1px solid $colorAccent;
+      color: $colorAccent;
+
+      &:hover {
+        background-color: $colorAccent;
+        color: white;
+      }
+    }
+  }
+}

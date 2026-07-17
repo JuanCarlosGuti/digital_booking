@@ -7,7 +7,7 @@ export default function ProductLocation(props) {
       <div className="productLocation__container">
         <ImLocation />
         <span>
-          {props.city.city}, {props.city.country}
+          {props.city.city}, {props.city.department}
         </span>
       </div>
     </div>

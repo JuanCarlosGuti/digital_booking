@@ -1,217 +1,168 @@
-const mainRute = "http://localhost:8080";
-//const mainRute = "http://18.116.202.151:8080";
+import { readSession } from "./authStorage";
 
-//Products ----------------------------------------------
+// api-gateway (ver docs/ARCHITECTURE.md) — único punto de entrada al backend.
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
-export const getAllProducts = async () => {
-  let response = await fetch(`${mainRute}/productos`, {
-    method: "GET",
-    // headers: { "Content-Type": "application/json" },
-  });
-  return response.json();
-};
-
-export const getProduct = async (id) => {
-  let response = await fetch(`${mainRute}/productos/${id}`, {
-    method: "GET",
-    // headers: { "Content-Type": "application/json" },
-  });
-  return response.json();
-};
-
-export const getProductByCategory = async (category) => {
-  let response = await fetch(`${mainRute}/productos/categoria=${category}`, {
-    method: "GET",
-    // headers: { "Content-Type": "application/json" },
-  });
-  return response.json();
-};
-
-export const getProductByCity = async (city) => {
-  let response = await fetch(`${mainRute}/productos/ciudad=${city}`, {
-    method: "GET",
-    // headers: { "Content-Type": "application/json" },
-  });
-  return response.json();
-};
-
-export const getProductByDate = async (startDate, endDate) => {
-  let response = await fetch(
-    `${mainRute}/productos/findByDate/${startDate}/${endDate}`,
-    {
-      method: "GET",
-      // headers: { "Content-Type": "application/json" },
+async function apiFetch(path, { method = "GET", body, auth = false } = {}) {
+  const headers = { "Content-Type": "application/json" };
+  if (auth) {
+    const session = readSession();
+    if (session?.token) {
+      headers.Authorization = `Bearer ${session.token}`;
     }
-  );
-  return response.json();
-};
-export const getProductByCityAndDate = async (startDate, endDate, cityId) => {
-  let response = await fetch(
-    `${mainRute}/productos/findByDate/${startDate}/${endDate}/${cityId}`,
-    {
-      method: "GET",
-      // headers: { "Content-Type": "application/json" },
-    }
-  );
-  return response.json();
-};
+  }
 
-export const createProduct = async (product) => {
-  const p = {
-    name: product.name,
-    title: product.name,
-    description: product.description,
-    address: product.address,
-    roomNumber: 3,
-    numberOfBathrooms: 3,
-    category: product.category,
-    city: product.city,
-    images: product.images,
-    productFeatures: product.attributes,
-    extraDescription1: product.policy1,
-    extraDescription2: product.policy2,
-    extraDescription3: product.policy3,
-  };
-  let response = await fetch(`${mainRute}/productos`, {
+  const response = await fetch(`${API_URL}${path}`, {
+    method,
+    headers,
+    body: body !== undefined ? JSON.stringify(body) : undefined,
+  });
+
+  if (response.status === 204) {
+    return null;
+  }
+
+  const data = await response.json().catch(() => null);
+
+  if (!response.ok) {
+    throw new Error(data?.message || `Error ${response.status} al conectar con el servidor`);
+  }
+
+  return data;
+}
+
+// Auth ------------------------------------------------------------------
+
+export const login = (email, password) =>
+  apiFetch("/api/auth/login", { method: "POST", body: { email, password } });
+
+// phone es opcional (celular colombiano 3XXXXXXXXX para WhatsApp) — si viene vacío se omite
+// del body: el backend valida el formato con @Pattern solo cuando el campo está presente.
+export const register = (name, lastname, email, password, phone) =>
+  apiFetch("/api/auth/register", {
     method: "POST",
-    body: JSON.stringify(p),
-    headers: {
-      "content-type": "application/json",
-    },
+    body: { name, lastname, email, password, phone: phone || undefined },
   });
 
-  return response.json();
-};
-
-//Bookings ----------------------------------------
-
-export const getBookingDates = async (productId) => {
-  let response = await fetch(
-    `${mainRute}/reservation/findAll/product/${productId}`,
-    {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    }
-  );
-  return response.json();
-};
-
-export const postBooking = async (firstDate, secondDate, productId, userId) => {
-  let response = await fetch(`${mainRute}/reservation/create`, {
-    method: "POST",
-    body: JSON.stringify({
-      checkIn: firstDate,
-      checkOut: secondDate,
-      product: { id: productId },
-      user: {
-        id: userId,
-      },
-    }),
-    headers: {
-      "content-type": "application/json",
-    },
-  });
-  return response.json(); //devuelve user con su id, la pass encriptada, y el rol
-};
-
-export const getAllBookings = async () => {
-  let response = await fetch(`${mainRute}/reservation/findAll`, {
-    method: "GET",
-    // headers: { "Content-Type": "application/json" },
-  });
-  return response.json();
-};
-
-//Category ----------------------------------------------
-
-export const getAllCategory = async () => {
-  let response = await fetch(`${mainRute}/categorias`, {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  });
-  return response.json();
-};
-
-export const getCategory = async (id) => {
-  let response = await fetch(`${mainRute}/categorias/${id}`, {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  });
-  return response.json();
-};
-
-//Cities ----------------------------------------------
-
-export const getAllCities = async () => {
-  let response = await fetch(`${mainRute}/ciudades`, {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  });
-  return response.json();
-};
-
-export const getCity = async (id) => {
-  let response = await fetch(`${mainRute}/ciudades/${id}`, {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  });
-  return response.json();
-};
-
-//Features
-
-export const getFeaturesByProduct = async (id) => {
-  let response = await fetch(`${mainRute}/productos/features=${id}`, {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  });
-  return response.json();
-};
-
-//Users --------------------------------------------------------
-
-export const authenticateUser = (email, password) => {
-  return fetch(`${mainRute}/auth/login`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      usuario: email,
-      clave: password,
-    }),
-  });
-};
-
-export const postUser = async (
-  nameImput,
-  lastnameImput,
-  emailImput,
-  passwordImput
-) => {
-  return await fetch(`${mainRute}/auth/registro`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      name: nameImput,
-      lastname: lastnameImput,
-      email: emailImput,
-      password: passwordImput,
-    }),
-  });
-};
-
-//Users ----------------------
+/** Resuelve nombre/email de un huésped por id, para mostrarlo en la vista de ocupantes del
+ * propietario (auth-service expone esto para consumo entre servicios, ver docs/ARCHITECTURE.md;
+ * cualquier usuario autenticado puede resolver cualquier id, no solo el dueño del inmueble). */
+export const getUserById = (id) => apiFetch(`/api/auth/users/${id}`, { auth: true });
 
 export const parseJwt = (token) => {
-  var base64Url = token.split(".")[1];
-  var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-  var jsonPayload = decodeURIComponent(
+  const base64Url = token.split(".")[1];
+  const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+  const jsonPayload = decodeURIComponent(
     window
       .atob(base64)
       .split("")
-      .map(function (c) {
-        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
-      })
+      .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
       .join("")
   );
   return JSON.parse(jsonPayload);
 };
+
+// Categorías / ciudades ---------------------------------------------------
+
+export const getAllCategories = () => apiFetch("/api/categories");
+
+export const getAllCities = () => apiFetch("/api/cities");
+
+export const getAllFeatures = () => apiFetch("/api/features");
+
+// Propiedades ---------------------------------------------------------------
+
+export const getAllProducts = ({ categoryId, cityId } = {}) => {
+  const params = new URLSearchParams();
+  if (categoryId) params.set("categoryId", categoryId);
+  if (cityId) params.set("cityId", cityId);
+  const query = params.toString();
+  return apiFetch(`/api/properties${query ? `?${query}` : ""}`);
+};
+
+export const getProduct = (id) => apiFetch(`/api/properties/${id}`);
+
+export const getProductsByOwner = (ownerId) => apiFetch(`/api/properties/owner/${ownerId}`, { auth: true });
+
+export const createProduct = (product) => apiFetch("/api/properties", { method: "POST", body: product, auth: true });
+
+/** Ojo: el PUT reemplaza TODO, incluidas las imágenes — el body debe reenviar las existentes
+ * como images: [{title, url}] o se borran (así funciona applyRequest en property-service). */
+export const updateProduct = (id, product) =>
+  apiFetch(`/api/properties/${id}`, { method: "PUT", body: product, auth: true });
+
+export const deleteProduct = (id) => apiFetch(`/api/properties/${id}`, { method: "DELETE", auth: true });
+
+/** Sube archivos de imagen reales para una propiedad ya creada (ver ADR-0005) — multipart, por
+ * eso no usa apiFetch (que siempre serializa el body a JSON). */
+export const uploadProductImages = async (productId, files) => {
+  const session = readSession();
+  const formData = new FormData();
+  files.forEach((file) => formData.append("files", file));
+
+  const response = await fetch(`${API_URL}/api/properties/${productId}/images`, {
+    method: "POST",
+    headers: session?.token ? { Authorization: `Bearer ${session.token}` } : {},
+    body: formData,
+  });
+
+  const data = await response.json().catch(() => null);
+  if (!response.ok) {
+    throw new Error(data?.message || `Error ${response.status} al subir las imágenes`);
+  }
+  return data;
+};
+
+// Reservas ------------------------------------------------------------------
+
+export const createBooking = (productId, checkIn, checkOut) =>
+  apiFetch("/api/bookings", { method: "POST", body: { productId, checkIn, checkOut }, auth: true });
+
+export const getMyBookings = () => apiFetch("/api/bookings/mine", { auth: true });
+
+/** Quién reservó un inmueble y cuándo — solo para el propietario (ver booking-service). */
+export const getBookingsByProperty = (productId) =>
+  apiFetch(`/api/bookings/property/${productId}`, { auth: true });
+
+/** Fechas ya ocupadas, sin identidad del huésped — pública, para el calendario del detalle. */
+export const getAvailability = (productId) => apiFetch(`/api/bookings/availability/${productId}`);
+
+/** Ids de inmuebles con reservas solapadas en el rango (fechas yyyy-MM-dd) — pública, para
+ * que la búsqueda por fechas excluya los no disponibles. */
+export const getUnavailableProductIds = (from, to) =>
+  apiFetch(`/api/bookings/unavailable?from=${from}&to=${to}`);
+
+export const cancelBooking = (id) => apiFetch(`/api/bookings/${id}`, { method: "DELETE", auth: true });
+
+// Reseñas -------------------------------------------------------------------
+
+/** Solo permitido con una estadía ya finalizada en esa propiedad (403 si no; 409 si repite). */
+export const createReview = (productId, rating, comment) =>
+  apiFetch("/api/reviews", { method: "POST", body: { productId, rating, comment }, auth: true });
+
+export const getReviewsByProperty = (productId) => apiFetch(`/api/reviews/property/${productId}`);
+
+/** Promedio + cantidad por inmueble, batch — una sola llamada para todas las tarjetas. */
+export const getReviewSummaries = (productIds) =>
+  apiFetch(`/api/reviews/summary?productIds=${productIds.join(",")}`);
+
+/** Ids de inmuebles que el usuario ya reseñó — para ocultar el botón en "mis reservas". */
+export const getMyReviews = () => apiFetch("/api/reviews/mine", { auth: true });
+
+// Chat interno huésped↔dueño (ver ADR-0009 — reemplaza el contacto por WhatsApp) ----------
+
+/** Abre (o recupera) la conversación con el dueño del inmueble. */
+export const openChat = (productId) =>
+  apiFetch("/api/chats", { method: "POST", body: { productId }, auth: true });
+
+export const getMyChats = () => apiFetch("/api/chats", { auth: true });
+
+export const getChatMessages = (chatId) => apiFetch(`/api/chats/${chatId}/messages`, { auth: true });
+
+export const sendChatMessage = (chatId, body) =>
+  apiFetch(`/api/chats/${chatId}/messages`, { method: "POST", body: { body }, auth: true });
+
+export const markChatRead = (chatId) => apiFetch(`/api/chats/${chatId}/read`, { method: "POST", auth: true });
+
+/** Total de mensajes sin leer — para el badge de "Mensajes" en el header. */
+export const getUnreadCount = () => apiFetch("/api/chats/unread-count", { auth: true });

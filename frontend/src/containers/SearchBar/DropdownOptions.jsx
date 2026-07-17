@@ -4,7 +4,7 @@ import "./DropdownOptionStyle.scss";
 
 const DropdownOption = (props) => {
   const example = () => {
-    props.setPlace(`${props.country}, ${props.city}`);
+    props.setPlace(`${props.department}, ${props.city}`);
     props.setDisplay(!props.displayValue);
     props.setPlaceId(props.id);
   };
@@ -16,7 +16,7 @@ const DropdownOption = (props) => {
         </i>
         <span>
           <p className="optionMainContainer__box-city">{props.city}</p>
-          <p className="optionMainContainer__box-country">{props.country}</p>
+          <p className="optionMainContainer__box-country">{props.department}</p>
         </span>
       </div>
       <hr />

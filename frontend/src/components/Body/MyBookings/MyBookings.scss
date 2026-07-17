@@ -77,3 +77,91 @@
         }
     }
 }
+
+// Reseñas desde "Mis Reservas" — el formulario vive acá porque es donde ya se sabe
+// que la estadía terminó (el botón solo aparece con checkOut pasado y sin reseña previa).
+.reviewButton {
+    @include links;
+    font-size: 0.8rem;
+    text-align: center;
+    margin: 15px 40px 0px 40px;
+    background-color: $colorClaro;
+    border-color: $colorClaro;
+    cursor: pointer;
+
+    @include breakpoint-up(medium) {
+        margin: 15px 15px 0px 15px;
+        font-size: 0.9rem;
+    }
+
+    &:hover {
+        color: $colorOscuro;
+        background-color: white;
+    }
+}
+
+// Con el formulario abierto la tarjeta necesita crecer más allá del alto fijo de .reserva.
+.reserva:has(.reviewForm) {
+    max-height: none;
+}
+
+.reviewForm {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 12px 15px 0px 15px;
+
+    &__stars {
+        font-size: 1.6rem;
+        color: $colorPpal;
+
+        .ratingStars__starButton {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: inherit;
+            font-size: inherit;
+            padding: 0 2px;
+        }
+    }
+
+    textarea {
+        font-family: "Roboto", sans-serif;
+        border: none;
+        background: #ffffff;
+        box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+        border-radius: 5px;
+        padding: 10px;
+        min-height: 70px;
+        resize: vertical;
+    }
+
+    &__error {
+        margin: 0;
+        color: $colorAccent;
+        font-size: 0.85rem;
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+
+        button {
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 16px;
+            cursor: pointer;
+            background: none;
+            color: $colorOscuro;
+
+            &.primary {
+                background-color: $colorPpal;
+                color: $buttonsText;
+            }
+        }
+    }
+}

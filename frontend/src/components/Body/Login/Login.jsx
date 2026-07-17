@@ -1,126 +1,80 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import "./Login.scss";
-import { Link, useNavigate } from "react-router-dom";
-import EmailContext from "../../../context/Context";
-import { useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { RiAlertFill } from "react-icons/ri";
-import { parseJwt } from "../../../services/fetchService";
-import { authenticateUser } from "../../../services/fetchService";
+import { login } from "../../../services/fetchService";
+import { useAuth } from "../../../context/AuthContext";
 
 const Login = () => {
   const [emailInput, setEmailInput] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
   const navigate = useNavigate();
-  const { setEmail } = useContext(EmailContext);
-  //Evento
-  const handleSubmit = (e) => {
+  const location = useLocation();
+  const { login: applySession } = useAuth();
+
+  const fromBooking = location.state?.from?.pathname?.startsWith("/product/");
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    //Validación en caso de que algun input se encuentre vacío
-    if (password !== "" && emailInput !== "") {
-      //Validación del tamaño de la contraseña
-      authenticateUser(emailInput, password)
-        .then(async (res) => {
-          if (res.status === 200) {
-            const response = await res.json();
-            const user = parseJwt(response.token);
-            localStorage.setItem(
-              "user",
-              JSON.stringify({
-                token: response.token,
-                id: user.id,
-                rol: user.rol,
-                name: user.name,
-                lastname: user.lastname,
-                email: emailInput,
-              })
-            );
-            setEmail(emailInput);
-            const regex = new RegExp("products");
-            const fromBooking = regex.test(localStorage.prevUrl);
-            if (fromBooking) {
-              navigate(-1);
-            } else {
-              navigate("/home");
-            }
-          } else {
-            document.querySelector(".invalid").innerHTML =
-              "Credenciales inválidas. Vuelve a intentarlo.";
-            document
-              .querySelector("#passwordInput")
-              .classList.add("errorBorder");
-            document.querySelector("#emailInput").classList.add("errorBorder");
-          }
-        })
-        .catch(() => {
-          document.querySelector(".invalid").innerHTML =
-            "Error de conexión. Intente nuevamente.";
-          document.querySelector("#passwordInput").classList.add("errorBorder");
-          document.querySelector("#emailInput").classList.add("errorBorder");
-        });
-    } else {
-      document.querySelector(".invalid").innerHTML =
-        "Por favor ingrese sus credenciales para acceder.";
-      document.querySelector("#emailInput").classList.add("errorBorder");
-      document.querySelector("#passwordInput").classList.add("errorBorder");
+    setError("");
+
+    if (password === "" || emailInput === "") {
+      setError("Por favor ingrese sus credenciales para acceder.");
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const response = await login(emailInput, password);
+      applySession(response.token);
+      const redirectTo = location.state?.from?.pathname || "/home";
+      navigate(redirectTo, { replace: true });
+    } catch {
+      setError("Credenciales inválidas. Vuelve a intentarlo.");
+    } finally {
+      setSubmitting(false);
     }
   };
-
-  useEffect(() => {
-    const regex = new RegExp("products");
-    const fromBooking = regex.test(localStorage.prevUrl);
-    if (fromBooking) {
-      document.getElementById("fromBooking").classList.remove("hidden");
-    }
-  }, []);
 
   return (
     <section className="LoginContainer">
       <div className="LoginContainer__FormContainer">
-        <h4 id="fromBooking" className="hidden">
-          {" "}
-          <RiAlertFill /> Para realizar una reserva necesitas estar logueado
-        </h4>
+        {fromBooking && (
+          <h4 className="fromBooking">
+            <RiAlertFill /> Para realizar una reserva necesitas estar logueado
+          </h4>
+        )}
         <p className="LoginContainer__FormContainer--title">Iniciar sesión</p>
         <form onSubmit={handleSubmit}>
           <Link to="/home" className="LoginContainer__FormContainer--close">
             x
           </Link>
-          <label className="formLabel" htmlFor="">
+          <label className="formLabel" htmlFor="emailInput">
             Correo electrónico
           </label>
           <input
-            className="formInput"
+            className={`formInput${error ? " errorBorder" : ""}`}
             id="emailInput"
             type="text"
-            onChange={(e) => {
-              setEmailInput(e.target.value);
-              document.querySelector(".invalid").innerHTML = "";
-              document
-                .querySelector("#emailInput")
-                .classList.remove("errorBorder");
-            }}
+            value={emailInput}
+            onChange={(e) => setEmailInput(e.target.value)}
           />
-          <label className="formLabel" htmlFor="">
+          <label className="formLabel" htmlFor="passwordInput">
             Contraseña
           </label>
           <input
-            className="formInput"
+            className={`formInput${error ? " errorBorder" : ""}`}
             id="passwordInput"
             type="password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-              document.querySelector(".invalid").innerHTML = "";
-              document
-                .querySelector("#passwordInput")
-                .classList.remove("errorBorder");
-            }}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
-          <p className="invalid"></p>
-          <Link className="button">
-            <button type="submit" onClick={handleSubmit}>
-              Ingresar
-            </button>
-          </Link>
+          <p className="invalid">{error}</p>
+          <button className="button" type="submit" disabled={submitting}>
+            {submitting ? "Ingresando..." : "Ingresar"}
+          </button>
           <p>
             ¿Aún no tienes cuenta? <Link to="/registration">Registrate</Link>
           </p>
